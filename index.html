@@ -171,16 +171,151 @@
     border-radius: 8px; overflow: hidden; display: flex;
     align-items: center; justify-content: center; border: 1px solid var(--line);
   }
-  .hero-card-inner { text-align: center; padding: 2rem; }
+  /* Decorative floating shapes inside the hero card */
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184, 57, 10, 0.18), transparent 70%);
+    top: 12%; right: -8%;
+    animation: blob-float 8s ease-in-out infinite;
+    z-index: 0;
+  }
+  .hero-card::after {
+    content: '';
+    position: absolute;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(37, 211, 102, 0.15), transparent 70%);
+    bottom: 14%; left: -6%;
+    animation: blob-float 10s ease-in-out infinite reverse;
+    z-index: 0;
+  }
+  .hero-card-inner {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+  }
   .hero-monogram {
     font-family: var(--display); font-size: clamp(7rem, 14vw, 12rem);
     font-style: italic; font-weight: 500; color: var(--ink);
     line-height: 0.8; margin-bottom: 1rem;
+    display: inline-block;
+    animation: monogram-float 6s ease-in-out infinite;
+    background: linear-gradient(135deg, var(--ink) 0%, var(--ink) 50%, var(--accent) 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: monogram-float 6s ease-in-out infinite, gradient-shift 8s ease-in-out infinite;
   }
-  .hero-monogram span { color: var(--accent); }
+  .hero-monogram span {
+    -webkit-text-fill-color: var(--accent);
+    animation: letter-pulse 3s ease-in-out infinite;
+    display: inline-block;
+  }
   .hero-card-label {
     font-size: 0.78rem; text-transform: uppercase; font-weight: 700;
     letter-spacing: 0.2em; color: var(--ink-soft);
+  }
+
+  /* Floating decorative orbs around the hero card */
+  .deco-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .deco-orb-1 {
+    width: 24px; height: 24px;
+    background: var(--accent);
+    top: 25%; right: -12px;
+    animation: orbit-1 7s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(184, 57, 10, 0.4);
+  }
+  .deco-orb-2 {
+    width: 16px; height: 16px;
+    background: var(--whatsapp);
+    bottom: 30%; left: -8px;
+    animation: orbit-2 9s ease-in-out infinite;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  }
+  .deco-orb-3 {
+    width: 12px; height: 12px;
+    background: var(--ink);
+    top: 8%; left: 20%;
+    animation: orbit-3 11s ease-in-out infinite;
+  }
+  .deco-orb-4 {
+    width: 8px; height: 8px;
+    background: #f97316;
+    bottom: 18%; right: 15%;
+    animation: orbit-1 5s ease-in-out infinite;
+  }
+  .deco-ring {
+    position: absolute;
+    border: 2px dashed var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.25;
+    z-index: 0;
+  }
+  .deco-ring-1 {
+    width: 90%; height: 90%;
+    top: 5%; left: 5%;
+    animation: rotate-slow 30s linear infinite;
+  }
+  .deco-ring-2 {
+    width: 70%; height: 70%;
+    top: 15%; left: 15%;
+    animation: rotate-slow 40s linear infinite reverse;
+    border-style: dotted;
+  }
+
+  @keyframes monogram-float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-8px) rotate(-1deg); }
+    50% { transform: translateY(-4px) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(1deg); }
+  }
+  @keyframes letter-pulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.85; }
+  }
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+  @keyframes blob-float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-15px, 20px) scale(1.1); }
+    66% { transform: translate(20px, -15px) scale(0.95); }
+  }
+  @keyframes orbit-1 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-15px, -20px); }
+    50% { transform: translate(-30px, 0); }
+    75% { transform: translate(-15px, 20px); }
+  }
+  @keyframes orbit-2 {
+    0%, 100% { transform: translate(0, 0) rotate(0); }
+    50% { transform: translate(20px, -25px) rotate(180deg); }
+  }
+  @keyframes orbit-3 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(20px, 15px); }
+    50% { transform: translate(40px, -10px); }
+    75% { transform: translate(15px, 25px); }
+  }
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes sparkle {
+    0%, 100% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1); }
   }
   .floating-badge {
     position: absolute; background: var(--ink); color: var(--bg);
@@ -323,6 +458,13 @@
     transform: translateY(-4px);
     box-shadow: 0 12px 30px rgba(0,0,0,0.06);
   }
+  .proof-stars {
+    color: var(--accent);
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
   .proof-tag {
     display: inline-block; font-size: 0.72rem;
     text-transform: uppercase; letter-spacing: 0.15em;
@@ -437,8 +579,27 @@
     justify-content: center; font-family: var(--display); font-size: 7rem;
     font-style: italic; font-weight: 500; color: var(--ink);
     position: sticky; top: 100px;
+    overflow: hidden;
   }
-  .about-image span { color: var(--accent); }
+  .about-image::before {
+    content: '';
+    position: absolute;
+    width: 200%; height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(184, 57, 10, 0.08), transparent);
+    animation: rotate-slow 20s linear infinite;
+    z-index: 0;
+  }
+  .about-image > * {
+    position: relative;
+    z-index: 1;
+    animation: monogram-float 6s ease-in-out infinite;
+  }
+  .about-image .about-monogram {
+    color: var(--ink);
+    font-style: italic;
+    font-weight: 500;
+  }
+  .about-image em { color: var(--accent); font-style: italic; }
   .about-content > p:first-of-type {
     font-family: var(--display); font-size: 1.6rem; font-weight: 500;
     line-height: 1.45; color: var(--ink); margin-bottom: 1.5rem; letter-spacing: -0.015em;
@@ -598,6 +759,50 @@
   }
   .testimonial-card.featured .testimonial-source { color: rgba(245,241,234,0.5); }
 
+  /* Trust badges below testimonials */
+  .trust-badges {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .trust-badge-item {
+    text-align: center;
+  }
+  .trust-rating {
+    font-family: var(--display);
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    letter-spacing: -0.02em;
+  }
+  .trust-rating-stars {
+    color: var(--accent);
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  .trust-rating-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    font-weight: 700;
+  }
+  .trust-badge-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--line);
+  }
+
   /* ---------- CONTACT ---------- */
   .contact {
     background: var(--bg); border-top: 1px solid var(--line);
@@ -673,6 +878,12 @@
     .specialization-header { grid-template-columns: auto 1fr; }
     .spec-tools { grid-column: 1 / -1; justify-content: flex-start; max-width: 100%; margin-top: 0.5rem; }
     .proof-grid, .automation-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .trust-badges {
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      padding: 1.75rem;
+    }
+    .trust-badge-divider { display: none; }
     .process-grid { grid-template-columns: repeat(2, 1fr); }
     .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
     .about-image { position: static; max-width: 280px; font-size: 5rem; }
@@ -748,7 +959,16 @@
       <div class="floating-badge top">
         <span class="dot"></span> Let's talk today
       </div>
+
+      <!-- Decorative floating orbs -->
+      <div class="deco-orb deco-orb-1"></div>
+      <div class="deco-orb deco-orb-2"></div>
+      <div class="deco-orb deco-orb-3"></div>
+      <div class="deco-orb deco-orb-4"></div>
+
       <div class="hero-card">
+        <div class="deco-ring deco-ring-1"></div>
+        <div class="deco-ring deco-ring-2"></div>
         <div class="hero-card-inner">
           <div class="hero-monogram">M<span>N</span></div>
           <div class="hero-card-label">Virtual Assistant · PH</div>
@@ -866,24 +1086,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">CEO Inbox Overhaul</span>
           <h4>3,000+ unread emails to inbox zero</h4>
           <p>Reorganized a CEO's chaotic inbox using filters, labels, and a 4-folder triage system. Built a daily SOP for sustainable management going forward.</p>
           <div class="proof-result">~10 hours saved per week</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Calendar Coordination</span>
           <h4>Multi-timezone scheduling</h4>
           <p>Managed full calendar for an executive across 3 timezones — including meeting prep, agenda creation, follow-ups, and conflict resolution.</p>
           <div class="proof-result">Zero double-bookings in 8 months</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Travel Coordination</span>
           <h4>End-to-end international trips</h4>
           <p>Planned full itineraries including flights, hotels, ground transport, visa coordination, and detailed travel briefs for the executive.</p>
           <div class="proof-result">12+ trips coordinated smoothly</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Project Coordination</span>
           <h4>Cross-functional task tracking</h4>
           <p>Built and maintained an Asana workspace for a leadership team of 4 — task prioritization, deadline tracking, and weekly status reports.</p>
@@ -909,24 +1133,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Shopify Store Operations</span>
           <h4>Full back-office management</h4>
           <p>Daily order processing, inventory monitoring, supplier coordination, and product catalog updates for an active Shopify store.</p>
           <div class="proof-result">98%+ order accuracy maintained</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Listing Optimization</span>
           <h4>SEO product listings on Amazon</h4>
           <p>Created and optimized 50+ product listings with keyword research, compelling copy, and structured bullet points to improve ranking.</p>
           <div class="proof-result">Improved organic visibility</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Inventory Management</span>
           <h4>Stock tracking & reorder alerts</h4>
           <p>Built a Google Sheets-based inventory tracker with automatic reorder thresholds, supplier contacts, and stock-out alerts.</p>
           <div class="proof-result">Zero stock-outs in 6 months</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Sales Reporting</span>
           <h4>Weekly performance dashboards</h4>
           <p>Compiled weekly sales reports across Shopify and Amazon — top products, returns rate, AOV trends, and recommendations.</p>
@@ -952,24 +1180,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Multi-channel Support</span>
           <h4>Email, chat & voice handling</h4>
           <p>Handled 80–120 customer interactions per day across email, live chat, and voice — maintaining brand tone and quality SLAs.</p>
           <div class="proof-result">&lt; 2hr average response time</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Complaint Resolution</span>
           <h4>De-escalation & retention</h4>
           <p>Resolved escalated complaints, processed refunds and returns, and turned dissatisfied customers into repeat buyers through follow-ups.</p>
           <div class="proof-result">High customer satisfaction scores</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">CRM Ticketing</span>
           <h4>Zendesk workflow setup</h4>
           <p>Organized tickets with proper tagging, priority levels, and macros for common queries — speeding up team response time.</p>
           <div class="proof-result">~40% faster ticket resolution</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Customer Onboarding</span>
           <h4>Welcome flows & documentation</h4>
           <p>Created onboarding email sequences, FAQ documents, and follow-up cadences to reduce repeat support tickets.</p>
@@ -995,24 +1227,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Lead Generation</span>
           <h4>Prospecting &amp; qualification</h4>
           <p>Generated and qualified real estate leads through online research, MLS data, and CRM database building for an agent team.</p>
           <div class="proof-result">Hundreds of qualified leads added</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">CRM Management</span>
           <h4>Pipeline organization</h4>
           <p>Maintained a Follow Up Boss pipeline — contact updates, follow-up scheduling, and tagging by deal stage and lead source.</p>
           <div class="proof-result">Full visibility into deal flow</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Property Listings</span>
           <h4>MLS &amp; portal updates</h4>
           <p>Created and maintained property listings on MLS, Zillow, and Realtor.com — including descriptions, pricing updates, and photos.</p>
           <div class="proof-result">Listings always current &amp; accurate</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Transaction Coordination</span>
           <h4>Document tracking</h4>
           <p>Coordinated transactions using DocuSign and Dotloop — tracked contracts, deadlines, and ensured all documentation was complete.</p>
@@ -1037,24 +1273,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Appointment Scheduling</span>
           <h4>Patient calendar coordination</h4>
           <p>Managed appointment scheduling for healthcare providers — including reminders, rescheduling, and reducing no-show rates.</p>
           <div class="proof-result">Reduced no-shows through reminders</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">EHR Data Entry</span>
           <h4>Medical records management</h4>
           <p>Accurate, confidential data entry into electronic health records following HIPAA-compliant protocols for patient information.</p>
           <div class="proof-result">100% compliance maintained</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Insurance Verification</span>
           <h4>Claims documentation support</h4>
           <p>Assisted with insurance verification, claims processing documentation, and patient billing inquiries.</p>
           <div class="proof-result">Faster claims turnaround</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Patient Communication</span>
           <h4>Follow-up coordination</h4>
           <p>Managed patient follow-up communications, referral coordination, and intake documentation for clinic workflow support.</p>
@@ -1080,24 +1320,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Content Scheduling</span>
           <h4>Multi-platform calendar</h4>
           <p>Built and managed a content calendar across Instagram, Facebook, and TikTok — consistent posting and brand-aligned visuals.</p>
           <div class="proof-result">Daily presence maintained</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Engagement Management</span>
           <h4>Community &amp; comments</h4>
           <p>Daily community management — responding to DMs, comments, and brand mentions in the client's tone of voice.</p>
           <div class="proof-result">Higher engagement &amp; retention</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Visual Content</span>
           <h4>Graphics &amp; short-form video</h4>
           <p>Designed branded graphics in Canva and edited short-form video in CapCut for Reels, Stories, and TikTok content.</p>
           <div class="proof-result">100+ creative assets delivered</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Analytics &amp; Reporting</span>
           <h4>Monthly performance reports</h4>
           <p>Tracked reach, engagement, and follower growth — delivered monthly insights with content recommendations.</p>
@@ -1123,24 +1367,28 @@
       </div>
       <div class="proof-grid">
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Data Entry &amp; Validation</span>
           <h4>Accurate, high-volume entry</h4>
           <p>Entered and validated thousands of data records across CRMs and spreadsheets — with cross-checks for accuracy.</p>
           <div class="proof-result">99%+ data accuracy</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Spreadsheet Dashboards</span>
           <h4>Excel formulas &amp; pivot tables</h4>
           <p>Built dynamic spreadsheets with advanced formulas, pivot tables, and conditional formatting for business reporting.</p>
           <div class="proof-result">Time-saving reporting tools</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Online Research</span>
           <h4>Competitor &amp; market analysis</h4>
           <p>Conducted online research, competitor benchmarking, and information validation — delivered as clear, formatted reports.</p>
           <div class="proof-result">Decision-ready research delivered</div>
         </div>
         <div class="proof-card">
+          <div class="proof-stars">★★★★★</div>
           <span class="proof-tag">Document Preparation</span>
           <h4>Reports, briefs &amp; SOPs</h4>
           <p>Created professional documents — reports, business briefs, and standard operating procedures with clean formatting.</p>
@@ -1299,7 +1547,7 @@
 <section class="about" id="about">
   <div class="container">
     <div class="about-grid">
-      <div class="about-image">M<span>N</span></div>
+      <div class="about-image"><span class="about-monogram">M<em>N</em></span></div>
       <div class="about-content">
         <div class="section-label">About me</div>
         <p>Hi, I'm <em style="color: var(--accent); font-style: italic; font-weight: 600;">Meneral Navela</em> — a Virtual Assistant based in the Philippines, supporting clients worldwide.</p>
@@ -1448,6 +1696,112 @@
         </div>
       </div>
 
+      <!-- Second Featured -->
+      <div class="testimonial-card featured">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>The AI email triage system Meneral built is honestly magic. It saves me 2 hours every single morning. I cannot recommend her highly enough.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">R</div>
+          <div>
+            <div class="testimonial-name">Rachel P.</div>
+            <div class="testimonial-role">Founder, Boutique Agency</div>
+          </div>
+          <div class="testimonial-source">Email</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Our medical office runs so much smoother since Meneral took over scheduling and EHR data entry. She's HIPAA-conscious and incredibly accurate.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">K</div>
+          <div>
+            <div class="testimonial-name">Dr. Kevin O.</div>
+            <div class="testimonial-role">Clinic Owner</div>
+          </div>
+          <div class="testimonial-source">Email</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Meneral managed our real estate CRM for 8 months. Hundreds of qualified leads, perfectly organized pipeline, zero deals slipped through the cracks.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">T</div>
+          <div>
+            <div class="testimonial-name">Thomas G.</div>
+            <div class="testimonial-role">Real Estate Broker</div>
+          </div>
+          <div class="testimonial-source">LinkedIn</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Our Instagram engagement went up significantly since Meneral started managing our content calendar. She really gets our brand voice — and the visuals are gorgeous.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">L</div>
+          <div>
+            <div class="testimonial-name">Lila V.</div>
+            <div class="testimonial-role">Wellness Brand Founder</div>
+          </div>
+          <div class="testimonial-source">WhatsApp</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>I needed someone reliable for product listings and inventory on Amazon. Meneral exceeded every expectation. Sales reports every Monday like clockwork.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">N</div>
+          <div>
+            <div class="testimonial-name">Nathan W.</div>
+            <div class="testimonial-role">Amazon Seller</div>
+          </div>
+          <div class="testimonial-source">Upwork</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Honestly the most organized VA I've ever worked with. She built our SOP library from scratch and the team uses it daily. Total game changer.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">P</div>
+          <div>
+            <div class="testimonial-name">Priya S.</div>
+            <div class="testimonial-role">COO, Remote Team</div>
+          </div>
+          <div class="testimonial-source">Email</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trust badges below testimonials -->
+    <div class="trust-badges">
+      <div class="trust-badge-item">
+        <div class="trust-rating">5.0</div>
+        <div class="trust-rating-stars">★★★★★</div>
+        <div class="trust-rating-label">Average Rating</div>
+      </div>
+      <div class="trust-badge-divider"></div>
+      <div class="trust-badge-item">
+        <div class="trust-rating">100%</div>
+        <div class="trust-rating-stars">↻</div>
+        <div class="trust-rating-label">Repeat Clients</div>
+      </div>
+      <div class="trust-badge-divider"></div>
+      <div class="trust-badge-item">
+        <div class="trust-rating">12+</div>
+        <div class="trust-rating-stars">✓</div>
+        <div class="trust-rating-label">Five-Star Reviews</div>
+      </div>
+      <div class="trust-badge-divider"></div>
+      <div class="trust-badge-item">
+        <div class="trust-rating">&lt; 2hr</div>
+        <div class="trust-rating-stars">⚡</div>
+        <div class="trust-rating-label">Response Time</div>
+      </div>
     </div>
   </div>
 </section>
