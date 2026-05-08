@@ -1,0 +1,1505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Meneral Navela — Virtual Assistant & AI Automation Specialist</title>
+<meta name="description" content="Virtual Assistant from the Philippines specializing in Executive Support, E-commerce, Customer Service, Real Estate, Healthcare, Social Media, and AI Automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f1ea;
+    --bg-soft: #ebe5d9;
+    --ink: #0f0f0e;
+    --ink-soft: #2d2d2a;
+    --muted: #6b6659;
+    --line: #c9c2b1;
+    --accent: #b8390a;
+    --whatsapp: #25d366;
+    --display: 'Fraunces', Georgia, serif;
+    --sans: 'Inter Tight', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-weight: 500; line-height: 1.55; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  a { color: inherit; }
+
+  /* ---------- WHATSAPP FLOATING BUTTON ---------- */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem; right: 2rem; z-index: 999;
+    background: var(--whatsapp);
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: bounce-in 0.6s ease-out 1s both;
+  }
+  .whatsapp-float::before {
+    content: ''; position: absolute; inset: 0;
+    border-radius: 50%; background: var(--whatsapp);
+    z-index: -1; animation: pulse-ring 2s infinite;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
+  }
+  .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
+  .whatsapp-tooltip {
+    position: absolute; right: 76px; top: 50%; transform: translateY(-50%);
+    background: var(--ink); color: var(--bg);
+    padding: 0.6rem 1rem; border-radius: 8px;
+    font-size: 0.8rem; font-weight: 600; white-space: nowrap;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
+  }
+  .whatsapp-tooltip::after {
+    content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+    border: 6px solid transparent; border-left-color: var(--ink);
+  }
+  .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
+  @keyframes pulse-ring {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  @keyframes bounce-in {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+  }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 2rem; display: flex; justify-content: space-between;
+    align-items: center; background: rgba(245, 241, 234, 0.9);
+    backdrop-filter: blur(12px); border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+  nav.scrolled { border-bottom-color: var(--line); }
+  .logo {
+    font-family: var(--display); font-size: 1.5rem; font-weight: 600;
+    font-style: italic; letter-spacing: -0.02em; text-decoration: none; color: var(--ink);
+  }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+  .nav-links a {
+    color: var(--ink-soft); text-decoration: none; font-size: 0.875rem;
+    font-weight: 600; transition: color 0.2s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .cta-btn {
+    background: var(--ink); color: var(--bg) !important; padding: 0.7rem 1.5rem;
+    border-radius: 100px; font-size: 0.875rem; font-weight: 600;
+    text-decoration: none; transition: all 0.3s ease; display: inline-flex;
+    align-items: center; gap: 0.5rem;
+  }
+  .cta-btn:hover { background: var(--accent); transform: translateY(-1px); }
+  .cta-btn.whatsapp-cta { background: var(--whatsapp); }
+  .cta-btn.whatsapp-cta:hover { background: #1fb955; }
+  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+  .menu-toggle span {
+    display: block; width: 24px; height: 2px; background: var(--ink);
+    margin: 5px 0; transition: 0.3s;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center;
+    padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 20%; right: -10%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(184, 57, 10, 0.1) 0%, transparent 70%);
+    border-radius: 50%; pointer-events: none;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem;
+    align-items: center; width: 100%; max-width: 1200px;
+    margin: 0 auto; position: relative; z-index: 1;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.78rem; color: var(--ink); margin-bottom: 2rem;
+    text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700;
+    opacity: 0; animation: fadeUp 0.8s 0.1s ease forwards;
+    background: var(--bg-soft); padding: 0.6rem 1rem; border-radius: 100px;
+    border: 1px solid var(--line);
+  }
+  .hero-tag .dot {
+    width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: var(--display); font-size: clamp(2.75rem, 6.5vw, 5.25rem);
+    font-weight: 600; line-height: 1.0; letter-spacing: -0.035em;
+    margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards;
+    color: var(--ink);
+  }
+  .hero h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .hero p {
+    font-size: 1.125rem; color: var(--ink-soft); max-width: 520px;
+    margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards;
+    font-weight: 500;
+  }
+  .hero-actions {
+    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
+    opacity: 0; animation: fadeUp 0.8s 0.6s ease forwards;
+  }
+  .btn-secondary {
+    color: var(--ink); text-decoration: none; font-size: 0.9rem;
+    font-weight: 700; padding: 0.7rem 0; border-bottom: 2px solid var(--ink);
+    transition: all 0.2s ease;
+  }
+  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+  .hero-visual {
+    position: relative; aspect-ratio: 4/5;
+    opacity: 0; animation: fadeUp 1s 0.5s ease forwards;
+  }
+  .hero-card {
+    position: absolute; inset: 0; background: var(--bg-soft);
+    border-radius: 8px; overflow: hidden; display: flex;
+    align-items: center; justify-content: center; border: 1px solid var(--line);
+  }
+  .hero-card-inner { text-align: center; padding: 2rem; }
+  .hero-monogram {
+    font-family: var(--display); font-size: clamp(7rem, 14vw, 12rem);
+    font-style: italic; font-weight: 500; color: var(--ink);
+    line-height: 0.8; margin-bottom: 1rem;
+  }
+  .hero-monogram span { color: var(--accent); }
+  .hero-card-label {
+    font-size: 0.78rem; text-transform: uppercase; font-weight: 700;
+    letter-spacing: 0.2em; color: var(--ink-soft);
+  }
+  .floating-badge {
+    position: absolute; background: var(--ink); color: var(--bg);
+    padding: 0.85rem 1.25rem; border-radius: 100px;
+    font-size: 0.82rem; font-weight: 600;
+    display: flex; align-items: center; gap: 0.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    animation: float 4s ease-in-out infinite; white-space: nowrap;
+  }
+  .floating-badge.top { top: 8%; left: -8%; }
+  .floating-badge.bottom { bottom: 12%; right: -6%; animation-delay: -2s; }
+  .floating-badge .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+
+  /* ---------- TRUST BAR ---------- */
+  .trust-bar {
+    background: var(--ink); color: var(--bg); padding: 1.75rem 0;
+  }
+  .trust-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    text-align: center;
+  }
+  .trust-item .num {
+    font-family: var(--display); font-style: italic; font-weight: 600;
+    font-size: 2.25rem; color: #f97316; line-height: 1;
+  }
+  .trust-item .label {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em;
+    color: rgba(245,241,234,0.75); margin-top: 0.5rem; font-weight: 600;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section { padding: 6rem 0; position: relative; }
+  .section-label {
+    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.2em;
+    color: var(--accent); margin-bottom: 1rem; display: flex;
+    align-items: center; gap: 1rem; font-weight: 700;
+  }
+  .section-label::before { content: ''; width: 32px; height: 2px; background: var(--accent); }
+  .section-title {
+    font-family: var(--display); font-size: clamp(2.25rem, 4.8vw, 3.5rem);
+    font-weight: 600; line-height: 1.02; letter-spacing: -0.025em;
+    margin-bottom: 1.5rem; max-width: 800px; color: var(--ink);
+  }
+  .section-title em { font-style: italic; font-weight: 500; color: var(--accent); }
+
+  /* ---------- SERVICES ---------- */
+  .services { background: var(--bg); border-top: 1px solid var(--line); }
+  .services-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    margin-bottom: 4rem; align-items: end;
+  }
+  .services-header p { color: var(--ink-soft); font-size: 1.0625rem; max-width: 460px; font-weight: 500; }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line);
+  }
+  .service-card { background: var(--bg); padding: 2.5rem; transition: background 0.3s ease; }
+  .service-card:hover { background: var(--bg-soft); }
+  .service-num {
+    font-family: var(--display); font-size: 0.9rem; font-style: italic;
+    color: var(--accent); margin-bottom: 1.5rem; font-weight: 600;
+  }
+  .service-card h3 {
+    font-family: var(--display); font-size: 1.6rem; font-weight: 600;
+    margin-bottom: 0.75rem; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .service-card p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; font-weight: 500; }
+
+  /* ---------- TOOLS STRIP ---------- */
+  .tools-strip {
+    background: var(--bg-soft); padding: 3rem 0;
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .tools-label {
+    text-align: center; font-size: 0.78rem; text-transform: uppercase;
+    letter-spacing: 0.25em; color: var(--ink-soft); margin-bottom: 2rem; font-weight: 700;
+  }
+  .tools-track {
+    display: flex; gap: 3rem;
+    animation: scroll 50s linear infinite; width: max-content;
+  }
+  .tools-track span {
+    font-family: var(--display); font-size: 1.6rem; font-style: italic;
+    font-weight: 600; color: var(--ink); white-space: nowrap;
+  }
+  .tools-track span::after { content: '·'; margin-left: 3rem; color: var(--accent); }
+  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ---------- PORTFOLIO ---------- */
+  .portfolio { background: var(--bg); }
+  .portfolio-intro { margin-bottom: 4rem; max-width: 700px; }
+  .portfolio-intro p { color: var(--ink-soft); font-size: 1.0625rem; font-weight: 500; }
+
+  .specialization-block {
+    margin-bottom: 5rem;
+    border-top: 1px solid var(--line);
+    padding-top: 3rem;
+  }
+  .specialization-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem; align-items: center; margin-bottom: 2.5rem;
+  }
+  .spec-num {
+    font-family: var(--display); font-style: italic;
+    font-size: 3.25rem; font-weight: 600;
+    color: var(--accent); line-height: 1;
+  }
+  .spec-title h3 {
+    font-family: var(--display);
+    font-size: clamp(1.6rem, 2.8vw, 2.35rem);
+    font-weight: 600; letter-spacing: -0.02em;
+    margin-bottom: 0.25rem; color: var(--ink);
+  }
+  .spec-title p { color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; }
+  .spec-tools {
+    display: flex; gap: 0.5rem; flex-wrap: wrap;
+    justify-content: flex-end; max-width: 320px;
+  }
+  .tool-chip {
+    background: var(--bg-soft); border: 1px solid var(--line);
+    padding: 0.4rem 0.85rem; border-radius: 100px;
+    font-size: 0.78rem; font-weight: 600; color: var(--ink-soft);
+    white-space: nowrap;
+  }
+
+  .proof-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+  .proof-card {
+    background: var(--bg-soft); border: 1px solid var(--line);
+    border-radius: 8px; padding: 1.85rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .proof-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  }
+  .proof-tag {
+    display: inline-block; font-size: 0.72rem;
+    text-transform: uppercase; letter-spacing: 0.15em;
+    color: var(--accent); margin-bottom: 0.85rem; font-weight: 700;
+  }
+  .proof-card h4 {
+    font-family: var(--display); font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 0.75rem; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .proof-card p {
+    color: var(--ink-soft); font-size: 0.92rem;
+    line-height: 1.6; margin-bottom: 1rem; font-weight: 500;
+  }
+  .proof-result {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding-top: 1rem; border-top: 1px solid var(--line);
+    font-size: 0.88rem; font-weight: 700; color: var(--ink);
+  }
+  .proof-result::before {
+    content: '↗'; color: var(--accent); font-size: 1.15rem; font-weight: 700;
+  }
+
+  /* ---------- AI AUTOMATION SHOWCASE ---------- */
+  .ai-showcase {
+    background: var(--ink);
+    color: var(--bg);
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .ai-showcase .section-label { color: #f97316; }
+  .ai-showcase .section-label::before { background: #f97316; }
+  .ai-showcase .section-title { color: var(--bg); }
+  .ai-showcase .section-title em { color: #f97316; }
+  .ai-intro {
+    color: rgba(245,241,234,0.85); font-size: 1.0625rem;
+    max-width: 640px; margin-bottom: 4rem; font-weight: 500;
+  }
+  .automation-grid {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  }
+  .automation-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px; padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative; overflow: hidden;
+  }
+  .automation-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), #f97316);
+    transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+  }
+  .automation-card:hover { background: rgba(255,255,255,0.07); }
+  .automation-card:hover::before { transform: scaleX(1); }
+  .automation-status {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
+    padding: 0.4rem 0.85rem; border-radius: 100px;
+    margin-bottom: 1.25rem; font-weight: 700;
+  }
+  .automation-status.live {
+    background: rgba(74, 222, 128, 0.18); color: #4ade80;
+  }
+  .automation-status.live::before {
+    content: ''; width: 6px; height: 6px;
+    background: #4ade80; border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .automation-status.building {
+    background: rgba(249, 115, 22, 0.2); color: #fb923c;
+  }
+  .automation-status.building::before {
+    content: '◐'; animation: spin 2s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .automation-card h4 {
+    font-family: var(--display); font-size: 1.5rem; font-weight: 600;
+    margin-bottom: 0.75rem; color: var(--bg); letter-spacing: -0.015em;
+  }
+  .automation-card > p {
+    color: rgba(245,241,234,0.8); font-size: 0.95rem;
+    line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;
+  }
+  .automation-flow {
+    display: flex; align-items: center; gap: 0.5rem;
+    flex-wrap: wrap; margin-bottom: 1.25rem;
+    padding: 1rem; background: rgba(0,0,0,0.3);
+    border-radius: 8px; font-size: 0.82rem;
+  }
+  .flow-step {
+    background: rgba(255,255,255,0.1);
+    padding: 0.45rem 0.8rem; border-radius: 6px;
+    color: var(--bg); font-weight: 600; white-space: nowrap;
+  }
+  .flow-arrow { color: #f97316; font-weight: bold; }
+  .automation-stack {
+    display: flex; gap: 0.4rem; flex-wrap: wrap;
+  }
+  .stack-pill {
+    background: rgba(255,255,255,0.1);
+    color: rgba(245,241,234,0.95);
+    padding: 0.35rem 0.75rem; border-radius: 100px;
+    font-size: 0.74rem; font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about { background: var(--bg-soft); border-top: 1px solid var(--line); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+  .about-image {
+    aspect-ratio: 4/5; background: var(--bg); border-radius: 8px;
+    border: 1px solid var(--line); display: flex; align-items: center;
+    justify-content: center; font-family: var(--display); font-size: 7rem;
+    font-style: italic; font-weight: 500; color: var(--ink);
+    position: sticky; top: 100px;
+  }
+  .about-image span { color: var(--accent); }
+  .about-content > p:first-of-type {
+    font-family: var(--display); font-size: 1.6rem; font-weight: 500;
+    line-height: 1.45; color: var(--ink); margin-bottom: 1.5rem; letter-spacing: -0.015em;
+  }
+  .about-content p.subtle {
+    font-family: var(--sans); font-size: 1.02rem; color: var(--ink-soft);
+    line-height: 1.7; margin-bottom: 1.25rem; font-weight: 500;
+  }
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
+    margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--line);
+  }
+  .stat-num {
+    font-family: var(--display); font-size: 2.85rem; font-weight: 600;
+    line-height: 1; margin-bottom: 0.5rem; color: var(--ink);
+  }
+  .stat-num em { color: var(--accent); font-style: italic; font-weight: 500; }
+  .stat-label {
+    font-size: 0.82rem; color: var(--ink-soft); text-transform: uppercase;
+    letter-spacing: 0.12em; font-weight: 700;
+  }
+
+  /* ---------- PROCESS ---------- */
+  .process { background: var(--bg); border-top: 1px solid var(--line); }
+  .process-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
+    margin-top: 3rem;
+  }
+  .process-step { position: relative; padding-top: 2rem; }
+  .process-step::before {
+    content: ''; position: absolute; top: 0; left: 0;
+    width: 100%; height: 2px; background: var(--line);
+  }
+  .process-step::after {
+    content: ''; position: absolute; top: -2px; left: 0;
+    width: 40px; height: 2px; background: var(--accent);
+  }
+  .process-num {
+    font-family: var(--display); font-style: italic;
+    font-size: 0.9rem; color: var(--accent);
+    margin-bottom: 1rem; font-weight: 600;
+  }
+  .process-step h4 {
+    font-family: var(--display); font-size: 1.3rem; font-weight: 600;
+    margin-bottom: 0.5rem; letter-spacing: -0.015em; color: var(--ink);
+  }
+  .process-step p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; font-weight: 500; }
+
+  /* ---------- TESTIMONIALS GRID ---------- */
+  .testimonials { background: var(--bg-soft); border-top: 1px solid var(--line); }
+  .testimonials-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
+    margin-bottom: 4rem; align-items: end;
+  }
+  .testimonials-header p {
+    color: var(--ink-soft); font-size: 1.0625rem;
+    max-width: 460px; font-weight: 500;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .testimonial-card {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  }
+  .testimonial-card.featured {
+    background: var(--ink);
+    color: var(--bg);
+    grid-row: span 1;
+  }
+  .testimonial-stars {
+    color: var(--accent);
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+  .testimonial-card.featured .testimonial-stars { color: #f97316; }
+  .testimonial-card blockquote {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+    color: var(--ink);
+    flex: 1;
+    font-style: normal;
+  }
+  .testimonial-card.featured blockquote { color: var(--bg); }
+  .testimonial-card blockquote::before {
+    content: '"';
+    font-family: var(--display);
+    font-size: 2.5rem;
+    color: var(--accent);
+    line-height: 0;
+    vertical-align: -0.4em;
+    margin-right: 0.05em;
+    font-weight: 700;
+  }
+  .testimonial-card.featured blockquote::before { color: #f97316; }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+  }
+  .testimonial-card.featured .testimonial-author {
+    border-top-color: rgba(255,255,255,0.15);
+  }
+  .testimonial-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--display);
+    font-style: italic;
+    font-weight: 600;
+    color: var(--bg);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  .testimonial-card.featured .testimonial-avatar { background: #f97316; color: var(--ink); }
+  .testimonial-name {
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.15rem;
+  }
+  .testimonial-card.featured .testimonial-name { color: var(--bg); }
+  .testimonial-role {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  .testimonial-card.featured .testimonial-role { color: rgba(245,241,234,0.6); }
+  .testimonial-source {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .testimonial-card.featured .testimonial-source { color: rgba(245,241,234,0.5); }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    background: var(--bg); border-top: 1px solid var(--line);
+    text-align: center; padding: 8rem 0;
+  }
+  .contact .section-label { justify-content: center; }
+  .contact h2 {
+    font-family: var(--display); font-size: clamp(2.5rem, 5.8vw, 4.75rem);
+    font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 2rem;
+    color: var(--ink);
+  }
+  .contact h2 em { font-style: italic; font-weight: 500; color: var(--accent); }
+  .contact-lead {
+    color: var(--ink-soft); font-size: 1.0625rem;
+    max-width: 520px; margin: 0 auto 3rem; font-weight: 500;
+  }
+  .contact-actions {
+    display: flex; gap: 1rem; justify-content: center;
+    flex-wrap: wrap; margin-bottom: 3rem;
+  }
+  .contact-btn {
+    padding: 1rem 2rem; border-radius: 100px;
+    font-size: 0.95rem; font-weight: 700;
+    text-decoration: none; display: inline-flex;
+    align-items: center; gap: 0.6rem;
+    transition: all 0.3s ease;
+  }
+  .contact-btn svg { width: 18px; height: 18px; }
+  .contact-btn.whatsapp { background: var(--whatsapp); color: white; }
+  .contact-btn.whatsapp:hover {
+    background: #1fb955; transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  }
+  .contact-btn.email { background: var(--ink); color: var(--bg); }
+  .contact-btn.email:hover { background: var(--accent); transform: translateY(-2px); }
+  .contact-meta {
+    display: flex; justify-content: center; gap: 2rem;
+    flex-wrap: wrap; font-size: 0.9rem; color: var(--ink-soft); font-weight: 600;
+  }
+  .contact-meta a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
+  .contact-meta a:hover { color: var(--accent); }
+  .contact-meta .meta-email {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .contact-meta .meta-email svg {
+    flex-shrink: 0;
+  }
+
+  footer {
+    background: var(--bg-soft);
+    padding: 2.5rem 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .footer-tagline {
+    font-family: var(--display);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 500;
+    color: var(--ink-soft);
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero-visual { max-width: 380px; margin: 0 auto; width: 100%; }
+    .services-header, .about-grid, .services-grid, .stats, .testimonials-header {
+      grid-template-columns: 1fr; gap: 2rem;
+    }
+    .specialization-header { grid-template-columns: auto 1fr; }
+    .spec-tools { grid-column: 1 / -1; justify-content: flex-start; max-width: 100%; margin-top: 0.5rem; }
+    .proof-grid, .automation-grid, .testimonials-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .about-image { position: static; max-width: 280px; font-size: 5rem; }
+    .nav-links { display: none; }
+    .menu-toggle { display: block; }
+    nav.open .nav-links {
+      display: flex; position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--bg); flex-direction: column; padding: 2rem;
+      gap: 1.5rem; border-bottom: 1px solid var(--line);
+    }
+    .floating-badge.top { left: 0; }
+    .floating-badge.bottom { right: 0; }
+    .whatsapp-float { bottom: 1.25rem; right: 1.25rem; width: 56px; height: 56px; }
+    .whatsapp-float svg { width: 28px; height: 28px; }
+    .whatsapp-tooltip { display: none; }
+  }
+  @media (max-width: 600px) {
+    .container, nav, .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
+    section { padding: 4rem 0; }
+    .hero { padding-top: 7rem; }
+    .service-card { padding: 1.75rem; }
+    .process-grid { grid-template-columns: 1fr; }
+    .specialization-header { grid-template-columns: 1fr; gap: 1rem; }
+    .spec-tools { justify-content: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together."
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <a href="#" class="logo">meneral<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#automation">AI Automation</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="https://wa.me/639651927405" target="_blank" rel="noopener" class="cta-btn whatsapp-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a></li>
+  </ul>
+  <button class="menu-toggle" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag"><span class="dot"></span> Open for new opportunities</div>
+      <h1>Your business, <em>beautifully</em> organized.</h1>
+      <p>I'm Meneral — a Virtual Assistant from the Philippines helping founders, executives, and growing businesses save time through reliable support and powerful AI automation.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20working%20together." target="_blank" rel="noopener" class="cta-btn whatsapp-cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="#portfolio" class="btn-secondary">View portfolio →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="floating-badge top">
+        <span class="dot"></span> Let's talk today
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-inner">
+          <div class="hero-monogram">M<span>N</span></div>
+          <div class="hero-card-label">Virtual Assistant · PH</div>
+        </div>
+      </div>
+      <div class="floating-badge bottom">
+        ⚡ Fast response time
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="num">7+</div>
+        <div class="label">Specializations</div>
+      </div>
+      <div class="trust-item">
+        <div class="num">50+</div>
+        <div class="label">Tools mastered</div>
+      </div>
+      <div class="trust-item">
+        <div class="num">10+</div>
+        <div class="label">Years experience</div>
+      </div>
+      <div class="trust-item">
+        <div class="num">100%</div>
+        <div class="label">Remote ready</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SERVICES ===== -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <div class="section-label">What I do</div>
+        <h2 class="section-title">Specialized support across <em>seven</em> core areas.</h2>
+      </div>
+      <p>From inbox zero to fully automated workflows, I handle the day-to-day so you can focus on the work only you can do.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">— 01</div>
+        <h3>Executive &amp; Admin Support</h3>
+        <p>Inbox and calendar management, meeting prep, travel planning, document preparation, and project coordination — keeping your operations running smoothly.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">— 02</div>
+        <h3>E-commerce Operations</h3>
+        <p>Shopify, Amazon, and WooCommerce store management, product listing optimization, order processing, inventory tracking, and supplier coordination.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">— 03</div>
+        <h3>Customer Support</h3>
+        <p>Email, live chat, and voice support, CRM ticket management, complaint resolution, refunds, and follow-ups that keep customers happy and loyal.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">— 04</div>
+        <h3>Real Estate &amp; Healthcare Admin</h3>
+        <p>Lead generation, CRM databases, property listings, appointment scheduling, medical records, EHR data entry, and confidential documentation.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">— 05</div>
+        <h3>Social Media Management</h3>
+        <p>Content planning, post scheduling, engagement, caption writing, hashtag research, basic graphic design, and analytics reporting.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">— 06</div>
+        <h3>AI &amp; Workflow Automation</h3>
+        <p>Zapier and Make integrations, CRM automation, lead capture flows, email and chatbot setup, and process optimization to reduce manual work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOOLS STRIP ===== -->
+<div class="tools-strip">
+  <div class="tools-label">Tools I work with</div>
+  <div class="tools-track">
+    <span>Shopify</span><span>Amazon</span><span>WooCommerce</span><span>HubSpot</span><span>Salesforce</span><span>Zoho CRM</span><span>Zendesk</span><span>Intercom</span><span>Asana</span><span>ClickUp</span><span>Notion</span><span>Trello</span><span>Slack</span><span>Zapier</span><span>Make</span><span>ChatGPT</span><span>Canva</span><span>CapCut</span><span>Google Workspace</span><span>Microsoft 365</span>
+    <span>Shopify</span><span>Amazon</span><span>WooCommerce</span><span>HubSpot</span><span>Salesforce</span><span>Zoho CRM</span><span>Zendesk</span><span>Intercom</span><span>Asana</span><span>ClickUp</span><span>Notion</span><span>Trello</span><span>Slack</span><span>Zapier</span><span>Make</span><span>ChatGPT</span><span>Canva</span><span>CapCut</span><span>Google Workspace</span><span>Microsoft 365</span>
+  </div>
+</div>
+
+<!-- ===== PORTFOLIO WITH PROOF FOR EACH SPECIALIZATION ===== -->
+<section class="portfolio" id="portfolio">
+  <div class="container">
+    <div class="portfolio-intro">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Proven work across <em>every</em> specialization.</h2>
+      <p>Real projects, real outcomes. Here's a closer look at the work I've delivered across each of my core specializations — with the tools used and the results achieved.</p>
+    </div>
+
+    <!-- 01 EXECUTIVE & ADMIN -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">01</div>
+        <div class="spec-title">
+          <h3>Executive &amp; Administrative Support</h3>
+          <p>Inbox, calendar, travel, reporting & project coordination</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Gmail</span>
+          <span class="tool-chip">Google Calendar</span>
+          <span class="tool-chip">Notion</span>
+          <span class="tool-chip">Asana</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">CEO Inbox Overhaul</span>
+          <h4>3,000+ unread emails to inbox zero</h4>
+          <p>Reorganized a CEO's chaotic inbox using filters, labels, and a 4-folder triage system. Built a daily SOP for sustainable management going forward.</p>
+          <div class="proof-result">~10 hours saved per week</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Calendar Coordination</span>
+          <h4>Multi-timezone scheduling</h4>
+          <p>Managed full calendar for an executive across 3 timezones — including meeting prep, agenda creation, follow-ups, and conflict resolution.</p>
+          <div class="proof-result">Zero double-bookings in 8 months</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Travel Coordination</span>
+          <h4>End-to-end international trips</h4>
+          <p>Planned full itineraries including flights, hotels, ground transport, visa coordination, and detailed travel briefs for the executive.</p>
+          <div class="proof-result">12+ trips coordinated smoothly</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Project Coordination</span>
+          <h4>Cross-functional task tracking</h4>
+          <p>Built and maintained an Asana workspace for a leadership team of 4 — task prioritization, deadline tracking, and weekly status reports.</p>
+          <div class="proof-result">95% on-time delivery rate</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 02 E-COMMERCE -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">02</div>
+        <div class="spec-title">
+          <h3>E-commerce Operations</h3>
+          <p>Shopify, Amazon & WooCommerce store management</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Shopify</span>
+          <span class="tool-chip">Amazon Seller</span>
+          <span class="tool-chip">WooCommerce</span>
+          <span class="tool-chip">DSers</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Shopify Store Operations</span>
+          <h4>Full back-office management</h4>
+          <p>Daily order processing, inventory monitoring, supplier coordination, and product catalog updates for an active Shopify store.</p>
+          <div class="proof-result">98%+ order accuracy maintained</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Listing Optimization</span>
+          <h4>SEO product listings on Amazon</h4>
+          <p>Created and optimized 50+ product listings with keyword research, compelling copy, and structured bullet points to improve ranking.</p>
+          <div class="proof-result">Improved organic visibility</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Inventory Management</span>
+          <h4>Stock tracking & reorder alerts</h4>
+          <p>Built a Google Sheets-based inventory tracker with automatic reorder thresholds, supplier contacts, and stock-out alerts.</p>
+          <div class="proof-result">Zero stock-outs in 6 months</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Sales Reporting</span>
+          <h4>Weekly performance dashboards</h4>
+          <p>Compiled weekly sales reports across Shopify and Amazon — top products, returns rate, AOV trends, and recommendations.</p>
+          <div class="proof-result">Data-driven decisions enabled</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 CUSTOMER SUPPORT -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">03</div>
+        <div class="spec-title">
+          <h3>Customer Support &amp; Client Relations</h3>
+          <p>Email, chat, voice support & CRM ticket management</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Zendesk</span>
+          <span class="tool-chip">Freshdesk</span>
+          <span class="tool-chip">Intercom</span>
+          <span class="tool-chip">Gorgias</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Multi-channel Support</span>
+          <h4>Email, chat & voice handling</h4>
+          <p>Handled 80–120 customer interactions per day across email, live chat, and voice — maintaining brand tone and quality SLAs.</p>
+          <div class="proof-result">&lt; 2hr average response time</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Complaint Resolution</span>
+          <h4>De-escalation & retention</h4>
+          <p>Resolved escalated complaints, processed refunds and returns, and turned dissatisfied customers into repeat buyers through follow-ups.</p>
+          <div class="proof-result">High customer satisfaction scores</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">CRM Ticketing</span>
+          <h4>Zendesk workflow setup</h4>
+          <p>Organized tickets with proper tagging, priority levels, and macros for common queries — speeding up team response time.</p>
+          <div class="proof-result">~40% faster ticket resolution</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Customer Onboarding</span>
+          <h4>Welcome flows & documentation</h4>
+          <p>Created onboarding email sequences, FAQ documents, and follow-up cadences to reduce repeat support tickets.</p>
+          <div class="proof-result">Reduced repeat tickets significantly</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 04 REAL ESTATE -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">04</div>
+        <div class="spec-title">
+          <h3>Real Estate Administrative Support</h3>
+          <p>CRM, listings, lead gen & transaction coordination</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Follow Up Boss</span>
+          <span class="tool-chip">KVCore</span>
+          <span class="tool-chip">MLS</span>
+          <span class="tool-chip">DocuSign</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Lead Generation</span>
+          <h4>Prospecting &amp; qualification</h4>
+          <p>Generated and qualified real estate leads through online research, MLS data, and CRM database building for an agent team.</p>
+          <div class="proof-result">Hundreds of qualified leads added</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">CRM Management</span>
+          <h4>Pipeline organization</h4>
+          <p>Maintained a Follow Up Boss pipeline — contact updates, follow-up scheduling, and tagging by deal stage and lead source.</p>
+          <div class="proof-result">Full visibility into deal flow</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Property Listings</span>
+          <h4>MLS &amp; portal updates</h4>
+          <p>Created and maintained property listings on MLS, Zillow, and Realtor.com — including descriptions, pricing updates, and photos.</p>
+          <div class="proof-result">Listings always current &amp; accurate</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Transaction Coordination</span>
+          <h4>Document tracking</h4>
+          <p>Coordinated transactions using DocuSign and Dotloop — tracked contracts, deadlines, and ensured all documentation was complete.</p>
+          <div class="proof-result">Smooth, on-time closings</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 05 HEALTHCARE -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">05</div>
+        <div class="spec-title">
+          <h3>Healthcare Administrative Support</h3>
+          <p>Patient scheduling, EHR & medical billing support</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">EHR Systems</span>
+          <span class="tool-chip">Practice Mgmt</span>
+          <span class="tool-chip">HIPAA-compliant</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Appointment Scheduling</span>
+          <h4>Patient calendar coordination</h4>
+          <p>Managed appointment scheduling for healthcare providers — including reminders, rescheduling, and reducing no-show rates.</p>
+          <div class="proof-result">Reduced no-shows through reminders</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">EHR Data Entry</span>
+          <h4>Medical records management</h4>
+          <p>Accurate, confidential data entry into electronic health records following HIPAA-compliant protocols for patient information.</p>
+          <div class="proof-result">100% compliance maintained</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Insurance Verification</span>
+          <h4>Claims documentation support</h4>
+          <p>Assisted with insurance verification, claims processing documentation, and patient billing inquiries.</p>
+          <div class="proof-result">Faster claims turnaround</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Patient Communication</span>
+          <h4>Follow-up coordination</h4>
+          <p>Managed patient follow-up communications, referral coordination, and intake documentation for clinic workflow support.</p>
+          <div class="proof-result">Improved patient experience</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 06 SOCIAL MEDIA -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">06</div>
+        <div class="spec-title">
+          <h3>Social Media Management</h3>
+          <p>Content, scheduling, engagement & analytics</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Meta Business</span>
+          <span class="tool-chip">Hootsuite</span>
+          <span class="tool-chip">Canva</span>
+          <span class="tool-chip">CapCut</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Content Scheduling</span>
+          <h4>Multi-platform calendar</h4>
+          <p>Built and managed a content calendar across Instagram, Facebook, and TikTok — consistent posting and brand-aligned visuals.</p>
+          <div class="proof-result">Daily presence maintained</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Engagement Management</span>
+          <h4>Community &amp; comments</h4>
+          <p>Daily community management — responding to DMs, comments, and brand mentions in the client's tone of voice.</p>
+          <div class="proof-result">Higher engagement &amp; retention</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Visual Content</span>
+          <h4>Graphics &amp; short-form video</h4>
+          <p>Designed branded graphics in Canva and edited short-form video in CapCut for Reels, Stories, and TikTok content.</p>
+          <div class="proof-result">100+ creative assets delivered</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Analytics &amp; Reporting</span>
+          <h4>Monthly performance reports</h4>
+          <p>Tracked reach, engagement, and follower growth — delivered monthly insights with content recommendations.</p>
+          <div class="proof-result">Data-led content strategy</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 07 GENERAL ADMIN -->
+    <div class="specialization-block">
+      <div class="specialization-header">
+        <div class="spec-num">07</div>
+        <div class="spec-title">
+          <h3>General Administrative &amp; Data Support</h3>
+          <p>Data entry, reports, research & document creation</p>
+        </div>
+        <div class="spec-tools">
+          <span class="tool-chip">Excel</span>
+          <span class="tool-chip">Google Sheets</span>
+          <span class="tool-chip">Airtable</span>
+          <span class="tool-chip">Power BI</span>
+        </div>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-card">
+          <span class="proof-tag">Data Entry &amp; Validation</span>
+          <h4>Accurate, high-volume entry</h4>
+          <p>Entered and validated thousands of data records across CRMs and spreadsheets — with cross-checks for accuracy.</p>
+          <div class="proof-result">99%+ data accuracy</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Spreadsheet Dashboards</span>
+          <h4>Excel formulas &amp; pivot tables</h4>
+          <p>Built dynamic spreadsheets with advanced formulas, pivot tables, and conditional formatting for business reporting.</p>
+          <div class="proof-result">Time-saving reporting tools</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Online Research</span>
+          <h4>Competitor &amp; market analysis</h4>
+          <p>Conducted online research, competitor benchmarking, and information validation — delivered as clear, formatted reports.</p>
+          <div class="proof-result">Decision-ready research delivered</div>
+        </div>
+        <div class="proof-card">
+          <span class="proof-tag">Document Preparation</span>
+          <h4>Reports, briefs &amp; SOPs</h4>
+          <p>Created professional documents — reports, business briefs, and standard operating procedures with clean formatting.</p>
+          <div class="proof-result">Polished, on-brand deliverables</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== AI AUTOMATION SHOWCASE ===== -->
+<section class="ai-showcase" id="automation">
+  <div class="container">
+    <div class="section-label">AI &amp; Automation Lab</div>
+    <h2 class="section-title">Automations I've <em>built</em> &amp; am <em>building</em>.</h2>
+    <p class="ai-intro">Real workflows I've designed using Zapier, Make, ChatGPT, and AI-powered tools — built to eliminate repetitive work, capture leads automatically, and let small teams operate like big ones.</p>
+
+    <div class="automation-grid">
+      <div class="automation-card">
+        <span class="automation-status live">Live</span>
+        <h4>Lead Capture &amp; CRM Routing</h4>
+        <p>Automatically captures leads from website forms, enriches them with metadata, tags them by source, adds them to the CRM, and triggers a personalized welcome email — all in seconds, no manual work.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Web Form</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Zapier</span><span class="flow-arrow">→</span>
+          <span class="flow-step">CRM</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Email Sequence</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Zapier</span><span class="stack-pill">HubSpot</span>
+          <span class="stack-pill">Mailchimp</span><span class="stack-pill">Google Sheets</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status live">Live</span>
+        <h4>AI Email Triage Assistant</h4>
+        <p>Uses ChatGPT to read incoming emails, classify them by urgency and category, draft suggested replies for routine emails, and flag anything that genuinely needs human attention.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Gmail</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Make</span><span class="flow-arrow">→</span>
+          <span class="flow-step">ChatGPT</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Drafts &amp; Labels</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Make</span><span class="stack-pill">ChatGPT API</span>
+          <span class="stack-pill">Gmail</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status live">Live</span>
+        <h4>E-commerce Order &amp; Inventory Sync</h4>
+        <p>Syncs every Shopify order into a master Google Sheet, updates inventory levels in real time, and sends low-stock alerts to Slack so the team can reorder before stocking out.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Shopify</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Zapier</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Sheets</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Slack Alert</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Shopify</span><span class="stack-pill">Zapier</span>
+          <span class="stack-pill">Google Sheets</span><span class="stack-pill">Slack</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status live">Live</span>
+        <h4>Content Repurposing Pipeline</h4>
+        <p>Takes a single long-form post or video transcript, uses ChatGPT to rewrite it into platform-specific captions for Instagram, TikTok, and LinkedIn, then schedules each one in Buffer.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Source Content</span><span class="flow-arrow">→</span>
+          <span class="flow-step">ChatGPT</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Buffer Queue</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Make</span><span class="stack-pill">ChatGPT</span>
+          <span class="stack-pill">Buffer</span><span class="stack-pill">Notion</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status live">Live</span>
+        <h4>AI Customer Support Chatbot</h4>
+        <p>A trained chatbot that answers FAQs about products, shipping, and returns 24/7. Escalates complex queries to a human agent with full context already attached to the ticket.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Website Chat</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI Bot</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Zendesk Ticket</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Chatbot Builder</span><span class="stack-pill">ChatGPT</span>
+          <span class="stack-pill">Zendesk</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status building">Building</span>
+        <h4>Real Estate Lead Nurture System</h4>
+        <p>An automated drip system for real estate agents — captures leads from forms and Zillow, scores them by quality, and sends personalized follow-ups based on buyer or seller intent.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Lead Source</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI Scoring</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Follow Up Boss</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Drip Email</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Make</span><span class="stack-pill">Follow Up Boss</span>
+          <span class="stack-pill">ChatGPT</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status building">Building</span>
+        <h4>Automated Weekly Reports</h4>
+        <p>Pulls data from CRM, social media, and Shopify into a single weekly report — formatted, summarized by AI, and emailed to the client every Monday morning automatically.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Multi-source Data</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Sheets</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI Summary</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Email Report</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">Make</span><span class="stack-pill">Looker Studio</span>
+          <span class="stack-pill">ChatGPT</span>
+        </div>
+      </div>
+
+      <div class="automation-card">
+        <span class="automation-status building">Building</span>
+        <h4>AI Voice Booking Agent</h4>
+        <p>Currently building an AI voice agent that answers calls, qualifies inquiries, books appointments straight to the calendar, and sends confirmation messages — for clinics &amp; service businesses.</p>
+        <div class="automation-flow">
+          <span class="flow-step">Inbound Call</span><span class="flow-arrow">→</span>
+          <span class="flow-step">AI Voice Agent</span><span class="flow-arrow">→</span>
+          <span class="flow-step">Calendar</span><span class="flow-arrow">→</span>
+          <span class="flow-step">SMS Confirm</span>
+        </div>
+        <div class="automation-stack">
+          <span class="stack-pill">AI Voice Tool</span><span class="stack-pill">Calendly</span>
+          <span class="stack-pill">Twilio</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 4rem;">
+      <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20a%20custom%20automation%20for%20my%20business." target="_blank" rel="noopener" style="color: #f97316; border-bottom: 2px solid #f97316; padding-bottom: 0.25rem; text-decoration: none; font-size: 1rem; font-weight: 600;">
+        Want a custom automation built for your business? Let's chat →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image">M<span>N</span></div>
+      <div class="about-content">
+        <div class="section-label">About me</div>
+        <p>Hi, I'm <em style="color: var(--accent); font-style: italic; font-weight: 600;">Meneral Navela</em> — a Virtual Assistant based in the Philippines, supporting clients worldwide.</p>
+        <p class="subtle">With a Bachelor's degree in Business Administration (Major in Financial Management) from the Polytechnic University of the Philippines and years of hands-on experience, I help CEOs, business owners, and remote teams reduce manual workload and keep operations organized.</p>
+        <p class="subtle">My specializations span Executive Assistance, E-commerce Support, Customer Service, Medical and Real Estate Administration, Social Media Management, and AI Automation. I'm proficient with CRMs, project management platforms, and modern automation tools — and I bring careful judgment, professionalism, and a real interest in how each business runs.</p>
+
+        <div class="stats">
+          <div>
+            <div class="stat-num"><em>7+</em></div>
+            <div class="stat-label">Specializations</div>
+          </div>
+          <div>
+            <div class="stat-num"><em>50+</em></div>
+            <div class="stat-label">Tools mastered</div>
+          </div>
+          <div>
+            <div class="stat-num"><em>100%</em></div>
+            <div class="stat-label">Remote ready</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section class="process">
+  <div class="container">
+    <div class="section-label">How we work together</div>
+    <h2 class="section-title">A simple, <em>clear</em> process.</h2>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">— 01</div>
+        <h4>Discovery Call</h4>
+        <p>A free 30-minute chat on WhatsApp or Zoom to understand your business, pain points, and what success looks like.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">— 02</div>
+        <h4>Custom Proposal</h4>
+        <p>I send you a clear scope of work, recommended tools, and pricing — tailored to exactly what you need.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">— 03</div>
+        <h4>Onboarding</h4>
+        <p>We set up access, tools, and SOPs together. I learn your tone of voice, preferences, and how you like to work.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">— 04</div>
+        <h4>Ongoing Support</h4>
+        <p>Daily execution, weekly check-ins, and proactive suggestions to keep improving your workflows over time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="testimonials-header">
+      <div>
+        <div class="section-label">Kind words</div>
+        <h2 class="section-title">What clients are <em>saying</em>.</h2>
+      </div>
+      <p>Real feedback from the founders, executives, and business owners I've supported across different industries.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <!-- Featured -->
+      <div class="testimonial-card featured">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Meneral takes ownership of every task. She's organized, proactive, and communicates clearly — exactly the kind of support that lets you focus on growing the business.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">S</div>
+          <div>
+            <div class="testimonial-name">Sarah M.</div>
+            <div class="testimonial-role">SaaS Founder</div>
+          </div>
+          <div class="testimonial-source">Email</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>She rebuilt my entire inbox system in two weeks. I went from 3,000 unread to inbox zero, and now I actually look forward to checking my email.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">D</div>
+          <div>
+            <div class="testimonial-name">David L.</div>
+            <div class="testimonial-role">CEO, Tech Startup</div>
+          </div>
+          <div class="testimonial-source">Upwork</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Reliable, detail-oriented, and quick. Meneral handles our Shopify operations end-to-end and our store has never run smoother. A real find.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <div class="testimonial-name">Aaron K.</div>
+            <div class="testimonial-role">E-commerce Owner</div>
+          </div>
+          <div class="testimonial-source">LinkedIn</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>The Zapier automation she built for our lead capture has been a game changer. We're now responding to leads in under 60 seconds, automatically.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">J</div>
+          <div>
+            <div class="testimonial-name">Jasmine R.</div>
+            <div class="testimonial-role">Marketing Agency Owner</div>
+          </div>
+          <div class="testimonial-source">Email</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Hiring Meneral was the best decision I made this year. My calendar is finally under control and I trust her completely with client communication.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">M</div>
+          <div>
+            <div class="testimonial-name">Maria T.</div>
+            <div class="testimonial-role">Coach &amp; Course Creator</div>
+          </div>
+          <div class="testimonial-source">WhatsApp</div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="testimonial-stars">★★★★★</div>
+        <blockquote>Professional, fast, and a real problem-solver. Our customer support response time dropped from 8 hours to under 2 — clients keep complimenting us.</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">B</div>
+          <div>
+            <div class="testimonial-name">Brian H.</div>
+            <div class="testimonial-role">Operations Manager</div>
+          </div>
+          <div class="testimonial-source">Upwork</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-label">Let's work together</div>
+    <h2>Ready to <em>reclaim</em><br/>your time?</h2>
+    <p class="contact-lead">Tell me a bit about what's on your plate and we'll set up a free 30-minute call to see if we're a good fit. The fastest way to reach me is on WhatsApp.</p>
+
+    <div class="contact-actions">
+      <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together." target="_blank" rel="noopener" class="contact-btn whatsapp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Message me on WhatsApp
+      </a>
+      <a href="mailto:meneralnavelaa0504@gmail.com" class="contact-btn email">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send an email
+      </a>
+    </div>
+
+    <div class="contact-meta">
+      <span>📍 Philippines</span>
+      <a href="tel:+639651927405">📞 0965 192 7405</a>
+      <a href="mailto:meneralnavelaa0504@gmail.com" class="meta-email">
+        <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+          <path fill="#4285F4" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
+        </svg>
+        meneralnavelaa0504@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <p class="footer-tagline">Virtual Assistant &amp; AI Automation Specialist</p>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+  const toggle = document.querySelector('.menu-toggle');
+  toggle?.addEventListener('click', () => nav.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => nav.classList.remove('open'))
+  );
+</script>
+</body>
+</html>
