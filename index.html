@@ -1917,6 +1917,247 @@
     transform:none;
   }
 
+  /* ============================================
+     COMPREHENSIVE MOBILE OPTIMIZATIONS
+     ============================================ */
+
+  /* Tablet (max 1000px) */
+  @media (max-width:1000px){
+    .wrap{padding:0 28px;}
+    .hero-grid{gap:48px}
+    .case{gap:48px;padding:56px 0}
+    .lab-grid{gap:16px}
+  }
+
+  /* Small tablet / large phone (max 780px) */
+  @media (max-width:780px){
+    .wrap{padding:0 20px;}
+    section{padding:64px 0;}
+
+    /* Nav: stays clean, simplify CTA */
+    .nav-inner{padding:14px 0;}
+    .logo{font-size:20px;}
+    .nav-cta{padding:9px 14px;font-size:12px;}
+    .nav-cta svg, .nav-cta .pulse{flex-shrink:0;}
+
+    /* Hero */
+    .hero{padding:40px 0 24px;}
+    .hero-grid{grid-template-columns:1fr;gap:36px;}
+    h1.headline{font-size:clamp(44px, 12vw, 72px);margin-bottom:24px;}
+    .available{margin-bottom:24px;font-size:11px;padding:6px 12px;}
+    .hero-lede{font-size:16px;margin-bottom:28px;max-width:none;}
+    .hero-ctas{gap:10px;width:100%;}
+    .hero-ctas .btn{flex:1;justify-content:center;min-height:48px;padding:13px 18px;font-size:14px;}
+    .hero-card{transform:none;padding:22px;max-width:none;}
+    .hero-card:hover{transform:none;}
+    .avatar{width:48px;height:48px;font-size:20px;}
+    .card-name{font-size:16px;}
+    .card-stats{gap:6px;}
+    .stat{padding:12px;}
+    .stat-num{font-size:24px;}
+    .stat-label{font-size:10px;}
+    .card-footer{flex-wrap:wrap;gap:8px;font-size:11px;}
+
+    /* Marquee — slightly smaller */
+    .marquee-section{padding:18px 0;margin-top:24px;}
+    .marquee span{font-size:18px;}
+    .marquee{gap:32px;}
+    .marquee span::after{margin-left:32px;}
+
+    /* Section heads */
+    .section-head{grid-template-columns:1fr;gap:18px;margin-bottom:48px;}
+    .section-head h2{font-size:clamp(32px, 9vw, 52px);}
+    .section-intro{font-size:15px;max-width:none;}
+    .eyebrow{font-size:10px;}
+
+    /* Services */
+    .services-grid{grid-template-columns:1fr;}
+    .service{
+      padding:28px 0!important;
+      border-left:none!important;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    .service h3{font-size:22px;margin-bottom:8px;}
+    .service p{font-size:14px;margin-bottom:14px;}
+    .service-arrow{top:28px;right:0;}
+
+    /* Cases */
+    .case{
+      grid-template-columns:1fr;
+      gap:24px;
+      padding:40px 0;
+    }
+    .case:nth-child(even) .case-visual{order:0;}
+    .case-mark{font-size:80px;}
+    .case h3{font-size:26px;margin-bottom:12px;}
+    .case-story{font-size:15px;}
+    .case-metrics{grid-template-columns:1fr 1fr 1fr;padding:18px;gap:10px;}
+    .metric-num{font-size:24px;}
+    .metric-label{font-size:10px;}
+    .case-visual{padding:22px;aspect-ratio:1.2/1;}
+
+    /* Mockup content scaling on mobile */
+    .mock-counter .big{font-size:38px;}
+    .mock-counter .small{font-size:10px;}
+    .credit-gauge{width:72px;height:72px;}
+    .credit-gauge .gauge-text{font-size:22px;}
+    .credit-row{padding:12px;gap:14px;}
+    .credit-delta .gain{font-size:28px;}
+    .credit-label .big-num{font-size:14px;}
+    .credit-label .tag-small{font-size:9px;}
+    .flow-node{padding:10px 12px;font-size:12px;gap:10px;}
+    .flow-icon{width:32px;height:32px;font-size:16px;}
+    .mock-row{padding:9px 12px;font-size:12px;gap:10px;}
+    .mock-meta{font-size:9px;padding:2px 6px;}
+    .chart-area{padding:14px 0 10px;}
+    .case-tools{font-size:11px;}
+
+    /* Work Samples */
+    .samples-filter{
+      gap:6px;
+      overflow-x:auto;
+      flex-wrap:nowrap;
+      padding-bottom:14px;
+      margin-bottom:28px;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+    }
+    .samples-filter::-webkit-scrollbar{display:none;}
+    .filter-btn{
+      flex-shrink:0;
+      padding:8px 14px;
+      font-size:10px;
+      white-space:nowrap;
+      min-height:36px;
+    }
+    .samples-grid{grid-template-columns:1fr;gap:16px;}
+    .sample-body{padding:16px 18px 20px;}
+    .sample-title{font-size:16px;}
+    .sample-desc{font-size:13px;}
+    .sample-meta{font-size:10px;}
+
+    /* Automation Lab */
+    .lab-bg{padding:48px 22px;border-radius:20px;margin:0;}
+    .lab-grid{grid-template-columns:1fr;gap:14px;}
+    .lab-card{padding:22px;}
+    .lab-card h4{font-size:19px;}
+    .lab-card p{font-size:13px;}
+    .lab-flow{font-size:10px;}
+
+    /* ROI Calculator */
+    .roi{
+      grid-template-columns:1fr;
+      padding:28px 22px;
+      gap:24px;
+      border-radius:18px;
+    }
+    .roi h3{font-size:28px;}
+    .roi p{font-size:14px;}
+    .roi-input label{font-size:11px;}
+    .roi-output{padding:26px 22px;}
+    .roi-output .num{font-size:clamp(38px,11vw,52px)!important;}
+    .roi-output .sub{font-size:13px;}
+    .roi-output .breakdown{font-size:12px;margin-top:18px;padding-top:16px;}
+
+    /* Pricing */
+    .pkg-grid{grid-template-columns:1fr;gap:16px;}
+    .pkg{padding:28px 24px;}
+    .pkg-name{font-size:22px;}
+    .pkg-price{font-size:40px;}
+    .pkg-features{margin:22px 0;}
+    .pkg-features li{font-size:13px;padding:7px 0 7px 22px;}
+    .pkg-btn{min-height:48px;display:flex;align-items:center;justify-content:center;}
+
+    /* Testimonials */
+    .testim-grid{grid-template-columns:1fr;gap:14px;}
+    .testim{padding:24px;}
+    .testim p{font-size:14px;}
+
+    /* Process */
+    .process{grid-template-columns:1fr;gap:24px;}
+    .process::before{display:none;}
+    .step{padding:0;display:grid;grid-template-columns:60px 1fr;gap:18px;text-align:left;align-items:center;}
+    .step-num{margin:0;width:54px;height:54px;font-size:20px;}
+    .step h4{font-size:18px;margin-bottom:4px;}
+    .step p{font-size:13px;}
+
+    /* FAQ */
+    .faq-grid{grid-template-columns:1fr;gap:0;}
+    summary{font-size:16px;gap:16px;}
+    details{padding:20px 0;}
+    details p{font-size:14px;}
+
+    /* Final CTA */
+    .final{padding:80px 0 60px;}
+    .final h2{font-size:clamp(38px, 10vw, 64px);margin-bottom:24px;}
+    .final p{font-size:15px;margin-bottom:28px!important;}
+    .final .hero-ctas{flex-direction:column;}
+    .final .hero-ctas .btn{width:100%;}
+    .final-meta{gap:14px;font-size:12px;flex-direction:column;align-items:center;margin-top:32px;}
+
+    /* Footer */
+    footer{padding:36px 0 28px;}
+    .foot{flex-direction:column;text-align:center;gap:18px;font-size:12px;}
+    .foot-links{gap:18px;flex-wrap:wrap;justify-content:center;}
+  }
+
+  /* Phone (max 480px) */
+  @media (max-width:480px){
+    .wrap{padding:0 16px;}
+    section{padding:52px 0;}
+
+    h1.headline{font-size:clamp(40px, 13vw, 56px);}
+    .hero-card{padding:18px;}
+    .card-head{gap:10px;padding-bottom:16px;}
+    .card-stats{grid-template-columns:1fr 1fr;}
+
+    .section-head{margin-bottom:36px;}
+    .section-head h2{font-size:clamp(28px, 10vw, 44px);}
+
+    .service h3{font-size:20px;}
+    .service-tags .tag{font-size:10px;padding:3px 8px;}
+
+    .case-mark{font-size:64px;}
+    .case h3{font-size:22px;}
+    .case-metrics{grid-template-columns:1fr;gap:8px;padding:16px;}
+    .metric{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+    .metric-num{font-size:22px;}
+    .case-visual{padding:18px;aspect-ratio:auto;min-height:340px;}
+
+    .lab-bg{padding:36px 18px;}
+    .lab-card{padding:20px;}
+
+    .roi{padding:22px 18px;}
+    .roi-input{margin-bottom:18px;}
+
+    .pkg{padding:24px 20px;}
+    .pkg-price{font-size:34px;}
+
+    .final h2{font-size:clamp(32px, 11vw, 48px);}
+
+    /* Make all buttons touch-friendly */
+    .btn{min-height:46px;}
+  }
+
+  /* Very small phones (max 360px) */
+  @media (max-width:360px){
+    h1.headline{font-size:38px;}
+    .section-head h2{font-size:28px;}
+    .stat-num{font-size:22px;}
+    .pkg-price{font-size:30px;}
+  }
+
+  /* Ensure no horizontal overflow anywhere */
+  @media (max-width:780px){
+    html, body{overflow-x:hidden;width:100%;max-width:100%;}
+    img, svg{max-width:100%;height:auto;}
+    .hero-card, .case-visual, .lab-card, .pkg, .testim, .sample, .roi-output{
+      min-width:0;
+      max-width:100%;
+    }
+  }
+
   /* Selection */
   ::selection{background:var(--accent);color:var(--paper)}
 </style>
