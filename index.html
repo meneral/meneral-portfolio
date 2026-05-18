@@ -24,6 +24,9 @@
     --accent:#b8431f;        /* terracotta */
     --accent-2:#2d4a3e;      /* forest */
     --gold:#a07a2c;
+    --blue:#3a5878;          /* dusty slate blue — trust accent */
+    --blue-soft:#6b8aa8;     /* lighter variant */
+    --blue-bg:rgba(58,88,120,.08);
     --shadow: 0 1px 0 rgba(26,22,18,.04), 0 10px 30px -12px rgba(26,22,18,.18);
   }
 
@@ -54,6 +57,7 @@
     background-image:
       radial-gradient(circle at 20% 10%, rgba(184,67,31,.05), transparent 40%),
       radial-gradient(circle at 80% 80%, rgba(45,74,62,.06), transparent 45%),
+      radial-gradient(circle at 50% 50%, rgba(58,88,120,.04), transparent 55%),
       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
@@ -267,10 +271,13 @@
   .card-status{
     margin-left:auto;
     font-size:11px;
-    color:var(--accent-2);
+    color:var(--blue);
     display:flex;
     align-items:center;
     gap:6px;
+    font-family:"JetBrains Mono", monospace;
+    letter-spacing:.05em;
+    text-transform:uppercase;
   }
   .card-stats{
     display:grid;
@@ -282,6 +289,12 @@
     background:var(--bg-2);
     padding:14px;
     border-radius:14px;
+    border:1px solid transparent;
+    transition:border-color .25s, background .25s;
+  }
+  .stat:hover{
+    border-color:rgba(58,88,120,.15);
+    background:rgba(58,88,120,.04);
   }
   .stat-num{
     font-family:"Fraunces", serif;
@@ -290,6 +303,10 @@
     letter-spacing:-.02em;
     line-height:1;
   }
+  .stat:nth-child(1) .stat-num,
+  .stat:nth-child(3) .stat-num{color:var(--blue)}
+  .stat:nth-child(2) .stat-num,
+  .stat:nth-child(4) .stat-num{color:var(--accent)}
   .stat-label{
     font-size:11px;
     color:var(--muted);
@@ -404,7 +421,7 @@
   .service-num{
     font-family:"JetBrains Mono", monospace;
     font-size:12px;
-    color:var(--accent);
+    color:var(--blue);
     letter-spacing:.1em;
   }
   .service h3{
@@ -428,6 +445,13 @@
     color:var(--ink-soft);
     font-family:"JetBrains Mono", monospace;
     letter-spacing:.04em;
+    border:1px solid transparent;
+    transition:border-color .25s, color .25s, background .25s;
+  }
+  .service:hover .tag{
+    border-color:rgba(58,88,120,.25);
+    color:var(--blue);
+    background:var(--blue-bg);
   }
   .service-arrow{
     position:absolute;top:36px;right:24px;
@@ -543,36 +567,54 @@
     height:100%;
     display:flex;
     flex-direction:column;
-    gap:8px;
+    gap:6px;
   }
   .mock-header{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding-bottom:12px;
+    padding-bottom:14px;
     border-bottom:1px solid var(--line);
-    font-size:12px;
+    font-size:11px;
     color:var(--muted);
     font-family:"JetBrains Mono", monospace;
+    letter-spacing:.05em;
+    text-transform:uppercase;
   }
   .mock-row{
     display:grid;
-    grid-template-columns:24px 1fr auto;
-    gap:12px;
-    padding:10px 12px;
-    border-radius:8px;
+    grid-template-columns:14px 1fr auto;
+    gap:14px;
+    padding:11px 14px;
+    border-radius:10px;
     font-size:13px;
     align-items:center;
-    background:rgba(255,255,255,.5);
+    background:rgba(255,255,255,.55);
+    border:1px solid transparent;
+    transition:border-color .2s, background .2s;
+  }
+  .mock-row:hover{
+    border-color:var(--line);
+    background:rgba(255,255,255,.85);
   }
   .mock-dot{
     width:8px;height:8px;border-radius:50%;
     background:var(--line-2);
+    box-shadow:0 0 0 2px var(--paper);
   }
-  .mock-dot.r{background:var(--accent)}
-  .mock-dot.g{background:#4a8c5b}
+  .mock-dot.r{background:var(--accent);box-shadow:0 0 0 2px var(--paper), 0 0 6px rgba(184,67,31,.4)}
+  .mock-dot.g{background:var(--accent-2)}
   .mock-dot.y{background:var(--gold)}
-  .mock-meta{font-size:11px;color:var(--muted);font-family:"JetBrains Mono", monospace}
+  .mock-dot.b{background:var(--blue)}
+  .mock-meta{
+    font-size:10px;
+    color:var(--blue);
+    font-family:"JetBrains Mono", monospace;
+    letter-spacing:.08em;
+    padding:2px 8px;
+    background:var(--blue-bg);
+    border-radius:4px;
+  }
   .mock-counter{
     margin-top:auto;
     display:flex;
@@ -587,70 +629,104 @@
     font-weight:500;
     color:var(--accent);
     letter-spacing:-.02em;
+    line-height:1;
   }
   .mock-counter .small{
     font-size:11px;
     color:var(--muted);
     text-align:right;
+    line-height:1.4;
   }
 
   .mock-flow{
     height:100%;
     display:flex;
     flex-direction:column;
-    gap:14px;
+    gap:10px;
     justify-content:center;
   }
   .flow-node{
     display:grid;
-    grid-template-columns:36px 1fr auto;
+    grid-template-columns:38px 1fr auto;
     align-items:center;
     gap:14px;
-    padding:14px 16px;
+    padding:13px 16px;
     background:rgba(255,255,255,.7);
     border:1px solid var(--line);
     border-radius:14px;
     font-size:13px;
+    position:relative;
+    transition:border-color .25s, transform .25s;
+  }
+  .flow-node:hover{
+    border-color:var(--blue-soft);
+    transform:translateX(2px);
   }
   .flow-node.active{
     border-color:var(--accent);
-    background:rgba(184,67,31,.06);
+    background:linear-gradient(90deg, rgba(184,67,31,.06), rgba(184,67,31,.02));
+    box-shadow:0 4px 12px -6px rgba(184,67,31,.2);
   }
   .flow-icon{
-    width:36px;height:36px;
+    width:38px;height:38px;
     border-radius:10px;
     display:grid;place-items:center;
-    background:var(--bg-2);
+    background:var(--blue-bg);
     font-family:"Fraunces", serif;
     font-style:italic;
+    color:var(--blue);
+    font-size:18px;
+    font-weight:500;
+    border:1px solid rgba(58,88,120,.15);
+  }
+  .flow-node.active .flow-icon{
+    background:rgba(184,67,31,.1);
     color:var(--accent);
+    border-color:rgba(184,67,31,.2);
   }
   .flow-arrow{
     text-align:center;
-    color:var(--line-2);
+    color:var(--blue-soft);
     font-size:18px;
     line-height:1;
+    font-family:"JetBrains Mono", monospace;
   }
 
   .mock-chart{
     height:100%;
     display:flex;
     flex-direction:column;
+    position:relative;
   }
   .chart-area{
     flex:1;
     display:flex;
     align-items:flex-end;
     gap:6px;
-    padding:20px 0;
+    padding:20px 0 14px;
+    position:relative;
   }
+  .chart-area::before,
+  .chart-area::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;
+    height:1px;
+    background:rgba(58,88,120,.1);
+  }
+  .chart-area::before{top:30%}
+  .chart-area::after{top:65%}
   .bar{
     flex:1;
-    background:linear-gradient(180deg, var(--accent), rgba(184,67,31,.5));
-    border-radius:6px 6px 0 0;
+    background:linear-gradient(180deg, var(--accent) 0%, #c25b32 50%, var(--blue) 100%);
+    border-radius:5px 5px 0 0;
     position:relative;
-    animation:grow 1.2s ease-out;
+    animation:grow 1.2s cubic-bezier(.65,0,.35,1);
     transform-origin:bottom;
+    box-shadow:inset 0 -1px 0 rgba(0,0,0,.06);
+  }
+  .bar:last-child{
+    background:linear-gradient(180deg, #f4a261 0%, var(--accent) 100%);
   }
   @keyframes grow{
     from{transform:scaleY(0)}
@@ -676,58 +752,79 @@
     display:flex;
     gap:18px;
     align-items:center;
-    padding:18px;
+    padding:16px;
     background:rgba(255,255,255,.6);
     border:1px solid var(--line);
     border-radius:14px;
   }
-  .credit-row + .credit-row{margin-top:12px}
-  .credit-ring{
-    width:96px;height:96px;
-    border-radius:50%;
-    display:grid;place-items:center;
+  .credit-row + .credit-row{margin-top:10px}
+  .credit-gauge{
+    width:88px;height:88px;
     flex-shrink:0;
     position:relative;
-    background:conic-gradient(var(--accent) 0deg, var(--accent) var(--deg,200deg), var(--line) var(--deg,200deg), var(--line) 360deg);
   }
-  .credit-ring::before{
-    content:"";
+  .credit-gauge svg{
+    width:100%;height:100%;
+    transform:rotate(-90deg);
+  }
+  .credit-gauge .gauge-bg{
+    stroke:var(--line);
+    fill:none;
+  }
+  .credit-gauge .gauge-fg{
+    fill:none;
+    stroke-linecap:round;
+    transition:stroke-dashoffset 1.5s cubic-bezier(.65,0,.35,1);
+  }
+  .credit-gauge .gauge-text{
     position:absolute;
-    inset:8px;
-    background:var(--paper);
-    border-radius:50%;
-  }
-  .credit-ring .score{
-    position:relative;
+    inset:0;
+    display:grid;
+    place-items:center;
     font-family:"Fraunces", serif;
-    font-size:28px;
+    font-size:26px;
     font-weight:500;
     color:var(--ink);
     letter-spacing:-.02em;
   }
-  .credit-ring.good{background:conic-gradient(#4a8c5b 0deg, #4a8c5b var(--deg,280deg), var(--line) var(--deg,280deg), var(--line) 360deg)}
-  .credit-label{flex:1}
+  .credit-gauge.start .gauge-text{color:var(--accent)}
+  .credit-gauge.end .gauge-text{color:var(--accent-2)}
+  .credit-label{flex:1;min-width:0}
   .credit-label .tag-small{
     font-family:"JetBrains Mono", monospace;
     font-size:10px;
-    color:var(--muted);
+    color:var(--blue);
     letter-spacing:.08em;
     text-transform:uppercase;
   }
   .credit-label .big-num{
     font-family:"Fraunces", serif;
-    font-size:18px;
+    font-size:16px;
     font-weight:500;
     margin-top:4px;
+    line-height:1.25;
   }
   .credit-arrow{
     text-align:center;
-    color:var(--accent);
-    font-family:"Fraunces", serif;
-    font-style:italic;
-    font-size:18px;
-    padding:6px 0;
+    color:var(--blue);
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    letter-spacing:.15em;
+    padding:8px 0;
+    text-transform:uppercase;
+    position:relative;
   }
+  .credit-arrow::before,
+  .credit-arrow::after{
+    content:"";
+    position:absolute;
+    top:50%;
+    width:24%;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--blue));
+  }
+  .credit-arrow::before{left:8%}
+  .credit-arrow::after{right:8%;transform:scaleX(-1)}
   .credit-delta{
     margin-top:auto;
     padding-top:14px;
@@ -738,10 +835,562 @@
   }
   .credit-delta .gain{
     font-family:"Fraunces", serif;
-    font-size:36px;
+    font-size:34px;
     font-weight:500;
-    color:#4a8c5b;
+    color:var(--accent-2);
     letter-spacing:-.02em;
+  }
+
+  /* ===== WORK SAMPLES ===== */
+  .samples-filter{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:40px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--line-2);
+  }
+  .filter-btn{
+    padding:8px 16px;
+    border-radius:999px;
+    border:1px solid var(--line-2);
+    background:transparent;
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .25s;
+    text-transform:uppercase;
+  }
+  .filter-btn:hover{
+    border-color:var(--blue);
+    color:var(--blue);
+  }
+  .filter-btn.active{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+  .filter-btn .count{
+    opacity:.6;
+    margin-left:4px;
+    font-size:10px;
+  }
+
+  .samples-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+  }
+  .sample{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    transition:transform .35s, box-shadow .35s, border-color .35s;
+    display:flex;
+    flex-direction:column;
+    position:relative;
+  }
+  .sample:hover{
+    transform:translateY(-4px);
+    box-shadow:0 16px 32px -16px rgba(26,22,18,.15);
+    border-color:var(--blue-soft);
+  }
+  .sample-thumb{
+    aspect-ratio:16/10;
+    background:var(--bg-2);
+    position:relative;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .sample-body{
+    padding:18px 20px 22px;
+    display:flex;
+    flex-direction:column;
+    flex:1;
+  }
+  .sample-cat{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    color:var(--blue);
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .sample-title{
+    font-family:"Fraunces", serif;
+    font-size:17px;
+    font-weight:500;
+    margin:0 0 6px;
+    line-height:1.25;
+    letter-spacing:-.005em;
+  }
+  .sample-desc{
+    font-size:13px;
+    color:var(--muted);
+    margin:0 0 14px;
+    line-height:1.5;
+    flex:1;
+  }
+  .sample-meta{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    color:var(--muted);
+    padding-top:12px;
+    border-top:1px solid var(--line);
+    letter-spacing:.05em;
+  }
+  .sample-meta .result{
+    color:var(--accent);
+    font-weight:500;
+  }
+
+  /* Thumbnail variants */
+  .thumb-admin{
+    background:linear-gradient(135deg, #f4efe6 0%, #ece5d8 100%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .thumb-admin .row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:6px 10px;
+    background:var(--paper);
+    border-radius:6px;
+    font-size:10px;
+    color:var(--ink-soft);
+    border:1px solid var(--line);
+  }
+  .thumb-admin .row .dot{
+    width:5px;height:5px;
+    border-radius:50%;
+    background:var(--accent);
+  }
+  .thumb-admin .row.done .dot{background:var(--accent-2)}
+  .thumb-admin .row.done{opacity:.55;text-decoration:line-through}
+  .thumb-admin .row .check{
+    margin-left:auto;
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    color:var(--blue);
+  }
+
+  .thumb-social{
+    background:linear-gradient(135deg, #2d4a3e 0%, #1a3329 100%);
+    padding:20px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    gap:8px;
+  }
+  .thumb-social .tile{
+    background:rgba(251,247,239,.08);
+    border:1px solid rgba(251,247,239,.12);
+    border-radius:8px;
+    padding:10px 12px;
+    color:#f4efe6;
+    font-size:10px;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .thumb-social .tile .stat{
+    font-size:18px;
+    font-style:normal;
+    font-weight:500;
+    color:#f4a261;
+    letter-spacing:-.02em;
+  }
+  .thumb-social .tile .label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:8px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    opacity:.6;
+    font-style:normal;
+  }
+
+  .thumb-real-estate{
+    background:linear-gradient(180deg, #f4efe6 0%, #e8dfc9 100%);
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .thumb-real-estate .listing{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:8px 10px;
+    display:grid;
+    grid-template-columns:32px 1fr auto;
+    gap:8px;
+    align-items:center;
+    font-size:10px;
+  }
+  .thumb-real-estate .listing-img{
+    height:24px;
+    background:linear-gradient(135deg, var(--blue-soft), var(--gold));
+    border-radius:4px;
+  }
+  .thumb-real-estate .listing .price{
+    font-family:"Fraunces", serif;
+    font-size:12px;
+    font-weight:500;
+    color:var(--accent);
+  }
+  .thumb-real-estate .listing .addr{
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    color:var(--muted);
+  }
+
+  .thumb-healthcare{
+    background:linear-gradient(135deg, #eef3f7 0%, #d9e4ee 100%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .thumb-healthcare .h-row{
+    display:grid;
+    grid-template-columns:60px 1fr 40px;
+    gap:8px;
+    font-size:9px;
+    align-items:center;
+    padding:7px 10px;
+    background:rgba(255,255,255,.85);
+    border-radius:6px;
+    border:1px solid rgba(58,88,120,.12);
+  }
+  .thumb-healthcare .h-row .name{
+    font-family:"Fraunces", serif;
+    font-size:11px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .thumb-healthcare .h-row .time{
+    font-family:"JetBrains Mono", monospace;
+    color:var(--blue);
+    font-size:9px;
+    letter-spacing:.05em;
+  }
+  .thumb-healthcare .h-row .status{
+    font-family:"JetBrains Mono", monospace;
+    font-size:8px;
+    padding:2px 6px;
+    background:var(--blue-bg);
+    color:var(--blue);
+    border-radius:3px;
+    text-align:center;
+    letter-spacing:.05em;
+  }
+
+  .thumb-ecom{
+    background:linear-gradient(135deg, #1a1612 0%, #2d2620 100%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    color:#f4efe6;
+  }
+  .thumb-ecom .e-head{
+    display:flex;
+    justify-content:space-between;
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    color:rgba(244,239,230,.6);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    padding-bottom:6px;
+    border-bottom:1px solid rgba(244,239,230,.1);
+  }
+  .thumb-ecom .e-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:10px;
+  }
+  .thumb-ecom .e-row .name{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+  }
+  .thumb-ecom .e-row .qty{
+    font-family:"JetBrains Mono", monospace;
+    color:#f4a261;
+    font-size:11px;
+    font-weight:500;
+  }
+
+  .thumb-copy{
+    background:linear-gradient(135deg, #fbf7ef 0%, #f4efe6 100%);
+    padding:20px 18px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    font-family:"Fraunces", serif;
+    position:relative;
+  }
+  .thumb-copy::before{
+    content:'"';
+    position:absolute;
+    top:4px;
+    left:14px;
+    font-size:48px;
+    color:var(--accent);
+    opacity:.3;
+    line-height:1;
+    font-style:italic;
+  }
+  .thumb-copy .headline{
+    font-size:16px;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:-.01em;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .thumb-copy .headline em{
+    font-style:italic;
+    color:var(--accent);
+  }
+  .thumb-copy .sub-line{
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    color:var(--blue);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-top:6px;
+  }
+
+  .thumb-credit{
+    background:linear-gradient(135deg, #2d4a3e 0%, #1d3329 100%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    color:#f4efe6;
+  }
+  .thumb-credit .doc-line{
+    background:rgba(251,247,239,.08);
+    height:6px;
+    border-radius:2px;
+  }
+  .thumb-credit .doc-line.short{width:50%}
+  .thumb-credit .doc-line.med{width:75%}
+  .thumb-credit .doc-line.long{width:90%}
+  .thumb-credit .doc-stamp{
+    margin-top:auto;
+    align-self:flex-start;
+    padding:4px 8px;
+    background:#f4a261;
+    color:var(--ink);
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    border-radius:3px;
+    letter-spacing:.08em;
+    font-weight:500;
+  }
+
+  .thumb-auto{
+    background:linear-gradient(135deg, #3a5878 0%, #2a4258 100%);
+    padding:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    color:#f4efe6;
+  }
+  .thumb-auto .node{
+    width:42px;height:42px;
+    background:rgba(251,247,239,.1);
+    border:1px solid rgba(251,247,239,.2);
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:18px;
+    color:#f4a261;
+  }
+  .thumb-auto .node.center{
+    background:#f4a261;
+    color:var(--ink);
+    transform:scale(1.15);
+  }
+  .thumb-auto .connector{
+    font-family:"JetBrains Mono", monospace;
+    color:rgba(251,247,239,.5);
+    font-size:14px;
+  }
+
+  .thumb-data{
+    background:linear-gradient(135deg, #f4efe6 0%, #e8dfc9 100%);
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+  .thumb-data .d-head{
+    display:grid;
+    grid-template-columns:1fr 50px 50px 50px;
+    gap:8px;
+    padding:6px 8px;
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:4px;
+    font-family:"JetBrains Mono", monospace;
+    font-size:8px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+  }
+  .thumb-data .d-row{
+    display:grid;
+    grid-template-columns:1fr 50px 50px 50px;
+    gap:8px;
+    padding:5px 8px;
+    background:var(--paper);
+    border-radius:4px;
+    font-size:9px;
+    align-items:center;
+    border:1px solid var(--line);
+  }
+  .thumb-data .d-row .num{
+    font-family:"JetBrains Mono", monospace;
+    text-align:right;
+    color:var(--ink-soft);
+  }
+  .thumb-data .d-row .num.up{color:var(--accent-2);font-weight:500}
+  .thumb-data .d-row .num.down{color:var(--accent);font-weight:500}
+
+  /* Finance — P&L / financial statement aesthetic */
+  .thumb-finance{
+    background:linear-gradient(180deg, #fbf7ef 0%, #f4efe6 100%);
+    padding:14px;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    font-family:"JetBrains Mono", monospace;
+  }
+  .thumb-finance .f-title{
+    font-family:"Fraunces", serif;
+    font-size:11px;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:-.005em;
+    padding-bottom:6px;
+    border-bottom:1px solid var(--ink);
+    margin-bottom:4px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .thumb-finance .f-title span:last-child{
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    color:var(--muted);
+    font-weight:400;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+  }
+  .thumb-finance .f-row{
+    display:flex;
+    justify-content:space-between;
+    font-size:10px;
+    padding:3px 4px;
+    color:var(--ink-soft);
+  }
+  .thumb-finance .f-row.indent{padding-left:14px;color:var(--muted);font-size:9px}
+  .thumb-finance .f-row.bold{
+    font-weight:500;
+    color:var(--ink);
+    border-top:1px solid var(--line-2);
+    padding-top:5px;
+    margin-top:2px;
+  }
+  .thumb-finance .f-row .val{color:var(--ink)}
+  .thumb-finance .f-row .val.pos{color:var(--accent-2);font-weight:500}
+  .thumb-finance .f-row .val.neg{color:var(--accent);font-weight:500}
+  .thumb-finance .f-row .val.big{
+    font-family:"Fraunces", serif;
+    font-size:13px;
+    font-weight:500;
+    letter-spacing:-.01em;
+  }
+
+  /* Finance variant — bar chart for budget vs actual */
+  .thumb-finance-chart{
+    background:linear-gradient(135deg, #1a1612 0%, #2a2018 100%);
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    color:#f4efe6;
+    gap:10px;
+  }
+  .thumb-finance-chart .fc-header{
+    display:flex;
+    justify-content:space-between;
+    font-family:"JetBrains Mono", monospace;
+    font-size:9px;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    color:rgba(244,239,230,.6);
+    padding-bottom:8px;
+    border-bottom:1px solid rgba(244,239,230,.1);
+  }
+  .thumb-finance-chart .fc-row{
+    display:grid;
+    grid-template-columns:50px 1fr;
+    gap:10px;
+    align-items:center;
+    font-size:10px;
+  }
+  .thumb-finance-chart .fc-label{
+    font-family:"JetBrains Mono", monospace;
+    color:rgba(244,239,230,.7);
+    letter-spacing:.05em;
+  }
+  .thumb-finance-chart .fc-bars{
+    position:relative;
+    height:14px;
+  }
+  .thumb-finance-chart .fc-bar{
+    position:absolute;
+    top:0;
+    height:6px;
+    border-radius:2px;
+  }
+  .thumb-finance-chart .fc-bar.budget{
+    top:0;
+    background:rgba(58,88,120,.5);
+    border:1px solid var(--blue-soft);
+  }
+  .thumb-finance-chart .fc-bar.actual{
+    top:8px;
+    background:linear-gradient(90deg, var(--accent), #f4a261);
+  }
+
+  /* Filtering animation */
+  .sample.hidden{
+    display:none;
+  }
+
+  @media (max-width:880px){
+    .samples-grid{grid-template-columns:repeat(2, 1fr)}
+  }
+  @media (max-width:580px){
+    .samples-grid{grid-template-columns:1fr}
+    .samples-filter{gap:6px}
+    .filter-btn{padding:6px 12px;font-size:10px}
   }
 
   /* ===== AUTOMATION LAB ===== */
@@ -816,12 +1465,12 @@
   .lab-flow{
     font-family:"JetBrains Mono", monospace;
     font-size:11px;
-    color:rgba(251,247,239,.5);
+    color:rgba(251,247,239,.55);
     padding-top:16px;
     border-top:1px solid rgba(251,247,239,.1);
     letter-spacing:.04em;
   }
-  .lab-flow .arrow{color:#f4a261;margin:0 6px}
+  .lab-flow .arrow{color:#7ba3c5;margin:0 6px}
 
   @media (max-width:780px){
     .lab-bg{padding:50px 24px;border-radius:24px}
@@ -1096,7 +1745,7 @@
   .testim-avatar{
     width:42px;height:42px;
     border-radius:50%;
-    background:linear-gradient(135deg, var(--accent-2), var(--gold));
+    background:linear-gradient(135deg, var(--blue), var(--gold));
     color:var(--paper);
     display:grid;place-items:center;
     font-family:"Fraunces", serif;
@@ -1111,7 +1760,7 @@
     gap:4px;
     margin-left:auto;
     font-size:11px;
-    color:var(--accent-2);
+    color:var(--blue);
     font-family:"JetBrains Mono", monospace;
   }
   @media (max-width:880px){.testim-grid{grid-template-columns:1fr}}
@@ -1130,7 +1779,7 @@
     left:8%;
     right:8%;
     height:1px;
-    background:linear-gradient(90deg, var(--line-2), var(--accent), var(--line-2));
+    background:linear-gradient(90deg, var(--line-2), var(--blue), var(--accent), var(--line-2));
   }
   .step{
     text-align:center;
@@ -1148,9 +1797,15 @@
     font-family:"Fraunces", serif;
     font-style:italic;
     font-size:24px;
-    color:var(--accent);
+    color:var(--blue);
     position:relative;
     z-index:2;
+    box-shadow: inset 0 0 0 0 var(--blue-bg);
+    transition: box-shadow .35s, transform .35s;
+  }
+  .step:hover .step-num{
+    box-shadow: inset 0 0 0 4px var(--blue-bg);
+    transform: scale(1.05);
   }
   .step h4{
     font-family:"Fraunces", serif;
@@ -1191,11 +1846,11 @@
     content:"+";
     font-family:"Fraunces", serif;
     font-size:24px;
-    color:var(--accent);
-    transition:transform .3s;
+    color:var(--blue);
+    transition:transform .3s, color .3s;
     line-height:1;
   }
-  details[open] summary::after{transform:rotate(45deg)}
+  details[open] summary::after{transform:rotate(45deg);color:var(--accent)}
   details p{
     color:var(--muted);
     margin:14px 0 0;
@@ -1274,6 +1929,7 @@
     <a href="#" class="logo">meneral<span class="dot">.</span></a>
     <div class="nav-links">
       <a href="#work">Work</a>
+      <a href="#samples">Samples</a>
       <a href="#automation">Automation</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
@@ -1303,7 +1959,7 @@
         <span class="stack">organized.</span>
       </h1>
       <p class="hero-lede">
-        I'm <strong>Meneral Navela</strong> — a Virtual Assistant, copywriter, and credit repair specialist from the Philippines, helping founders and growing teams reclaim time, sharpen their words, and run leaner with AI-powered workflows.
+        I'm <strong>Meneral Navela</strong> — a BSBA Financial Management graduate working as a Virtual Assistant, copywriter, and credit repair specialist from the Philippines. Helping founders and growing teams reclaim time, sharpen their words, and keep clean books.
       </p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20book%20a%20discovery%20call.">
@@ -1327,7 +1983,7 @@
       </div>
       <div class="card-stats">
         <div class="stat">
-          <div class="stat-num">9</div>
+          <div class="stat-num">10</div>
           <div class="stat-label">Specializations</div>
         </div>
         <div class="stat">
@@ -1355,9 +2011,9 @@
 <div class="marquee-section">
   <div class="marquee-label">Tools & platforms I work with daily</div>
   <div class="marquee" aria-hidden="true">
-    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>Intercom</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>DocuSign</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Hemingway</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
+    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>QuickBooks</span><span>Xero</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>Kareo</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
     <!-- duplicate for seamless loop -->
-    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>Intercom</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>DocuSign</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Hemingway</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
+    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>QuickBooks</span><span>Xero</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>Kareo</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
   </div>
 </div>
 
@@ -1367,9 +2023,9 @@
     <div class="section-head reveal">
       <div>
         <div class="eyebrow">What I do</div>
-        <h2 class="display">Nine ways<br>I <em>save</em> your time.</h2>
+        <h2 class="display">Ten ways<br>I <em>save</em> your time.</h2>
       </div>
-      <p class="section-intro">From inbox zero to fully automated lead pipelines — plus conversion copy and credit repair expertise. I handle the operational and revenue-side work, so you can focus on what only you can do.</p>
+      <p class="section-intro">From inbox zero to clean financial statements — plus automation, conversion copy, and credit repair expertise. I handle the operational and revenue-side work, so you can focus on what only you can do.</p>
     </div>
 
     <div class="services-grid reveal">
@@ -1454,12 +2110,22 @@
         <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="service" style="grid-column:1 / -1; border-left:none;">
+      <div class="service">
         <div class="service-num">09</div>
         <div>
           <h3>Credit Repair Specialist</h3>
           <p>Dispute letter drafting, credit report analysis, FCRA / FDCPA-compliant correspondence, bureau correspondence tracking, and back-office support for credit repair firms — handled with the precision and confidentiality this work demands.</p>
-          <div class="service-tags"><span class="tag">Credit Repair Cloud</span><span class="tag">Dispute letters</span><span class="tag">FCRA</span><span class="tag">FDCPA</span><span class="tag">Smart Credit</span><span class="tag">IdentityIQ</span></div>
+          <div class="service-tags"><span class="tag">Credit Repair Cloud</span><span class="tag">Dispute letters</span><span class="tag">FCRA</span><span class="tag">FDCPA</span><span class="tag">Smart Credit</span></div>
+        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+      </div>
+
+      <div class="service" style="grid-column:1 / -1; border-left:none;">
+        <div class="service-num">10</div>
+        <div>
+          <h3>Financial Management & Bookkeeping</h3>
+          <p>BSBA-Financial Management graduate. Monthly P&amp;L statements, budget vs actual variance reports, cash flow forecasting, AR/AP tracking, expense categorization, QuickBooks reconciliation, and clean books that auditors and investors actually want to see.</p>
+          <div class="service-tags"><span class="tag">QuickBooks</span><span class="tag">Xero</span><span class="tag">Excel</span><span class="tag">Cash flow modeling</span><span class="tag">P&L</span><span class="tag">Variance analysis</span><span class="tag">AR/AP</span></div>
         </div>
         <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
@@ -1514,7 +2180,7 @@
           <div class="mock-row"><span class="mock-dot r"></span><span>Sequoia · re: term sheet draft</span><span class="mock-meta">DECIDE</span></div>
           <div class="mock-row"><span class="mock-dot g"></span><span>Lily · weekly product sync notes</span><span class="mock-meta">DELEGATE</span></div>
           <div class="mock-row"><span class="mock-dot y"></span><span>Bench · Q1 financial report</span><span class="mock-meta">READ</span></div>
-          <div class="mock-row"><span class="mock-dot g"></span><span>support+ → handled by ChatGPT</span><span class="mock-meta">AUTO</span></div>
+          <div class="mock-row"><span class="mock-dot b"></span><span>support+ → handled by ChatGPT</span><span class="mock-meta">AUTO</span></div>
           <div class="mock-row"><span class="mock-dot"></span><span>Newsletter · The Daily Stoic</span><span class="mock-meta">ARCHIVE</span></div>
           <div class="mock-counter">
             <div class="big">0</div>
@@ -1652,25 +2318,39 @@
         <div class="mock-credit">
           <div class="mock-header">
             <span>client · case #4129</span>
-            <span style="color:#4a8c5b">● improving</span>
+            <span style="color:var(--accent-2)">● improving</span>
           </div>
           <div class="credit-row">
-            <div class="credit-ring" style="--deg:198deg">
-              <span class="score">548</span>
+            <div class="credit-gauge start">
+              <svg viewBox="0 0 88 88">
+                <circle class="gauge-bg" cx="44" cy="44" r="38" stroke-width="6"/>
+                <circle class="gauge-fg" cx="44" cy="44" r="38" stroke-width="6"
+                        stroke="#b8431f"
+                        stroke-dasharray="238.76"
+                        stroke-dashoffset="84.76"/>
+              </svg>
+              <div class="gauge-text">548</div>
             </div>
             <div class="credit-label">
               <div class="tag-small">starting score · Feb</div>
               <div class="big-num" style="color:var(--muted)">Fair · 11 derogatory items</div>
             </div>
           </div>
-          <div class="credit-arrow">↓ 5 months, 14 letters ↓</div>
+          <div class="credit-arrow">5 months · 14 letters</div>
           <div class="credit-row">
-            <div class="credit-ring good" style="--deg:296deg">
-              <span class="score" style="color:#4a8c5b">732</span>
+            <div class="credit-gauge end">
+              <svg viewBox="0 0 88 88">
+                <circle class="gauge-bg" cx="44" cy="44" r="38" stroke-width="6"/>
+                <circle class="gauge-fg" cx="44" cy="44" r="38" stroke-width="6"
+                        stroke="#2d4a3e"
+                        stroke-dasharray="238.76"
+                        stroke-dashoffset="33.16"/>
+              </svg>
+              <div class="gauge-text">732</div>
             </div>
             <div class="credit-label">
               <div class="tag-small">latest score · July</div>
-              <div class="big-num" style="color:#4a8c5b">Good · 2 items remaining</div>
+              <div class="big-num" style="color:var(--accent-2)">Good · 2 items remaining</div>
             </div>
           </div>
           <div class="credit-delta">
@@ -1681,6 +2361,527 @@
       </div>
     </article>
 
+  </div>
+</section>
+
+<!-- ============ WORK SAMPLES ============ -->
+<section id="samples" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Work samples</div>
+        <h2 class="display">The actual<br><em>deliverables</em>.</h2>
+      </div>
+      <p class="section-intro">Case studies tell stories. These are the artifacts — twenty-four real work samples across every specialization. Filter by category to see exactly what I produce, day to day.</p>
+    </div>
+
+    <div class="samples-filter reveal" id="filterBar">
+      <button class="filter-btn active" data-filter="all">All <span class="count">28</span></button>
+      <button class="filter-btn" data-filter="admin">Admin <span class="count">4</span></button>
+      <button class="filter-btn" data-filter="finance">Finance <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="ecom">E-commerce <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="support">Support <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="real-estate">Real Estate <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="healthcare">Healthcare <span class="count">4</span></button>
+      <button class="filter-btn" data-filter="social">Social Media <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="copy">Copywriting <span class="count">3</span></button>
+      <button class="filter-btn" data-filter="credit">Credit Repair <span class="count">2</span></button>
+    </div>
+
+    <div class="samples-grid reveal" id="samplesGrid">
+
+      <!-- ADMIN 1 -->
+      <div class="sample" data-cat="admin">
+        <div class="sample-thumb thumb-admin">
+          <div class="row done"><span class="dot"></span>Board deck Q1 review</div>
+          <div class="row done"><span class="dot"></span>Travel: SF → NYC, May 12–14</div>
+          <div class="row"><span class="dot"></span>Investor follow-ups (4)<span class="check">2:30P</span></div>
+          <div class="row"><span class="dot"></span>Onboarding doc · Mira<span class="check">EOD</span></div>
+          <div class="row done"><span class="dot"></span>Calendar audit, week of 5/13</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Admin · CEO Daily Brief</div>
+          <h4 class="sample-title">Morning executive digest</h4>
+          <p class="sample-desc">A single-screen Notion brief delivered at 7am — calendar, priorities, blockers, and EOD targets. Replaces 4 separate Slack threads.</p>
+          <div class="sample-meta"><span>Notion · Gmail</span><span class="result">9.5 hrs/wk saved</span></div>
+        </div>
+      </div>
+
+      <!-- ADMIN 2 -->
+      <div class="sample" data-cat="admin">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Vendor</span><span>Spend</span><span>YoY</span><span>Renew</span></div>
+          <div class="d-row"><span>Shopify</span><span class="num">$2,940</span><span class="num up">+12%</span><span class="num">Aug</span></div>
+          <div class="d-row"><span>Klaviyo</span><span class="num">$1,560</span><span class="num">flat</span><span class="num">Sep</span></div>
+          <div class="d-row"><span>HubSpot</span><span class="num">$8,400</span><span class="num up">+18%</span><span class="num">Nov</span></div>
+          <div class="d-row"><span>Zapier</span><span class="num">$588</span><span class="num">flat</span><span class="num">Jan</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Admin · Operations</div>
+          <h4 class="sample-title">Vendor spend tracker</h4>
+          <p class="sample-desc">Live Sheets dashboard tracking SaaS subscriptions, renewal dates, YoY spend trends, and seat utilization. Catches unused tools before auto-renewal.</p>
+          <div class="sample-meta"><span>Google Sheets</span><span class="result">$11k saved annually</span></div>
+        </div>
+      </div>
+
+      <!-- ADMIN 3 -->
+      <div class="sample" data-cat="admin">
+        <div class="sample-thumb thumb-admin" style="background:linear-gradient(135deg, #eef3f7 0%, #d9e4ee 100%)">
+          <div class="row"><span class="dot" style="background:var(--blue)"></span>Q3 OKR planning session<span class="check">90m</span></div>
+          <div class="row"><span class="dot" style="background:var(--blue)"></span>Pre-read: 3 docs attached<span class="check">SENT</span></div>
+          <div class="row"><span class="dot" style="background:var(--blue)"></span>Agenda finalized, 5 owners<span class="check">✓</span></div>
+          <div class="row done"><span class="dot"></span>Calendar holds confirmed</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Admin · Meetings</div>
+          <h4 class="sample-title">Meeting prep packets</h4>
+          <p class="sample-desc">Pre-meeting briefings with context, prior decisions, attendee bios, and a clear agenda — sent 24hrs ahead so the meeting actually starts on time.</p>
+          <div class="sample-meta"><span>Notion · Calendar</span><span class="result">37% shorter meetings</span></div>
+        </div>
+      </div>
+
+      <!-- ADMIN 4 -->
+      <div class="sample" data-cat="admin">
+        <div class="sample-thumb thumb-admin">
+          <div class="row"><span class="dot"></span>Hotel · NoMad NYC (3 nts)<span class="check">$1,140</span></div>
+          <div class="row"><span class="dot"></span>UA 245 · SFO→JFK, 7:30AM<span class="check">SEAT 4A</span></div>
+          <div class="row"><span class="dot"></span>Uber to LGA pre-booked<span class="check">✓</span></div>
+          <div class="row"><span class="dot"></span>Dinner reservation, Friday<span class="check">8:15P</span></div>
+          <div class="row done"><span class="dot"></span>TSA Pre-check confirmed</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Admin · Travel</div>
+          <h4 class="sample-title">Door-to-door travel itineraries</h4>
+          <p class="sample-desc">Full trip choreography: flights, hotels, ground transport, dinners, and contingency plans — all in one shareable itinerary with confirmation numbers.</p>
+          <div class="sample-meta"><span>TripIt · Notion</span><span class="result">Zero missed connections</span></div>
+        </div>
+      </div>
+
+      <!-- FINANCE 1 -->
+      <div class="sample" data-cat="finance">
+        <div class="sample-thumb thumb-finance">
+          <div class="f-title"><span>Profit & Loss · Q1 2026</span><span>USD</span></div>
+          <div class="f-row"><span>Revenue</span><span class="val pos">$284,610</span></div>
+          <div class="f-row indent"><span>Subscription</span><span class="val">$198,400</span></div>
+          <div class="f-row indent"><span>Services</span><span class="val">$86,210</span></div>
+          <div class="f-row"><span>Cost of Goods Sold</span><span class="val neg">($71,153)</span></div>
+          <div class="f-row"><span>Gross Profit</span><span class="val pos">$213,457</span></div>
+          <div class="f-row"><span>Operating Expenses</span><span class="val neg">($147,820)</span></div>
+          <div class="f-row bold"><span>Net Income</span><span class="val big pos">$65,637</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Finance · Reporting</div>
+          <h4 class="sample-title">Monthly P&amp;L statements</h4>
+          <p class="sample-desc">Clean, accountant-ready profit &amp; loss statements with revenue breakdowns, COGS allocation, OpEx categorization, and margin trend analysis. Built for founder review in under 60 seconds.</p>
+          <div class="sample-meta"><span>QuickBooks · Excel</span><span class="result">23% margin lift</span></div>
+        </div>
+      </div>
+
+      <!-- FINANCE 2 -->
+      <div class="sample" data-cat="finance">
+        <div class="sample-thumb thumb-finance-chart">
+          <div class="fc-header"><span>Budget vs Actual · YTD</span><span>$ thousands</span></div>
+          <div class="fc-row">
+            <span class="fc-label">Marketing</span>
+            <div class="fc-bars">
+              <div class="fc-bar budget" style="width:80%"></div>
+              <div class="fc-bar actual" style="width:72%"></div>
+            </div>
+          </div>
+          <div class="fc-row">
+            <span class="fc-label">Payroll</span>
+            <div class="fc-bars">
+              <div class="fc-bar budget" style="width:95%"></div>
+              <div class="fc-bar actual" style="width:91%"></div>
+            </div>
+          </div>
+          <div class="fc-row">
+            <span class="fc-label">SaaS</span>
+            <div class="fc-bars">
+              <div class="fc-bar budget" style="width:35%"></div>
+              <div class="fc-bar actual" style="width:48%"></div>
+            </div>
+          </div>
+          <div class="fc-row">
+            <span class="fc-label">Travel</span>
+            <div class="fc-bars">
+              <div class="fc-bar budget" style="width:25%"></div>
+              <div class="fc-bar actual" style="width:18%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Finance · Budgeting</div>
+          <h4 class="sample-title">Budget vs actual variance reports</h4>
+          <p class="sample-desc">Category-level budget tracking with variance flags, trend lines, and a one-page summary highlighting overruns before they compound. Catches scope creep early.</p>
+          <div class="sample-meta"><span>Excel · QuickBooks</span><span class="result">$18k variance flagged</span></div>
+        </div>
+      </div>
+
+      <!-- FINANCE 3 -->
+      <div class="sample" data-cat="finance">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Month</span><span>Cash In</span><span>Cash Out</span><span>Runway</span></div>
+          <div class="d-row"><span>Jan</span><span class="num up">$94k</span><span class="num">$72k</span><span class="num">14 mo</span></div>
+          <div class="d-row"><span>Feb</span><span class="num up">$102k</span><span class="num">$78k</span><span class="num">15 mo</span></div>
+          <div class="d-row"><span>Mar</span><span class="num up">$118k</span><span class="num">$81k</span><span class="num">17 mo</span></div>
+          <div class="d-row"><span>Apr</span><span class="num up">$127k</span><span class="num">$84k</span><span class="num">18 mo</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Finance · Cash Flow</div>
+          <h4 class="sample-title">Cash flow forecasting model</h4>
+          <p class="sample-desc">13-week rolling cash flow forecast with scenario modeling (best/base/worst), AR aging integration, and runway calculations. The model a founder actually opens before every board meeting.</p>
+          <div class="sample-meta"><span>Excel · Google Sheets</span><span class="result">4-month runway extended</span></div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE 1 -->
+      <div class="sample" data-cat="ecom">
+        <div class="sample-thumb thumb-ecom">
+          <div class="e-head"><span>order queue</span><span>fulfilling</span></div>
+          <div class="e-row"><span class="name">Organic Sleep Tincture · 60ml</span><span class="qty">×127</span></div>
+          <div class="e-row"><span class="name">Magnesium Recovery Spray</span><span class="qty">×84</span></div>
+          <div class="e-row"><span class="name">Daily Greens Bundle (3-pack)</span><span class="qty">×52</span></div>
+          <div class="e-row"><span class="name">Adaptogen Coffee · 250g</span><span class="qty">×41</span></div>
+          <div class="e-row"><span class="name">Welcome Kit</span><span class="qty">×38</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">E-commerce · Operations</div>
+          <h4 class="sample-title">Daily order fulfillment dashboard</h4>
+          <p class="sample-desc">Shopify orders auto-pulled into a fulfillment view, sorted by SKU and shipping speed. Supplier alerts fire when any SKU drops below threshold.</p>
+          <div class="sample-meta"><span>Shopify · Sheets</span><span class="result">98.3% accuracy</span></div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE 2 -->
+      <div class="sample" data-cat="ecom">
+        <div class="sample-thumb thumb-copy">
+          <div class="headline">The recovery tincture <em>your trainer</em> wishes you'd try.</div>
+          <div class="sub-line">A/B variant 03 · winner +47% CTR</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">E-commerce · Listings</div>
+          <h4 class="sample-title">Product listing rewrites</h4>
+          <p class="sample-desc">SEO-optimized product copy with benefit-led headlines, scannable bullets, and FAQ blocks. 64 listings rewritten for a wellness DTC brand.</p>
+          <div class="sample-meta"><span>Shopify · Surfer SEO</span><span class="result">+47% CTR</span></div>
+        </div>
+      </div>
+
+      <!-- E-COMMERCE 3 -->
+      <div class="sample" data-cat="ecom">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>SKU</span><span>On hand</span><span>Days</span><span>Order</span></div>
+          <div class="d-row"><span>SLP-60</span><span class="num">412</span><span class="num">8</span><span class="num up">REORDER</span></div>
+          <div class="d-row"><span>MAG-30</span><span class="num">1,204</span><span class="num">22</span><span class="num">ok</span></div>
+          <div class="d-row"><span>GRN-3PK</span><span class="num">186</span><span class="num">4</span><span class="num up">URGENT</span></div>
+          <div class="d-row"><span>ADP-250</span><span class="num">740</span><span class="num">18</span><span class="num">ok</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">E-commerce · Inventory</div>
+          <h4 class="sample-title">Inventory + reorder system</h4>
+          <p class="sample-desc">Days-of-cover calculation per SKU with automated supplier reorder triggers. No more stockouts, no more dead inventory clogging cash flow.</p>
+          <div class="sample-meta"><span>Sheets · DSers</span><span class="result">Zero stockouts</span></div>
+        </div>
+      </div>
+
+      <!-- SUPPORT 1 -->
+      <div class="sample" data-cat="support">
+        <div class="sample-thumb thumb-copy" style="background:linear-gradient(135deg, #fbf7ef 0%, #ece5d8 100%)">
+          <div class="headline" style="font-size:14px">Hi Sarah — I'm so sorry your order arrived damaged. Here's what we're doing right now…</div>
+          <div class="sub-line">Macro #07 · empathy-first template</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Support · Email Templates</div>
+          <h4 class="sample-title">Macro library: 24 reply templates</h4>
+          <p class="sample-desc">Empathy-first, brand-voice macros for damaged orders, refunds, shipping delays, sizing issues, and the long tail. Edited per-customer, sent in &lt;90 seconds.</p>
+          <div class="sample-meta"><span>Gorgias · Zendesk</span><span class="result">−54% first reply time</span></div>
+        </div>
+      </div>
+
+      <!-- SUPPORT 2 -->
+      <div class="sample" data-cat="support">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Ticket type</span><span>Vol</span><span>CSAT</span><span>FRT</span></div>
+          <div class="d-row"><span>Order status</span><span class="num">412</span><span class="num up">4.8</span><span class="num">14m</span></div>
+          <div class="d-row"><span>Returns</span><span class="num">187</span><span class="num up">4.6</span><span class="num">22m</span></div>
+          <div class="d-row"><span>Sizing / fit</span><span class="num">94</span><span class="num up">4.9</span><span class="num">9m</span></div>
+          <div class="d-row"><span>Billing</span><span class="num">61</span><span class="num">4.4</span><span class="num">31m</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Support · Reporting</div>
+          <h4 class="sample-title">Weekly support analytics</h4>
+          <p class="sample-desc">Volume, CSAT, FRT, and resolution patterns by category — surfaces the top three recurring issues each week so product can actually fix them.</p>
+          <div class="sample-meta"><span>Zendesk · Sheets</span><span class="result">CSAT 4.4 → 4.7</span></div>
+        </div>
+      </div>
+
+      <!-- SUPPORT 3 -->
+      <div class="sample" data-cat="support">
+        <div class="sample-thumb thumb-auto">
+          <div class="node">Q</div>
+          <div class="connector">→</div>
+          <div class="node center">AI</div>
+          <div class="connector">→</div>
+          <div class="node">↩</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Support · AI Chatbot</div>
+          <h4 class="sample-title">24/7 AI support chatbot</h4>
+          <p class="sample-desc">Trained on product, shipping, returns, and FAQs. Handles 68% of inbound autonomously; escalates the rest with full transcript and intent already tagged.</p>
+          <div class="sample-meta"><span>Intercom · GPT-4</span><span class="result">68% auto-resolved</span></div>
+        </div>
+      </div>
+
+      <!-- REAL ESTATE 1 -->
+      <div class="sample" data-cat="real-estate">
+        <div class="sample-thumb thumb-real-estate">
+          <div class="listing">
+            <div class="listing-img"></div>
+            <div><div class="addr">2847 Marin Ave, Berkeley</div></div>
+            <div class="price">$1.24M</div>
+          </div>
+          <div class="listing">
+            <div class="listing-img" style="background:linear-gradient(135deg, var(--accent), var(--gold))"></div>
+            <div><div class="addr">19 Crestview Pl, Oakland</div></div>
+            <div class="price">$895K</div>
+          </div>
+          <div class="listing">
+            <div class="listing-img" style="background:linear-gradient(135deg, var(--accent-2), var(--blue-soft))"></div>
+            <div><div class="addr">540 Castro St, SF</div></div>
+            <div class="price">$2.1M</div>
+          </div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Real Estate · MLS</div>
+          <h4 class="sample-title">MLS listing setup + optimization</h4>
+          <p class="sample-desc">Full listing build: high-converting descriptions, photo selection, fact sheet, neighborhood details, and syndication across Zillow, Redfin, and Realtor.com.</p>
+          <div class="sample-meta"><span>MLS · Zillow · Showcase IDX</span><span class="result">~14 days to offer</span></div>
+        </div>
+      </div>
+
+      <!-- REAL ESTATE 2 -->
+      <div class="sample" data-cat="real-estate">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Lead</span><span>Score</span><span>Stage</span><span>Next</span></div>
+          <div class="d-row"><span>J. Reyes</span><span class="num up">A+</span><span class="num">Tour</span><span class="num">Fri</span></div>
+          <div class="d-row"><span>S. Patel</span><span class="num">A</span><span class="num">Pre-app</span><span class="num">Mon</span></div>
+          <div class="d-row"><span>M. Walsh</span><span class="num">B</span><span class="num">Nurture</span><span class="num">2wk</span></div>
+          <div class="d-row"><span>T. Kim</span><span class="num up">A+</span><span class="num">Offer</span><span class="num">Today</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Real Estate · CRM</div>
+          <h4 class="sample-title">Follow Up Boss pipeline management</h4>
+          <p class="sample-desc">Buyer/seller pipelines kept clean: lead scoring, stage progression, auto-tagging by source, and daily next-action lists so no warm lead goes cold.</p>
+          <div class="sample-meta"><span>Follow Up Boss</span><span class="result">3.1× conversion lift</span></div>
+        </div>
+      </div>
+
+      <!-- REAL ESTATE 3 -->
+      <div class="sample" data-cat="real-estate">
+        <div class="sample-thumb thumb-copy">
+          <div class="headline">Sun-drenched 3BR craftsman, <em>moments</em> from the bay.</div>
+          <div class="sub-line">Listing description · 19 Crestview Pl</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Real Estate · Listings</div>
+          <h4 class="sample-title">Listing descriptions that sell</h4>
+          <p class="sample-desc">Property copy that paints the lifestyle, not just the square footage. Hits the buyer's emotional triggers, ranks on Zillow keywords, fits MLS character limits.</p>
+          <div class="sample-meta"><span>MLS · Zillow</span><span class="result">+62% listing views</span></div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE 1 -->
+      <div class="sample" data-cat="healthcare">
+        <div class="sample-thumb thumb-healthcare">
+          <div class="h-row"><div class="name">M. Chen</div><div class="time">9:00 AM</div><div class="status">CONF</div></div>
+          <div class="h-row"><div class="name">R. Vargas</div><div class="time">9:30 AM</div><div class="status">CONF</div></div>
+          <div class="h-row"><div class="name">L. Tanaka</div><div class="time">10:00 AM</div><div class="status">NEW</div></div>
+          <div class="h-row"><div class="name">D. Okafor</div><div class="time">10:30 AM</div><div class="status">RX</div></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Healthcare · Scheduling</div>
+          <h4 class="sample-title">Patient scheduling & reminders</h4>
+          <p class="sample-desc">Daily patient calendar with appointment type tags, prep notes, and 24-hour SMS reminders. Designed under HIPAA-conscious protocols per provider SOPs.</p>
+          <div class="sample-meta"><span>Practice Fusion · Twilio</span><span class="result">−43% no-shows</span></div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE 2 -->
+      <div class="sample" data-cat="healthcare">
+        <div class="sample-thumb thumb-healthcare">
+          <div class="h-row" style="grid-template-columns:1fr 50px"><div class="name">Intake form · K. Patel</div><div class="status">DONE</div></div>
+          <div class="h-row" style="grid-template-columns:1fr 50px"><div class="name">Insurance verified · Aetna</div><div class="status">DONE</div></div>
+          <div class="h-row" style="grid-template-columns:1fr 50px"><div class="name">Lab results uploaded</div><div class="status">PEND</div></div>
+          <div class="h-row" style="grid-template-columns:1fr 50px"><div class="name">RX renewal request</div><div class="status">RX</div></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Healthcare · EHR Admin</div>
+          <h4 class="sample-title">EHR data entry & file management</h4>
+          <p class="sample-desc">Patient intake, insurance verification, lab uploads, and RX coordination — handled inside the provider's EHR with strict protocols and no PHI ever leaving their system.</p>
+          <div class="sample-meta"><span>Practice Fusion · EHR</span><span class="result">99.4% data accuracy</span></div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE 3 -->
+      <div class="sample" data-cat="healthcare">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Payer</span><span>Claims</span><span>Paid</span><span>Pend</span></div>
+          <div class="d-row"><span>Aetna</span><span class="num">47</span><span class="num up">41</span><span class="num">6</span></div>
+          <div class="d-row"><span>BCBS</span><span class="num">38</span><span class="num up">34</span><span class="num">4</span></div>
+          <div class="d-row"><span>UHC</span><span class="num">29</span><span class="num up">26</span><span class="num">3</span></div>
+          <div class="d-row"><span>Cigna</span><span class="num">22</span><span class="num up">20</span><span class="num">2</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Healthcare · Billing</div>
+          <h4 class="sample-title">Insurance claim tracking</h4>
+          <p class="sample-desc">Weekly claims dashboard by payer: submitted, paid, denied, pending follow-up. Surfaces stuck claims before they age past 90 days.</p>
+          <div class="sample-meta"><span>EHR · Sheets</span><span class="result">14-day faster payouts</span></div>
+        </div>
+      </div>
+
+      <!-- HEALTHCARE 4 — MEDICAL BILLING -->
+      <div class="sample" data-cat="healthcare">
+        <div class="sample-thumb thumb-finance">
+          <div class="f-title"><span>Superbill · Patient #2847</span><span>CPT</span></div>
+          <div class="f-row"><span>99214 · Est. patient visit</span><span class="val">$185.00</span></div>
+          <div class="f-row"><span>93000 · ECG, 12-lead</span><span class="val">$72.50</span></div>
+          <div class="f-row"><span>36415 · Venous blood draw</span><span class="val">$18.00</span></div>
+          <div class="f-row indent"><span>ICD-10: I10, E11.9</span><span class="val">verified</span></div>
+          <div class="f-row"><span>Submitted to: BCBS</span><span class="val pos">CLEAN</span></div>
+          <div class="f-row bold"><span>Claim total</span><span class="val big pos">$275.50</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Healthcare · Medical Billing</div>
+          <h4 class="sample-title">Medical billing & claim coding</h4>
+          <p class="sample-desc">CPT and ICD-10 code review, superbill preparation, claim submission, denial follow-ups, and AR aging cleanup. Clean claims out the door faster, fewer rejections back.</p>
+          <div class="sample-meta"><span>Kareo · AdvancedMD</span><span class="result">96% clean claim rate</span></div>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA 1 -->
+      <div class="sample" data-cat="social">
+        <div class="sample-thumb thumb-social">
+          <div class="tile"><span class="label">REELS / WK</span><span class="stat">12</span></div>
+          <div class="tile"><span class="label">REACH</span><span class="stat">187k</span></div>
+          <div class="tile"><span class="label">SAVES</span><span class="stat">2.1k</span></div>
+          <div class="tile"><span class="label">FOLLOWERS</span><span class="stat">+1.8k</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Social · Content Calendar</div>
+          <h4 class="sample-title">30-day content calendar</h4>
+          <p class="sample-desc">Themed monthly calendar with daily posts across IG, TikTok, and LinkedIn. Captions, hooks, hashtags, asset briefs — ready for graphics or video team.</p>
+          <div class="sample-meta"><span>Buffer · Notion</span><span class="result">+1.8k followers/mo</span></div>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA 2 -->
+      <div class="sample" data-cat="social">
+        <div class="sample-thumb thumb-social" style="background:linear-gradient(135deg, #b8431f 0%, #8b3015 100%)">
+          <div class="tile"><span class="label">HOOK A</span><span class="stat">3.2%</span></div>
+          <div class="tile"><span class="label">HOOK B</span><span class="stat">6.8%</span></div>
+          <div class="tile"><span class="label">WATCH</span><span class="stat">42s</span></div>
+          <div class="tile"><span class="label">SHARES</span><span class="stat">+218</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Social · Short-form Video</div>
+          <h4 class="sample-title">CapCut Reels & TikToks</h4>
+          <p class="sample-desc">Hook-tested short-form videos: trim, caption, b-roll, music, and on-brand text overlays. A/B tested first frames to find what makes thumbs stop.</p>
+          <div class="sample-meta"><span>CapCut · Meta</span><span class="result">2.1× engagement</span></div>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA 3 -->
+      <div class="sample" data-cat="social">
+        <div class="sample-thumb thumb-copy">
+          <div class="headline">If your morning needs <em>three</em> coffees, your nights need this.</div>
+          <div class="sub-line">Caption A · 4.6% engagement rate</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Social · Captions</div>
+          <h4 class="sample-title">Caption writing in your voice</h4>
+          <p class="sample-desc">Captions that earn the scroll-stop: pattern interrupts, story-led hooks, single-line CTAs. I learn your voice in week one and disappear into it.</p>
+          <div class="sample-meta"><span>Notion · Buffer</span><span class="result">4.6% avg ER</span></div>
+        </div>
+      </div>
+
+      <!-- COPYWRITING 1 -->
+      <div class="sample" data-cat="copy">
+        <div class="sample-thumb thumb-copy">
+          <div class="headline">The score you actually deserve. <em>Without</em> the runaround.</div>
+          <div class="sub-line">Homepage hero · +2.1× enrollment</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Copy · Landing Pages</div>
+          <h4 class="sample-title">Sales page rewrites</h4>
+          <p class="sample-desc">Conversion-focused landing page copy: clear hook, benefit-led sub-head, proof points, objection handling, and CTAs that don't feel pushy.</p>
+          <div class="sample-meta"><span>Webflow · Framer</span><span class="result">+2.1× conversion</span></div>
+        </div>
+      </div>
+
+      <!-- COPYWRITING 2 -->
+      <div class="sample" data-cat="copy">
+        <div class="sample-thumb thumb-copy" style="background:linear-gradient(135deg, #2d4a3e 0%, #1d3329 100%);color:#fbf7ef">
+          <div class="headline" style="color:#fbf7ef">Email 3 of 7: <em style="color:#f4a261">why most</em> sleep advice is wrong.</div>
+          <div class="sub-line" style="color:#f4a261">Open rate 52% · Click 11%</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Copy · Email</div>
+          <h4 class="sample-title">7-email welcome sequences</h4>
+          <p class="sample-desc">Welcome, nurture, launch, and win-back sequences with story-led subject lines and one clear CTA per email. Sequences that don't get unsubscribed from.</p>
+          <div class="sample-meta"><span>Klaviyo · ConvertKit</span><span class="result">52% open rate</span></div>
+        </div>
+      </div>
+
+      <!-- COPYWRITING 3 -->
+      <div class="sample" data-cat="copy">
+        <div class="sample-thumb thumb-copy">
+          <div class="headline">"I sleep through the night for the <em>first time</em> in years."</div>
+          <div class="sub-line">Meta ad · 4.8× ROAS · 30-day winner</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Copy · Paid Ads</div>
+          <h4 class="sample-title">Meta & Google ad copy</h4>
+          <p class="sample-desc">Hook-led ad variants written for tested angles: pain-point, social proof, transformation, curiosity. Always with a clear CTA and creative brief attached.</p>
+          <div class="sample-meta"><span>Meta · Google Ads</span><span class="result">4.8× ROAS</span></div>
+        </div>
+      </div>
+
+      <!-- CREDIT REPAIR 1 -->
+      <div class="sample" data-cat="credit">
+        <div class="sample-thumb thumb-credit">
+          <div class="doc-line long"></div>
+          <div class="doc-line med"></div>
+          <div class="doc-line short"></div>
+          <div class="doc-line long"></div>
+          <div class="doc-line med"></div>
+          <div class="doc-stamp">FCRA §611</div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Credit · Dispute Letters</div>
+          <h4 class="sample-title">FCRA-compliant dispute letters</h4>
+          <p class="sample-desc">Custom-drafted dispute correspondence for inaccurate, unverifiable, or obsolete items. Each letter cites the specific FCRA provision and tracks bureau response deadlines.</p>
+          <div class="sample-meta"><span>Credit Repair Cloud</span><span class="result">200+ letters drafted</span></div>
+        </div>
+      </div>
+
+      <!-- CREDIT REPAIR 2 -->
+      <div class="sample" data-cat="credit">
+        <div class="sample-thumb thumb-data">
+          <div class="d-head"><span>Client</span><span>Start</span><span>Now</span><span>Δ</span></div>
+          <div class="d-row"><span>Case #4129</span><span class="num">548</span><span class="num up">732</span><span class="num up">+184</span></div>
+          <div class="d-row"><span>Case #4087</span><span class="num">612</span><span class="num up">748</span><span class="num up">+136</span></div>
+          <div class="d-row"><span>Case #4151</span><span class="num">498</span><span class="num up">621</span><span class="num up">+123</span></div>
+          <div class="d-row"><span>Case #4203</span><span class="num">571</span><span class="num up">689</span><span class="num up">+118</span></div>
+        </div>
+        <div class="sample-body">
+          <div class="sample-cat">Credit · Case Management</div>
+          <h4 class="sample-title">Client case tracking dashboard</h4>
+          <p class="sample-desc">Per-client case files: dispute log, bureau response tracker, score progress, and remaining items. Built in Notion, FCRA-compliant note-taking, audit-ready.</p>
+          <div class="sample-meta"><span>Notion · Smart Credit</span><span class="result">+84 avg score gain</span></div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -1870,9 +3071,9 @@
         <ul class="pkg-features">
           <li>Workflow audit & automation builds</li>
           <li>Sales pages & email sequences</li>
+          <li>Bookkeeping & financial reporting</li>
           <li>Credit repair back-office support</li>
-          <li>AI agent & chatbot development</li>
-          <li>SOPs + team training</li>
+          <li>Medical billing & coding</li>
           <li>30-day post-launch support</li>
         </ul>
         <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20a%20custom%20Specialist%20project." class="pkg-btn">Scope a project</a>
@@ -2012,6 +3213,19 @@
         </div>
       </div>
 
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>Most VAs I've worked with can't tell a P&amp;L from a pie chart. Meneral built our monthly reporting from scratch, caught a $4k vendor overcharge in month one, and our books are finally board-ready. She actually understands the numbers.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">E</div>
+          <div>
+            <div class="testim-name">Elena G.</div>
+            <div class="testim-meta">Founder · Health & Wellness</div>
+          </div>
+          <span class="verify">✓ LinkedIn</span>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -2097,7 +3311,7 @@
         </details>
         <details>
           <summary>What makes you different from other VAs?</summary>
-          <p>Three things: I treat your business like a system, not a to-do list — meaning I look for patterns and build leverage. I've spent the last two years going deep on AI automation, which is where the real time-savings live now. And I write — sales pages, dispute letters, email sequences — which most VAs simply can't.</p>
+          <p>A few things: I treat your business like a system, not a to-do list — meaning I look for patterns and build leverage. I've spent the last two years going deep on AI automation, which is where the real time-savings live now. I'm a BSBA Financial Management graduate, so I can actually manage your books, not just file receipts. And I write — sales pages, dispute letters, email sequences — which most VAs simply can't.</p>
         </details>
         <details>
           <summary>Are your credit repair services FCRA / FDCPA compliant?</summary>
@@ -2106,6 +3320,14 @@
         <details>
           <summary>What kinds of copywriting do you take on?</summary>
           <p>Sales pages, landing pages, email sequences (welcome, nurture, launch, win-back), product descriptions, ad copy for Meta and Google, and SEO blog content. I don't take on poetry, fiction, or anything ghostwriting-as-thought-leadership where the voice isn't clearly yours. I write to convert — clarity over cleverness, always.</p>
+        </details>
+        <details>
+          <summary>Can you really handle bookkeeping and financial reporting?</summary>
+          <p>Yes — I'm a BSBA Financial Management graduate, so this is one of the things I'm actually formally trained in. I can build monthly P&amp;L statements, manage AR/AP, reconcile QuickBooks or Xero, prepare budget vs actual variance reports, and model cash flow forecasts. For audit-level work or tax filings I'll always recommend bringing in a licensed CPA, but everything between raw transactions and CPA-ready books, I handle directly.</p>
+        </details>
+        <details>
+          <summary>Do you do medical billing as well?</summary>
+          <p>Yes. CPT and ICD-10 code review, superbill prep, claim submission, denial follow-ups, and AR aging. I work as back-office support for licensed providers — I don't represent patients to insurers directly, and I follow whatever billing protocols and software (Kareo, AdvancedMD, etc.) the practice uses. Clean claim rate is my metric to beat.</p>
         </details>
       </div>
     </div>
@@ -2197,6 +3419,26 @@
   }
   [rate, hours, months].forEach(el => el.addEventListener('input', update));
   update();
+
+  // Work samples filter
+  const filterBar = document.getElementById('filterBar');
+  const samplesGrid = document.getElementById('samplesGrid');
+  if (filterBar && samplesGrid) {
+    filterBar.addEventListener('click', (e) => {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+      const filter = btn.dataset.filter;
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      samplesGrid.querySelectorAll('.sample').forEach(sample => {
+        if (filter === 'all' || sample.dataset.cat === filter) {
+          sample.classList.remove('hidden');
+        } else {
+          sample.classList.add('hidden');
+        }
+      });
+    });
+  }
 </script>
 
 </body>
