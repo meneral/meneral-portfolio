@@ -3,2010 +3,2201 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#f5f1ea">
-<title>Meneral Navela — Virtual Assistant & AI Automation Specialist</title>
-<meta name="description" content="Virtual Assistant from the Philippines specializing in Executive Support, E-commerce, Customer Service, Real Estate, Healthcare, Social Media, and AI Automation.">
+<meta name="theme-color" content="#f4efe6" />
+<meta name="description" content="Meneral Navela — Virtual Assistant, AI Automation, Copywriter & Credit Repair Specialist from the Philippines. Helping founders reclaim 10+ hours a week through reliable support, intelligent automation, persuasive copy, and credit repair expertise." />
+<title>Meneral Navela — Virtual Assistant · AI Automation · Copywriting · Credit Repair</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter+Tight:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root {
-    --bg: #f5f1ea;
-    --bg-soft: #ebe5d9;
-    --ink: #0f0f0e;
-    --ink-soft: #2d2d2a;
-    --muted: #6b6659;
-    --line: #c9c2b1;
-    --accent: #b8390a;
-    --whatsapp: #25d366;
-    --display: 'Fraunces', Georgia, serif;
-    --sans: 'Inter Tight', system-ui, sans-serif;
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg); color: var(--ink); font-family: var(--sans);
-    font-weight: 500; line-height: 1.55; -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-  a { color: inherit; }
-
-  /* ---------- WHATSAPP FLOATING BUTTON ---------- */
-  .whatsapp-float {
-    position: fixed;
-    bottom: 2rem; right: 2rem; z-index: 999;
-    background: var(--whatsapp);
-    width: 64px; height: 64px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s ease;
-    text-decoration: none;
-    animation: bounce-in 0.6s ease-out 1s both;
-  }
-  .whatsapp-float::before {
-    content: ''; position: absolute; inset: 0;
-    border-radius: 50%; background: var(--whatsapp);
-    z-index: -1; animation: pulse-ring 2s infinite;
-  }
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.5);
-  }
-  .whatsapp-float svg { width: 32px; height: 32px; fill: white; }
-  .whatsapp-tooltip {
-    position: absolute; right: 76px; top: 50%; transform: translateY(-50%);
-    background: var(--ink); color: var(--bg);
-    padding: 0.6rem 1rem; border-radius: 8px;
-    font-size: 0.8rem; font-weight: 600; white-space: nowrap;
-    opacity: 0; pointer-events: none; transition: opacity 0.2s ease;
-  }
-  .whatsapp-tooltip::after {
-    content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
-    border: 6px solid transparent; border-left-color: var(--ink);
-  }
-  .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; }
-  @keyframes pulse-ring {
-    0% { transform: scale(1); opacity: 0.6; }
-    100% { transform: scale(1.6); opacity: 0; }
-  }
-  @keyframes bounce-in {
-    0% { transform: scale(0); opacity: 0; }
-    60% { transform: scale(1.2); opacity: 1; }
-    100% { transform: scale(1); }
+  :root{
+    --bg:#f4efe6;
+    --bg-2:#ece5d8;
+    --ink:#1a1612;
+    --ink-soft:#3a3128;
+    --muted:#6b5d4f;
+    --line:#d9cfbf;
+    --line-2:#c8bba5;
+    --paper:#fbf7ef;
+    --accent:#b8431f;        /* terracotta */
+    --accent-2:#2d4a3e;      /* forest */
+    --gold:#a07a2c;
+    --shadow: 0 1px 0 rgba(26,22,18,.04), 0 10px 30px -12px rgba(26,22,18,.18);
   }
 
-  /* ---------- NAV ---------- */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.25rem 2rem; display: flex; justify-content: space-between;
-    align-items: center; background: rgba(245, 241, 234, 0.9);
-    backdrop-filter: blur(12px); border-bottom: 1px solid transparent;
-    transition: border-color 0.3s ease;
-  }
-  nav.scrolled { border-bottom-color: var(--line); }
-  .logo {
-    font-family: var(--display); font-size: 1.5rem; font-weight: 600;
-    font-style: italic; letter-spacing: -0.02em; text-decoration: none; color: var(--ink);
-  }
-  .logo span { color: var(--accent); }
-  .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
-  .nav-links a {
-    color: var(--ink-soft); text-decoration: none; font-size: 0.875rem;
-    font-weight: 600; transition: color 0.2s ease;
-  }
-  .nav-links a:hover { color: var(--ink); }
-  .cta-btn {
-    background: var(--ink); color: var(--bg) !important; padding: 0.7rem 1.5rem;
-    border-radius: 100px; font-size: 0.875rem; font-weight: 600;
-    text-decoration: none; transition: all 0.3s ease; display: inline-flex;
-    align-items: center; gap: 0.5rem;
-  }
-  .cta-btn:hover { background: var(--accent); transform: translateY(-1px); }
-  .cta-btn.whatsapp-cta { background: var(--whatsapp); }
-  .cta-btn.whatsapp-cta:hover { background: #1fb955; }
-  .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
-  .menu-toggle span {
-    display: block; width: 24px; height: 2px; background: var(--ink);
-    margin: 5px 0; transition: 0.3s;
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter Tight", system-ui, sans-serif;
+    font-weight:400;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
   }
 
-  /* ---------- HERO ---------- */
-  .hero {
-    min-height: 100vh; display: flex; align-items: center;
-    padding: 8rem 2rem 4rem; position: relative; overflow: hidden;
-  }
-  .hero::before {
-    content: ''; position: absolute; top: 20%; right: -10%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(184, 57, 10, 0.1) 0%, transparent 70%);
-    border-radius: 50%; pointer-events: none;
-  }
-  .hero-grid {
-    display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem;
-    align-items: center; width: 100%; max-width: 1200px;
-    margin: 0 auto; position: relative; z-index: 1;
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 0.6rem;
-    font-size: 0.78rem; color: var(--ink); margin-bottom: 2rem;
-    text-transform: uppercase; letter-spacing: 0.18em; font-weight: 700;
-    opacity: 0; animation: fadeUp 0.8s 0.1s ease forwards;
-    background: var(--bg-soft); padding: 0.6rem 1rem; border-radius: 100px;
-    border: 1px solid var(--line);
-  }
-  .hero-tag .dot {
-    width: 8px; height: 8px; background: var(--accent); border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  .hero h1 {
-    font-family: var(--display); font-size: clamp(2.75rem, 6.5vw, 5.25rem);
-    font-weight: 600; line-height: 1.0; letter-spacing: -0.035em;
-    margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 0.8s 0.2s ease forwards;
-    color: var(--ink);
-  }
-  .hero h1 em { font-style: italic; font-weight: 500; color: var(--accent); }
-  .hero p {
-    font-size: 1.125rem; color: var(--ink-soft); max-width: 520px;
-    margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 0.8s 0.4s ease forwards;
-    font-weight: 500;
-  }
-  .hero-actions {
-    display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.8s 0.6s ease forwards;
-  }
-  .btn-secondary {
-    color: var(--ink); text-decoration: none; font-size: 0.9rem;
-    font-weight: 700; padding: 0.7rem 0; border-bottom: 2px solid var(--ink);
-    transition: all 0.2s ease;
-  }
-  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
-  .hero-visual {
-    position: relative;
-    aspect-ratio: 1 / 1.15;
-    max-width: 480px;
-    margin: 0 auto;
-    width: 100%;
-    opacity: 0;
-    animation: fadeUp 1s 0.5s ease forwards;
-  }
-  .hero-card {
-    position: absolute; inset: 0; background: var(--bg-soft);
-    border-radius: 8px; overflow: hidden; display: flex;
-    align-items: center; justify-content: center; border: 1px solid var(--line);
-  }
-  /* Decorative floating shapes inside the hero card */
-  .hero-card::before {
-    content: '';
-    position: absolute;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(184, 57, 10, 0.18), transparent 70%);
-    top: 12%; right: -8%;
-    animation: blob-float 8s ease-in-out infinite;
-    z-index: 0;
-  }
-  .hero-card::after {
-    content: '';
-    position: absolute;
-    width: 120px; height: 120px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(37, 211, 102, 0.15), transparent 70%);
-    bottom: 14%; left: -6%;
-    animation: blob-float 10s ease-in-out infinite reverse;
-    z-index: 0;
-  }
-  .hero-card-inner {
-    text-align: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-  }
-  .hero-monogram {
-    font-family: var(--display);
-    font-size: clamp(5.5rem, 13vw, 11rem);
-    font-style: italic;
-    font-weight: 500;
-    color: var(--ink);
-    line-height: 0.9;
-    margin-bottom: 1.25rem;
-    display: inline-block;
-    animation: monogram-float 6s ease-in-out infinite;
-  }
-  .hero-monogram .letter-m {
-    color: var(--ink);
-    display: inline-block;
-    animation: letter-pulse-m 4s ease-in-out infinite;
-  }
-  .hero-monogram .letter-n {
-    color: var(--accent);
-    display: inline-block;
-    animation: letter-pulse-n 4s ease-in-out infinite;
-  }
-  .hero-card-label {
-    font-size: 0.78rem; text-transform: uppercase; font-weight: 700;
-    letter-spacing: 0.2em; color: var(--ink-soft);
+  /* Grainy paper texture overlay */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:1;
+    opacity:.5;
+    mix-blend-mode:multiply;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(184,67,31,.05), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(45,74,62,.06), transparent 45%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   }
 
-  /* Floating decorative orbs around the hero card */
-  .deco-orb {
-    position: absolute;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 3;
+  a{color:inherit;text-decoration:none}
+
+  /* Display type */
+  .display{
+    font-family:"Fraunces", Georgia, serif;
+    font-weight:400;
+    font-variation-settings:"opsz" 144, "SOFT" 50;
+    letter-spacing:-0.02em;
+    line-height:0.95;
   }
-  .deco-orb-1 {
-    width: 20px; height: 20px;
-    background: var(--accent);
-    top: 22%; right: 6%;
-    animation: orbit-1 7s ease-in-out infinite;
-    box-shadow: 0 4px 16px rgba(184, 57, 10, 0.4);
+  .display em{
+    font-style:italic;
+    font-weight:400;
+    color:var(--accent);
+    font-variation-settings:"opsz" 144, "SOFT" 100;
   }
-  .deco-orb-2 {
-    width: 14px; height: 14px;
-    background: var(--whatsapp);
-    bottom: 25%; left: 8%;
-    animation: orbit-2 9s ease-in-out infinite;
-    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
-  }
-  .deco-orb-3 {
-    width: 10px; height: 10px;
-    background: var(--ink);
-    top: 12%; left: 25%;
-    animation: orbit-3 11s ease-in-out infinite;
-  }
-  .deco-orb-4 {
-    width: 8px; height: 8px;
-    background: #f97316;
-    bottom: 22%; right: 18%;
-    animation: orbit-1 5s ease-in-out infinite;
-  }
-  .deco-ring {
-    position: absolute;
-    border: 2px dashed var(--accent);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 0.25;
-    z-index: 0;
-  }
-  .deco-ring-1 {
-    width: 90%; height: 90%;
-    top: 5%; left: 5%;
-    animation: rotate-slow 30s linear infinite;
-  }
-  .deco-ring-2 {
-    width: 70%; height: 70%;
-    top: 15%; left: 15%;
-    animation: rotate-slow 40s linear infinite reverse;
-    border-style: dotted;
+  .mono{font-family:"JetBrains Mono", monospace; letter-spacing:0}
+  .eyebrow{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--muted);
   }
 
-  @keyframes monogram-float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    25% { transform: translateY(-8px) rotate(-1deg); }
-    50% { transform: translateY(-4px) rotate(0deg); }
-    75% { transform: translateY(-10px) rotate(1deg); }
-  }
-  @keyframes letter-pulse-m {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
-  }
-  @keyframes letter-pulse-n {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(6px); }
-  }
-  @keyframes gradient-shift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-  }
-  @keyframes blob-float {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-15px, 20px) scale(1.1); }
-    66% { transform: translate(20px, -15px) scale(0.95); }
-  }
-  @keyframes orbit-1 {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(-8px, -10px); }
-    50% { transform: translate(-15px, 0); }
-    75% { transform: translate(-8px, 10px); }
-  }
-  @keyframes orbit-2 {
-    0%, 100% { transform: translate(0, 0) rotate(0); }
-    50% { transform: translate(12px, -15px) rotate(180deg); }
-  }
-  @keyframes orbit-3 {
-    0%, 100% { transform: translate(0, 0); }
-    25% { transform: translate(10px, 8px); }
-    50% { transform: translate(20px, -5px); }
-    75% { transform: translate(8px, 12px); }
-  }
-  @keyframes rotate-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
-  @keyframes sparkle {
-    0%, 100% { opacity: 0; transform: scale(0); }
-    50% { opacity: 1; transform: scale(1); }
-  }
-  .floating-badge {
-    position: absolute; background: var(--ink); color: var(--bg);
-    padding: 0.7rem 1.1rem; border-radius: 100px;
-    font-size: 0.78rem; font-weight: 600;
-    display: flex; align-items: center; gap: 0.45rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    animation: float 4s ease-in-out infinite; white-space: nowrap;
-    z-index: 5;
-  }
-  .floating-badge.top { top: 5%; left: 4%; }
-  .floating-badge.bottom { bottom: 5%; right: 4%; animation-delay: -2s; }
-  .floating-badge .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; }
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
-  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
-
-  /* ---------- TRUST BAR ---------- */
-  .trust-bar {
-    background: var(--ink); color: var(--bg); padding: 1.75rem 0;
-  }
-  .trust-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
-    text-align: center;
-  }
-  .trust-item .num {
-    font-family: var(--display); font-style: italic; font-weight: 600;
-    font-size: 2.25rem; color: #f97316; line-height: 1;
-  }
-  .trust-item .label {
-    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.15em;
-    color: rgba(245,241,234,0.75); margin-top: 0.5rem; font-weight: 600;
+  /* Container */
+  .wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 32px;
+    position:relative;
+    z-index:2;
   }
 
-  /* ---------- SECTIONS ---------- */
-  section { padding: 6rem 0; position: relative; }
-  .section-label {
-    font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.2em;
-    color: var(--accent); margin-bottom: 1rem; display: flex;
-    align-items: center; gap: 1rem; font-weight: 700;
+  /* ===== NAV ===== */
+  .nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    background:rgba(244,239,230,.78);
+    border-bottom:1px solid rgba(217,207,191,.6);
   }
-  .section-label::before { content: ''; width: 32px; height: 2px; background: var(--accent); }
-  .section-title {
-    font-family: var(--display); font-size: clamp(2.25rem, 4.8vw, 3.5rem);
-    font-weight: 600; line-height: 1.02; letter-spacing: -0.025em;
-    margin-bottom: 1.5rem; max-width: 800px; color: var(--ink);
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
   }
-  .section-title em { font-style: italic; font-weight: 500; color: var(--accent); }
-
-  /* ---------- SERVICES ---------- */
-  .services { background: var(--bg); border-top: 1px solid var(--line); }
-  .services-header {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    margin-bottom: 4rem; align-items: end;
+  .logo{
+    font-family:"Fraunces", serif;
+    font-size:22px;
+    font-weight:500;
+    font-style:italic;
+    letter-spacing:-.02em;
   }
-  .services-header p { color: var(--ink-soft); font-size: 1.0625rem; max-width: 460px; font-weight: 500; }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
-    background: var(--line); border: 1px solid var(--line);
+  .logo .dot{color:var(--accent)}
+  .nav-links{display:flex;gap:32px;align-items:center}
+  .nav-links a{
+    font-size:14px;
+    color:var(--ink-soft);
+    position:relative;
+    transition:color .2s;
   }
-  .service-card { background: var(--bg); padding: 2.5rem; transition: background 0.3s ease; }
-  .service-card:hover { background: var(--bg-soft); }
-  .service-num {
-    font-family: var(--display); font-size: 0.9rem; font-style: italic;
-    color: var(--accent); margin-bottom: 1.5rem; font-weight: 600;
+  .nav-links a:hover{color:var(--accent)}
+  .nav-cta{
+    background:var(--ink) !important;
+    color:var(--paper) !important;
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:13px;
+    display:inline-flex !important;
+    align-items:center;
+    gap:8px;
+    transition:transform .25s, background .25s;
+    white-space:nowrap;
   }
-  .service-card h3 {
-    font-family: var(--display); font-size: 1.6rem; font-weight: 600;
-    margin-bottom: 0.75rem; letter-spacing: -0.015em; color: var(--ink);
+  .nav-cta:hover{background:var(--accent) !important;transform:translateY(-1px)}
+  .nav-cta .pulse{background:#4ade80}
+  .pulse{
+    width:8px;height:8px;border-radius:50%;
+    background:#4ade80;
+    box-shadow:0 0 0 0 rgba(74,222,128,.7);
+    animation:pulse 2s infinite;
+    flex-shrink:0;
   }
-  .service-card p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; font-weight: 500; }
-
-  /* ---------- TOOLS STRIP ---------- */
-  .tools-strip {
-    background: var(--bg-soft); padding: 3rem 0;
-    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
-    overflow: hidden;
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(74,222,128,.7)}
+    70%{box-shadow:0 0 0 8px rgba(74,222,128,0)}
+    100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}
   }
-  .tools-label {
-    text-align: center; font-size: 0.78rem; text-transform: uppercase;
-    letter-spacing: 0.25em; color: var(--ink-soft); margin-bottom: 2rem; font-weight: 700;
-  }
-  .tools-track {
-    display: flex; gap: 3rem;
-    animation: scroll 50s linear infinite; width: max-content;
-  }
-  .tools-track span {
-    font-family: var(--display); font-size: 1.6rem; font-style: italic;
-    font-weight: 600; color: var(--ink); white-space: nowrap;
-  }
-  .tools-track span::after { content: '·'; margin-left: 3rem; color: var(--accent); }
-  @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-  /* ---------- PORTFOLIO ---------- */
-  .portfolio { background: var(--bg); }
-  .portfolio-intro { margin-bottom: 4rem; max-width: 700px; }
-  .portfolio-intro p { color: var(--ink-soft); font-size: 1.0625rem; font-weight: 500; }
-
-  .specialization-block {
-    margin-bottom: 5rem;
-    border-top: 1px solid var(--line);
-    padding-top: 3rem;
-  }
-  .specialization-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    gap: 2rem; align-items: center; margin-bottom: 2.5rem;
-  }
-  .spec-num {
-    font-family: var(--display); font-style: italic;
-    font-size: 3.25rem; font-weight: 600;
-    color: var(--accent); line-height: 1;
-  }
-  .spec-title h3 {
-    font-family: var(--display);
-    font-size: clamp(1.6rem, 2.8vw, 2.35rem);
-    font-weight: 600; letter-spacing: -0.02em;
-    margin-bottom: 0.25rem; color: var(--ink);
-  }
-  .spec-title p { color: var(--ink-soft); font-size: 0.95rem; font-weight: 500; }
-  .spec-tools {
-    display: flex; gap: 0.5rem; flex-wrap: wrap;
-    justify-content: flex-end; max-width: 320px;
-  }
-  .tool-chip {
-    background: var(--bg-soft); border: 1px solid var(--line);
-    padding: 0.4rem 0.85rem; border-radius: 100px;
-    font-size: 0.78rem; font-weight: 600; color: var(--ink-soft);
-    white-space: nowrap;
+  @media (max-width:780px){
+    .nav-links a:not(.nav-cta){display:none}
+    .nav-inner{padding:14px 0}
+    .nav-cta{padding:9px 14px;font-size:12px}
   }
 
-  .proof-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  /* ===== HERO ===== */
+  .hero{
+    padding:80px 0 60px;
+    position:relative;
   }
-  .proof-card {
-    background: var(--bg-soft); border: 1px solid var(--line);
-    border-radius: 8px; padding: 1.85rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap:64px;
+    align-items:end;
   }
-  .proof-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  .available{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:7px 14px;
+    background:rgba(255,255,255,.5);
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-size:12px;
+    color:var(--ink-soft);
+    margin-bottom:36px;
+    backdrop-filter:blur(8px);
   }
-  .proof-stars {
-    color: var(--accent);
-    font-size: 0.9rem;
-    letter-spacing: 0.15em;
-    margin-bottom: 0.75rem;
-    font-weight: 700;
+  h1.headline{
+    font-size:clamp(56px, 9vw, 132px);
+    margin:0 0 32px;
   }
-  .proof-tag {
-    display: inline-block; font-size: 0.72rem;
-    text-transform: uppercase; letter-spacing: 0.15em;
-    color: var(--accent); margin-bottom: 0.85rem; font-weight: 700;
+  .headline .stack{display:block}
+  .underline-swoop{
+    position:relative;
+    display:inline-block;
   }
-  .proof-card h4 {
-    font-family: var(--display); font-size: 1.3rem; font-weight: 600;
-    margin-bottom: 0.75rem; letter-spacing: -0.015em; color: var(--ink);
+  .underline-swoop svg{
+    position:absolute;
+    left:-4%;
+    bottom:-18px;
+    width:108%;
+    height:24px;
+    pointer-events:none;
   }
-  .proof-card p {
-    color: var(--ink-soft); font-size: 0.92rem;
-    line-height: 1.6; margin-bottom: 1rem; font-weight: 500;
+  .hero-lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:520px;
+    line-height:1.55;
+    margin:0 0 36px;
   }
-  .proof-result {
-    display: flex; align-items: center; gap: 0.5rem;
-    padding-top: 1rem; border-top: 1px solid var(--line);
-    font-size: 0.88rem; font-weight: 700; color: var(--ink);
+  .hero-lede strong{font-weight:500;color:var(--ink);background:linear-gradient(transparent 60%, rgba(184,67,31,.18) 60%);padding:0 2px}
+
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 22px;
+    border-radius:999px;
+    font-size:15px;
+    font-weight:500;
+    transition:all .25s;
+    cursor:pointer;
+    border:none;
+    font-family:inherit;
   }
-  .proof-result::before {
-    content: '↗'; color: var(--accent); font-size: 1.15rem; font-weight: 700;
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{background:var(--accent);transform:translateY(-1px);box-shadow:var(--shadow)}
+  .btn-ghost{color:var(--ink);border:1px solid var(--line-2);background:transparent}
+  .btn-ghost:hover{background:rgba(255,255,255,.5)}
+
+  /* Hero card */
+  .hero-card{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:28px;
+    box-shadow:var(--shadow);
+    position:relative;
+    transform:rotate(1.2deg);
+    transition:transform .4s;
+  }
+  .hero-card:hover{transform:rotate(0)}
+  .hero-card::before{
+    content:"";
+    position:absolute;
+    inset:-1px;
+    border-radius:24px;
+    background:linear-gradient(135deg, rgba(184,67,31,.2), transparent 40%);
+    z-index:-1;
+  }
+  .card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding-bottom:20px;
+    border-bottom:1px dashed var(--line-2);
+  }
+  .avatar{
+    width:54px;height:54px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--accent), var(--gold));
+    color:var(--paper);
+    display:grid;place-items:center;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:22px;
+    font-weight:500;
+  }
+  .card-name{font-family:"Fraunces", serif;font-size:18px;font-weight:500}
+  .card-role{font-size:12px;color:var(--muted)}
+  .card-status{
+    margin-left:auto;
+    font-size:11px;
+    color:var(--accent-2);
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+  .card-stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:22px;
+  }
+  .stat{
+    background:var(--bg-2);
+    padding:14px;
+    border-radius:14px;
+  }
+  .stat-num{
+    font-family:"Fraunces", serif;
+    font-size:28px;
+    font-weight:500;
+    letter-spacing:-.02em;
+    line-height:1;
+  }
+  .stat-label{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:4px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .card-footer{
+    margin-top:20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    font-size:12px;
+    color:var(--muted);
+  }
+  .card-footer .quick{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+  }
+  @media (max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero{padding:50px 0 30px}
+    .hero-card{transform:none;max-width:480px}
   }
 
-  /* ---------- AI AUTOMATION SHOWCASE ---------- */
-  .ai-showcase {
-    background: var(--ink);
-    color: var(--bg);
-    border-top: 1px solid rgba(255,255,255,0.1);
+  /* Marquee logos */
+  .marquee-section{
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    background:var(--bg-2);
+    overflow:hidden;
+    padding:24px 0;
+    margin-top:30px;
   }
-  .ai-showcase .section-label { color: #f97316; }
-  .ai-showcase .section-label::before { background: #f97316; }
-  .ai-showcase .section-title { color: var(--bg); }
-  .ai-showcase .section-title em { color: #f97316; }
-  .ai-intro {
-    color: rgba(245,241,234,0.85); font-size: 1.0625rem;
-    max-width: 640px; margin-bottom: 4rem; font-weight: 500;
+  .marquee-label{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-align:center;
+    margin-bottom:16px;
   }
-  .automation-grid {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;
+  .marquee{
+    display:flex;
+    width:max-content;
+    animation:slide 50s linear infinite;
+    gap:48px;
+    align-items:center;
   }
-  .automation-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 12px; padding: 2rem;
-    transition: all 0.3s ease;
-    position: relative; overflow: hidden;
+  @keyframes slide{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
   }
-  .automation-card::before {
-    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-    background: linear-gradient(90deg, var(--accent), #f97316);
-    transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease;
+  .marquee span{
+    font-family:"Fraunces", serif;
+    font-size:22px;
+    color:var(--ink-soft);
+    white-space:nowrap;
+    opacity:.7;
   }
-  .automation-card:hover { background: rgba(255,255,255,0.07); }
-  .automation-card:hover::before { transform: scaleX(1); }
-  .automation-status {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em;
-    padding: 0.4rem 0.85rem; border-radius: 100px;
-    margin-bottom: 1.25rem; font-weight: 700;
-  }
-  .automation-status.live {
-    background: rgba(74, 222, 128, 0.18); color: #4ade80;
-  }
-  .automation-status.live::before {
-    content: ''; width: 6px; height: 6px;
-    background: #4ade80; border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
-  .automation-status.building {
-    background: rgba(249, 115, 22, 0.2); color: #fb923c;
-  }
-  .automation-status.building::before {
-    content: '◐'; animation: spin 2s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
-  .automation-card h4 {
-    font-family: var(--display); font-size: 1.5rem; font-weight: 600;
-    margin-bottom: 0.75rem; color: var(--bg); letter-spacing: -0.015em;
-  }
-  .automation-card > p {
-    color: rgba(245,241,234,0.8); font-size: 0.95rem;
-    line-height: 1.6; margin-bottom: 1.5rem; font-weight: 500;
-  }
-  .automation-flow {
-    display: flex; align-items: center; gap: 0.5rem;
-    flex-wrap: wrap; margin-bottom: 1.25rem;
-    padding: 1rem; background: rgba(0,0,0,0.3);
-    border-radius: 8px; font-size: 0.82rem;
-  }
-  .flow-step {
-    background: rgba(255,255,255,0.1);
-    padding: 0.45rem 0.8rem; border-radius: 6px;
-    color: var(--bg); font-weight: 600; white-space: nowrap;
-  }
-  .flow-arrow { color: #f97316; font-weight: bold; }
-  .automation-stack {
-    display: flex; gap: 0.4rem; flex-wrap: wrap;
-  }
-  .stack-pill {
-    background: rgba(255,255,255,0.1);
-    color: rgba(245,241,234,0.95);
-    padding: 0.35rem 0.75rem; border-radius: 100px;
-    font-size: 0.74rem; font-weight: 600;
-    border: 1px solid rgba(255,255,255,0.12);
+  .marquee span::after{
+    content:"·";
+    margin-left:48px;
+    color:var(--accent);
   }
 
-  /* ---------- ABOUT ---------- */
-  .about { background: var(--bg-soft); border-top: 1px solid var(--line); }
-  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
-  .about-image {
-    aspect-ratio: 4/5; background: var(--bg); border-radius: 8px;
-    border: 1px solid var(--line); display: flex; align-items: center;
-    justify-content: center; font-family: var(--display); font-size: 7rem;
-    font-style: italic; font-weight: 500; color: var(--ink);
-    position: sticky; top: 100px;
-    overflow: hidden;
+  /* ===== SECTIONS ===== */
+  section{padding:120px 0;position:relative}
+  .section-head{
+    display:grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap:48px;
+    margin-bottom:72px;
+    align-items:start;
   }
-  .about-image::before {
-    content: '';
-    position: absolute;
-    width: 200%; height: 200%;
-    background: conic-gradient(from 0deg, transparent, rgba(184, 57, 10, 0.08), transparent);
-    animation: rotate-slow 20s linear infinite;
-    z-index: 0;
+  .section-head h2{
+    font-size:clamp(40px, 5.5vw, 72px);
+    margin:0;
   }
-  .about-image > * {
-    position: relative;
-    z-index: 1;
-    animation: monogram-float 6s ease-in-out infinite;
+  .section-intro{
+    color:var(--muted);
+    font-size:17px;
+    max-width:480px;
+    padding-top:8px;
   }
-  .about-image .about-monogram {
-    color: var(--ink);
-    font-style: italic;
-    font-weight: 500;
-  }
-  .about-image em { color: var(--accent); font-style: italic; }
-  .about-content > p:first-of-type {
-    font-family: var(--display); font-size: 1.6rem; font-weight: 500;
-    line-height: 1.45; color: var(--ink); margin-bottom: 1.5rem; letter-spacing: -0.015em;
-  }
-  .about-content p.subtle {
-    font-family: var(--sans); font-size: 1.02rem; color: var(--ink-soft);
-    line-height: 1.7; margin-bottom: 1.25rem; font-weight: 500;
-  }
-  .stats {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;
-    margin-top: 3rem; padding-top: 3rem; border-top: 1px solid var(--line);
-  }
-  .stat-num {
-    font-family: var(--display); font-size: 2.85rem; font-weight: 600;
-    line-height: 1; margin-bottom: 0.5rem; color: var(--ink);
-  }
-  .stat-num em { color: var(--accent); font-style: italic; font-weight: 500; }
-  .stat-label {
-    font-size: 0.82rem; color: var(--ink-soft); text-transform: uppercase;
-    letter-spacing: 0.12em; font-weight: 700;
+  @media (max-width:780px){
+    section{padding:80px 0}
+    .section-head{grid-template-columns:1fr;gap:24px}
   }
 
-  /* ---------- PROCESS ---------- */
-  .process { background: var(--bg); border-top: 1px solid var(--line); }
-  .process-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;
-    margin-top: 3rem;
+  /* ===== SERVICES ===== */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:0;
+    border-top:1px solid var(--line-2);
   }
-  .process-step { position: relative; padding-top: 2rem; }
-  .process-step::before {
-    content: ''; position: absolute; top: 0; left: 0;
-    width: 100%; height: 2px; background: var(--line);
+  .service{
+    padding:36px 32px 36px 0;
+    border-bottom:1px solid var(--line-2);
+    position:relative;
+    display:grid;
+    grid-template-columns:60px 1fr;
+    gap:24px;
+    transition:background .3s, padding .3s;
   }
-  .process-step::after {
-    content: ''; position: absolute; top: -2px; left: 0;
-    width: 40px; height: 2px; background: var(--accent);
+  .service:nth-child(2n){padding-left:32px;padding-right:0;border-left:1px solid var(--line-2)}
+  .service:hover{background:rgba(255,255,255,.4)}
+  .service:hover .service-arrow{transform:translateX(6px) translateY(-6px);opacity:1}
+  .service-num{
+    font-family:"JetBrains Mono", monospace;
+    font-size:12px;
+    color:var(--accent);
+    letter-spacing:.1em;
   }
-  .process-num {
-    font-family: var(--display); font-style: italic;
-    font-size: 0.9rem; color: var(--accent);
-    margin-bottom: 1rem; font-weight: 600;
+  .service h3{
+    font-family:"Fraunces", serif;
+    font-size:26px;
+    font-weight:500;
+    margin:0 0 12px;
+    letter-spacing:-.01em;
   }
-  .process-step h4 {
-    font-family: var(--display); font-size: 1.3rem; font-weight: 600;
-    margin-bottom: 0.5rem; letter-spacing: -0.015em; color: var(--ink);
+  .service p{
+    color:var(--muted);
+    margin:0 0 18px;
+    font-size:15px;
   }
-  .process-step p { color: var(--ink-soft); font-size: 0.92rem; line-height: 1.6; font-weight: 500; }
-
-  /* ---------- TESTIMONIALS GRID ---------- */
-  .testimonials { background: var(--bg-soft); border-top: 1px solid var(--line); }
-  .testimonials-header {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem;
-    margin-bottom: 4rem; align-items: end;
+  .service-tags{display:flex;gap:8px;flex-wrap:wrap}
+  .tag{
+    font-size:11px;
+    padding:4px 10px;
+    background:var(--bg-2);
+    border-radius:999px;
+    color:var(--ink-soft);
+    font-family:"JetBrains Mono", monospace;
+    letter-spacing:.04em;
   }
-  .testimonials-header p {
-    color: var(--ink-soft); font-size: 1.0625rem;
-    max-width: 460px; font-weight: 500;
+  .service-arrow{
+    position:absolute;top:36px;right:24px;
+    width:20px;height:20px;
+    opacity:.3;
+    transition:transform .35s, opacity .35s;
   }
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-  .testimonial-card {
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-  }
-  .testimonial-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
-  }
-  .testimonial-card.featured {
-    background: var(--ink);
-    color: var(--bg);
-    grid-row: span 1;
-  }
-  .testimonial-stars {
-    color: var(--accent);
-    font-size: 1rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-  }
-  .testimonial-card.featured .testimonial-stars { color: #f97316; }
-  .testimonial-card blockquote {
-    font-family: var(--display);
-    font-size: 1.05rem;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: -0.01em;
-    margin-bottom: 1.5rem;
-    color: var(--ink);
-    flex: 1;
-    font-style: normal;
-  }
-  .testimonial-card.featured blockquote { color: var(--bg); }
-  .testimonial-card blockquote::before {
-    content: '"';
-    font-family: var(--display);
-    font-size: 2.5rem;
-    color: var(--accent);
-    line-height: 0;
-    vertical-align: -0.4em;
-    margin-right: 0.05em;
-    font-weight: 700;
-  }
-  .testimonial-card.featured blockquote::before { color: #f97316; }
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--line);
-  }
-  .testimonial-card.featured .testimonial-author {
-    border-top-color: rgba(255,255,255,0.15);
-  }
-  .testimonial-avatar {
-    width: 44px; height: 44px;
-    border-radius: 50%;
-    background: var(--accent);
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 600;
-    color: var(--bg);
-    font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  .testimonial-card.featured .testimonial-avatar { background: #f97316; color: var(--ink); }
-  .testimonial-name {
-    font-weight: 700;
-    font-size: 0.92rem;
-    color: var(--ink);
-    line-height: 1.3;
-    margin-bottom: 0.15rem;
-  }
-  .testimonial-card.featured .testimonial-name { color: var(--bg); }
-  .testimonial-role {
-    color: var(--muted);
-    font-size: 0.8rem;
-    font-weight: 500;
-  }
-  .testimonial-card.featured .testimonial-role { color: rgba(245,241,234,0.6); }
-  .testimonial-source {
-    margin-left: auto;
-    color: var(--muted);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 700;
-  }
-  .testimonial-card.featured .testimonial-source { color: rgba(245,241,234,0.5); }
-
-  /* Trust badges below testimonials */
-  .trust-badges {
-    margin-top: 4rem;
-    padding: 2.5rem;
-    background: var(--bg);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    display: grid;
-    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
-    gap: 1.5rem;
-    align-items: center;
-  }
-  .trust-badge-item {
-    text-align: center;
-  }
-  .trust-rating {
-    font-family: var(--display);
-    font-size: 2.25rem;
-    font-weight: 600;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 0.4rem;
-    letter-spacing: -0.02em;
-  }
-  .trust-rating-stars {
-    color: var(--accent);
-    font-size: 0.95rem;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.4rem;
-    font-weight: 700;
-  }
-  .trust-rating-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--ink-soft);
-    font-weight: 700;
-  }
-  .trust-badge-divider {
-    width: 1px;
-    height: 60px;
-    background: var(--line);
+  @media (max-width:780px){
+    .services-grid{grid-template-columns:1fr}
+    .service:nth-child(2n){padding-left:0;border-left:none}
+    .service{padding-right:0!important}
   }
 
-  /* ---------- CONTACT ---------- */
-  .contact {
-    background: var(--bg); border-top: 1px solid var(--line);
-    text-align: center; padding: 8rem 0;
+  /* ===== CASE STUDIES ===== */
+  .case{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap:64px;
+    padding:64px 0;
+    border-top:1px solid var(--line-2);
+    align-items:center;
   }
-  .contact .section-label { justify-content: center; }
-  .contact h2 {
-    font-family: var(--display); font-size: clamp(2.5rem, 5.8vw, 4.75rem);
-    font-weight: 600; line-height: 1.02; letter-spacing: -0.03em; margin-bottom: 2rem;
-    color: var(--ink);
+  .case:last-child{border-bottom:1px solid var(--line-2)}
+  .case-mark{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:120px;
+    line-height:1;
+    color:var(--accent);
+    opacity:.15;
+    font-weight:500;
   }
-  .contact h2 em { font-style: italic; font-weight: 500; color: var(--accent); }
-  .contact-lead {
-    color: var(--ink-soft); font-size: 1.0625rem;
-    max-width: 520px; margin: 0 auto 3rem; font-weight: 500;
+  .case h3{
+    font-family:"Fraunces", serif;
+    font-size:34px;
+    font-weight:500;
+    margin:8px 0 18px;
+    letter-spacing:-.015em;
+    line-height:1.1;
   }
-  .contact-actions {
-    display: flex; gap: 1rem; justify-content: center;
-    flex-wrap: wrap; margin-bottom: 3rem;
+  .case-client{
+    font-size:13px;
+    color:var(--muted);
+    margin-bottom:24px;
+    display:flex;
+    gap:14px;
+    align-items:center;
   }
-  .contact-btn {
-    padding: 1rem 2rem; border-radius: 100px;
-    font-size: 0.95rem; font-weight: 700;
-    text-decoration: none; display: inline-flex;
-    align-items: center; gap: 0.6rem;
-    transition: all 0.3s ease;
+  .case-client::before{
+    content:"";
+    width:32px;height:1px;
+    background:var(--ink-soft);
   }
-  .contact-btn svg { width: 18px; height: 18px; }
-  .contact-btn.whatsapp { background: var(--whatsapp); color: white; }
-  .contact-btn.whatsapp:hover {
-    background: #1fb955; transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+  .case-story{
+    color:var(--ink-soft);
+    margin:0 0 28px;
+    font-size:16px;
+    line-height:1.7;
   }
-  .contact-btn.email { background: var(--ink); color: var(--bg); }
-  .contact-btn.email:hover { background: var(--accent); transform: translateY(-2px); }
-  .contact-meta {
-    display: flex; justify-content: center; gap: 2rem;
-    flex-wrap: wrap; font-size: 0.9rem; color: var(--ink-soft); font-weight: 600;
+  .case-metrics{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+    padding:24px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:16px;
   }
-  .contact-meta a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s; }
-  .contact-meta a:hover { color: var(--accent); }
-  .contact-meta .meta-email {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+  .metric{}
+  .metric-num{
+    font-family:"Fraunces", serif;
+    font-size:32px;
+    font-weight:500;
+    letter-spacing:-.02em;
+    color:var(--accent);
+    line-height:1;
   }
-  .contact-meta .meta-email svg {
-    flex-shrink: 0;
+  .metric-label{
+    font-size:11px;
+    color:var(--muted);
+    margin-top:6px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
   }
+  .case-tools{
+    margin-top:20px;
+    font-size:12px;
+    color:var(--muted);
+    font-family:"JetBrains Mono", monospace;
+  }
+  .case-visual{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:32px;
+    box-shadow:var(--shadow);
+    position:relative;
+    aspect-ratio:1.1/1;
+    overflow:hidden;
+  }
+  .case:nth-child(even) .case-grid-flip{
+    grid-template-columns: 1.2fr 1fr;
+  }
+  .case:nth-child(even) .case-visual{order:-1}
 
-  footer {
-    background: var(--bg-soft);
-    padding: 2.5rem 0;
-    border-top: 1px solid var(--line);
-    text-align: center;
-  }
-  .footer-tagline {
-    font-family: var(--display);
-    font-size: 1rem;
-    font-style: italic;
-    font-weight: 500;
-    color: var(--ink-soft);
-    letter-spacing: -0.01em;
-  }
-
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 1024px) {
-    .container { padding: 0 1.5rem; }
-    nav { padding: 1rem 1.5rem; }
-    .hero { padding: 7rem 1.5rem 3rem; }
-    .hero-grid { gap: 3rem; }
-    .services-header, .testimonials-header, .about-grid { gap: 3rem; }
-    .trust-badges { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem; }
-    .trust-badges .trust-badge-divider { display: none; }
-  }
-
-  @media (max-width: 900px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    .hero-visual { max-width: 360px; aspect-ratio: 1/1.1; }
-    .hero-monogram { font-size: clamp(5rem, 22vw, 8rem); }
-    .services-header, .about-grid, .services-grid, .stats, .testimonials-header {
-      grid-template-columns: 1fr; gap: 2rem;
-    }
-    .specialization-header { grid-template-columns: auto 1fr; }
-    .spec-tools { grid-column: 1 / -1; justify-content: flex-start; max-width: 100%; margin-top: 0.5rem; }
-    .proof-grid, .automation-grid, .testimonials-grid { grid-template-columns: 1fr; }
-    .trust-badges {
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      padding: 1.75rem;
-    }
-    .trust-badge-divider { display: none; }
-    .process-grid { grid-template-columns: repeat(2, 1fr); }
-    .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .about-image { position: static; max-width: 240px; font-size: 4.5rem; aspect-ratio: 1/1.1; }
-    .nav-links { display: none; }
-    .menu-toggle { display: block; }
-    nav.open .nav-links {
-      display: flex; position: absolute; top: 100%; left: 0; right: 0;
-      background: var(--bg); flex-direction: column; padding: 1.5rem 2rem 2rem;
-      gap: 1.25rem; border-bottom: 1px solid var(--line);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-    }
-    nav.open .nav-links .cta-btn {
-      align-self: flex-start;
-    }
-    .whatsapp-float {
-      bottom: 1.25rem;
-      right: 1.25rem;
-      width: 56px;
-      height: 56px;
-    }
-    .whatsapp-float svg { width: 28px; height: 28px; }
-    .whatsapp-tooltip { display: none; }
+  @media (max-width:880px){
+    .case{grid-template-columns:1fr;gap:32px;padding:40px 0}
+    .case:nth-child(even) .case-visual{order:0}
   }
 
-  @media (max-width: 640px) {
-    .container, nav, .hero { padding-left: 1.25rem; padding-right: 1.25rem; }
-    nav { padding: 0.85rem 1.25rem; }
-    .logo { font-size: 1.25rem; }
-    section { padding: 3.5rem 0; }
-    .hero {
-      padding-top: 6rem;
-      padding-bottom: 2.5rem;
-      min-height: auto;
-    }
-    .hero h1 {
-      font-size: clamp(2.25rem, 11vw, 3.25rem);
-      line-height: 1.05;
-    }
-    .hero p { font-size: 1rem; }
-    .hero-tag { font-size: 0.7rem; padding: 0.5rem 0.85rem; letter-spacing: 0.15em; }
-    .hero-visual { max-width: 320px; }
-    .hero-monogram { font-size: clamp(5rem, 26vw, 7rem); }
-    .hero-card-label { font-size: 0.7rem; }
-    .floating-badge {
-      font-size: 0.7rem;
-      padding: 0.55rem 0.9rem;
-    }
-    .hero-actions { gap: 0.85rem; width: 100%; }
-    .hero-actions .cta-btn {
-      width: 100%;
-      justify-content: center;
-      padding: 0.85rem 1.5rem;
-    }
-    .hero-actions .btn-secondary {
-      width: 100%;
-      text-align: center;
-      padding: 0.5rem 0;
-    }
-
-    /* Trust bar */
-    .trust-bar { padding: 1.5rem 0; }
-    .trust-grid { gap: 1.25rem; }
-    .trust-item .num { font-size: 1.75rem; }
-    .trust-item .label { font-size: 0.7rem; }
-
-    /* Section titles */
-    .section-title { font-size: clamp(1.75rem, 7vw, 2.25rem); }
-    .section-label { font-size: 0.7rem; gap: 0.75rem; }
-
-    /* Services */
-    .service-card { padding: 1.5rem 1.25rem; }
-    .service-card h3 { font-size: 1.3rem; }
-
-    /* Tools strip */
-    .tools-track span { font-size: 1.15rem; }
-    .tools-track { gap: 2rem; }
-    .tools-track span::after { margin-left: 2rem; }
-
-    /* Portfolio */
-    .specialization-block { margin-bottom: 3.5rem; padding-top: 2.5rem; }
-    .specialization-header { grid-template-columns: 1fr; gap: 1rem; }
-    .spec-num { font-size: 2.25rem; }
-    .spec-title h3 { font-size: 1.5rem; }
-    .spec-tools { justify-content: flex-start; }
-    .tool-chip { font-size: 0.72rem; padding: 0.3rem 0.7rem; }
-    .proof-card { padding: 1.5rem 1.25rem; }
-    .proof-card h4 { font-size: 1.15rem; }
-    .proof-card p { font-size: 0.88rem; }
-
-    /* AI Showcase */
-    .automation-card { padding: 1.5rem 1.25rem; }
-    .automation-card h4 { font-size: 1.25rem; }
-    .automation-flow {
-      padding: 0.85rem;
-      font-size: 0.75rem;
-      gap: 0.4rem;
-    }
-    .flow-step { padding: 0.35rem 0.6rem; font-size: 0.72rem; }
-
-    /* About */
-    .about-content > p:first-of-type { font-size: 1.25rem; }
-    .stats { gap: 1.5rem; margin-top: 2rem; padding-top: 2rem; }
-    .stat-num { font-size: 2.25rem; }
-
-    /* Process */
-    .process-grid { grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
-
-    /* Testimonials */
-    .testimonial-card { padding: 1.5rem 1.25rem; }
-    .testimonial-card blockquote { font-size: 0.95rem; }
-    .trust-badges { padding: 1.5rem 1.25rem; gap: 1.25rem; margin-top: 2.5rem; }
-    .trust-rating { font-size: 1.75rem; }
-    .trust-rating-label { font-size: 0.65rem; }
-
-    /* Contact */
-    .contact { padding: 5rem 0; }
-    .contact h2 { font-size: clamp(2rem, 9vw, 3rem); }
-    .contact-actions { flex-direction: column; gap: 0.85rem; }
-    .contact-actions .contact-btn {
-      width: 100%;
-      justify-content: center;
-    }
-    .contact-meta {
-      flex-direction: column;
-      gap: 0.85rem;
-      font-size: 0.85rem;
-    }
-    .contact-meta .meta-email {
-      word-break: break-all;
-      justify-content: center;
-    }
-
-    /* WhatsApp float - smaller on mobile */
-    .whatsapp-float {
-      bottom: 1rem;
-      right: 1rem;
-      width: 52px;
-      height: 52px;
-    }
-    .whatsapp-float svg { width: 26px; height: 26px; }
+  /* Visual mockups inside case studies */
+  .mock-inbox{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .mock-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line);
+    font-size:12px;
+    color:var(--muted);
+    font-family:"JetBrains Mono", monospace;
+  }
+  .mock-row{
+    display:grid;
+    grid-template-columns:24px 1fr auto;
+    gap:12px;
+    padding:10px 12px;
+    border-radius:8px;
+    font-size:13px;
+    align-items:center;
+    background:rgba(255,255,255,.5);
+  }
+  .mock-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--line-2);
+  }
+  .mock-dot.r{background:var(--accent)}
+  .mock-dot.g{background:#4a8c5b}
+  .mock-dot.y{background:var(--gold)}
+  .mock-meta{font-size:11px;color:var(--muted);font-family:"JetBrains Mono", monospace}
+  .mock-counter{
+    margin-top:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .mock-counter .big{
+    font-family:"Fraunces", serif;
+    font-size:48px;
+    font-weight:500;
+    color:var(--accent);
+    letter-spacing:-.02em;
+  }
+  .mock-counter .small{
+    font-size:11px;
+    color:var(--muted);
+    text-align:right;
   }
 
-  @media (max-width: 380px) {
-    .hero h1 { font-size: 2.1rem; }
-    .hero p { font-size: 0.95rem; }
-    .hero-monogram { font-size: 4.5rem; }
-    .floating-badge {
-      font-size: 0.65rem;
-      padding: 0.45rem 0.75rem;
-    }
-    .nav-links { gap: 1rem !important; }
-    .logo { font-size: 1.15rem; }
+  .mock-flow{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    justify-content:center;
   }
+  .flow-node{
+    display:grid;
+    grid-template-columns:36px 1fr auto;
+    align-items:center;
+    gap:14px;
+    padding:14px 16px;
+    background:rgba(255,255,255,.7);
+    border:1px solid var(--line);
+    border-radius:14px;
+    font-size:13px;
+  }
+  .flow-node.active{
+    border-color:var(--accent);
+    background:rgba(184,67,31,.06);
+  }
+  .flow-icon{
+    width:36px;height:36px;
+    border-radius:10px;
+    display:grid;place-items:center;
+    background:var(--bg-2);
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    color:var(--accent);
+  }
+  .flow-arrow{
+    text-align:center;
+    color:var(--line-2);
+    font-size:18px;
+    line-height:1;
+  }
+
+  .mock-chart{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  .chart-area{
+    flex:1;
+    display:flex;
+    align-items:flex-end;
+    gap:6px;
+    padding:20px 0;
+  }
+  .bar{
+    flex:1;
+    background:linear-gradient(180deg, var(--accent), rgba(184,67,31,.5));
+    border-radius:6px 6px 0 0;
+    position:relative;
+    animation:grow 1.2s ease-out;
+    transform-origin:bottom;
+  }
+  @keyframes grow{
+    from{transform:scaleY(0)}
+    to{transform:scaleY(1)}
+  }
+  .chart-labels{
+    display:flex;
+    gap:6px;
+    font-size:10px;
+    color:var(--muted);
+    font-family:"JetBrains Mono", monospace;
+  }
+  .chart-labels span{flex:1;text-align:center}
+
+  /* Credit score gauge mockup */
+  .mock-credit{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+  .credit-row{
+    display:flex;
+    gap:18px;
+    align-items:center;
+    padding:18px;
+    background:rgba(255,255,255,.6);
+    border:1px solid var(--line);
+    border-radius:14px;
+  }
+  .credit-row + .credit-row{margin-top:12px}
+  .credit-ring{
+    width:96px;height:96px;
+    border-radius:50%;
+    display:grid;place-items:center;
+    flex-shrink:0;
+    position:relative;
+    background:conic-gradient(var(--accent) 0deg, var(--accent) var(--deg,200deg), var(--line) var(--deg,200deg), var(--line) 360deg);
+  }
+  .credit-ring::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    background:var(--paper);
+    border-radius:50%;
+  }
+  .credit-ring .score{
+    position:relative;
+    font-family:"Fraunces", serif;
+    font-size:28px;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:-.02em;
+  }
+  .credit-ring.good{background:conic-gradient(#4a8c5b 0deg, #4a8c5b var(--deg,280deg), var(--line) var(--deg,280deg), var(--line) 360deg)}
+  .credit-label{flex:1}
+  .credit-label .tag-small{
+    font-family:"JetBrains Mono", monospace;
+    font-size:10px;
+    color:var(--muted);
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .credit-label .big-num{
+    font-family:"Fraunces", serif;
+    font-size:18px;
+    font-weight:500;
+    margin-top:4px;
+  }
+  .credit-arrow{
+    text-align:center;
+    color:var(--accent);
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:18px;
+    padding:6px 0;
+  }
+  .credit-delta{
+    margin-top:auto;
+    padding-top:14px;
+    border-top:1px solid var(--line);
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .credit-delta .gain{
+    font-family:"Fraunces", serif;
+    font-size:36px;
+    font-weight:500;
+    color:#4a8c5b;
+    letter-spacing:-.02em;
+  }
+
+  /* ===== AUTOMATION LAB ===== */
+  .lab-bg{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:32px;
+    padding:80px 56px;
+    margin:0 -8px;
+    position:relative;
+    overflow:hidden;
+  }
+  .lab-bg::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at 80% 20%, rgba(184,67,31,.18), transparent 50%),
+      radial-gradient(circle at 15% 80%, rgba(45,74,62,.22), transparent 55%);
+    pointer-events:none;
+  }
+  .lab-bg .eyebrow{color:rgba(251,247,239,.5)}
+  .lab-bg h2{color:var(--paper)}
+  .lab-bg h2 em{color:#f4a261}
+  .lab-bg .section-intro{color:rgba(251,247,239,.65)}
+  .lab-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+    position:relative;
+  }
+  .lab-card{
+    background:rgba(251,247,239,.04);
+    border:1px solid rgba(251,247,239,.1);
+    border-radius:18px;
+    padding:28px;
+    transition:border-color .3s, background .3s;
+  }
+  .lab-card:hover{
+    border-color:rgba(244,162,97,.4);
+    background:rgba(251,247,239,.06);
+  }
+  .lab-card-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:14px;
+  }
+  .lab-card h4{
+    font-family:"Fraunces", serif;
+    font-size:22px;
+    font-weight:500;
+    margin:0;
+    color:var(--paper);
+    letter-spacing:-.01em;
+  }
+  .lab-status{
+    font-size:10px;
+    padding:3px 9px;
+    border-radius:999px;
+    font-family:"JetBrains Mono", monospace;
+    letter-spacing:.08em;
+  }
+  .lab-status.live{background:rgba(74,222,128,.15);color:#4ade80}
+  .lab-status.building{background:rgba(244,162,97,.15);color:#f4a261}
+  .lab-card p{
+    color:rgba(251,247,239,.65);
+    margin:0 0 18px;
+    font-size:14px;
+    line-height:1.6;
+  }
+  .lab-flow{
+    font-family:"JetBrains Mono", monospace;
+    font-size:11px;
+    color:rgba(251,247,239,.5);
+    padding-top:16px;
+    border-top:1px solid rgba(251,247,239,.1);
+    letter-spacing:.04em;
+  }
+  .lab-flow .arrow{color:#f4a261;margin:0 6px}
+
+  @media (max-width:780px){
+    .lab-bg{padding:50px 24px;border-radius:24px}
+    .lab-grid{grid-template-columns:1fr}
+  }
+
+  /* ===== ROI CALCULATOR ===== */
+  .roi{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:24px;
+    padding:48px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    align-items:center;
+    box-shadow:var(--shadow);
+  }
+  .roi > *{min-width:0}
+  .roi h3{
+    font-family:"Fraunces", serif;
+    font-size:36px;
+    font-weight:500;
+    margin:0 0 12px;
+    letter-spacing:-.01em;
+    line-height:1.05;
+  }
+  .roi p{color:var(--muted);margin:0 0 28px}
+  .roi-input{margin-bottom:22px}
+  .roi-input label{
+    font-size:12px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    display:block;
+    margin-bottom:8px;
+    font-family:"JetBrains Mono", monospace;
+  }
+  .roi-input input[type="range"]{
+    width:100%;
+    appearance:none;
+    height:4px;
+    background:var(--line-2);
+    border-radius:2px;
+    outline:none;
+  }
+  .roi-input input[type="range"]::-webkit-slider-thumb{
+    appearance:none;
+    width:22px;height:22px;
+    background:var(--accent);
+    border-radius:50%;
+    cursor:pointer;
+    border:3px solid var(--paper);
+    box-shadow:0 2px 8px rgba(184,67,31,.4);
+    transition:transform .2s;
+  }
+  .roi-input input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+  .roi-input input[type="range"]::-moz-range-thumb{
+    width:22px;height:22px;
+    background:var(--accent);
+    border-radius:50%;
+    cursor:pointer;
+    border:3px solid var(--paper);
+  }
+  .roi-value{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-top:8px;
+  }
+  .roi-value .v{
+    font-family:"Fraunces", serif;
+    font-size:24px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  .roi-output{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:18px;
+    padding:36px;
+    position:relative;
+    overflow:hidden;
+    min-width:0;
+  }
+  .roi-output::before{
+    content:"";
+    position:absolute;
+    top:-50%;
+    right:-30%;
+    width:80%;
+    height:200%;
+    background:radial-gradient(circle, rgba(184,67,31,.3), transparent 60%);
+    pointer-events:none;
+  }
+  .roi-output .label{
+    font-size:11px;
+    color:rgba(251,247,239,.5);
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    margin-bottom:8px;
+    font-family:"JetBrains Mono", monospace;
+  }
+  .roi-output .num{
+    font-family:"Fraunces", serif;
+    font-size:clamp(40px, 5.4vw, 64px);
+    font-weight:500;
+    letter-spacing:-.03em;
+    line-height:1.05;
+    background:linear-gradient(135deg, #f4a261, var(--paper));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    display:block;
+    white-space:nowrap;
+    overflow:visible;
+    position:relative;
+    z-index:2;
+  }
+  .roi-output .sub{
+    font-size:14px;
+    color:rgba(251,247,239,.65);
+    margin-top:6px;
+  }
+  .roi-output .breakdown{
+    margin-top:24px;
+    padding-top:20px;
+    border-top:1px solid rgba(251,247,239,.1);
+    font-size:13px;
+    color:rgba(251,247,239,.7);
+    line-height:1.6;
+  }
+  @media (max-width:780px){
+    .roi{grid-template-columns:1fr;padding:32px;gap:24px}
+  }
+
+  /* ===== PACKAGES ===== */
+  .pkg-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+  }
+  .pkg{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:36px 32px;
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    transition:transform .35s, border-color .35s, box-shadow .35s;
+  }
+  .pkg:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .pkg.featured{
+    background:var(--ink);
+    color:var(--paper);
+    border-color:var(--ink);
+  }
+  .pkg.featured .pkg-price{color:var(--paper)}
+  .pkg.featured .pkg-features li{color:rgba(251,247,239,.8)}
+  .pkg.featured .pkg-features li::before{background:#f4a261}
+  .pkg.featured .pkg-btn{background:#f4a261;color:var(--ink)}
+  .pkg-badge{
+    position:absolute;
+    top:-12px;
+    right:24px;
+    background:#f4a261;
+    color:var(--ink);
+    font-size:11px;
+    font-family:"JetBrains Mono", monospace;
+    padding:5px 12px;
+    border-radius:999px;
+    letter-spacing:.06em;
+  }
+  .pkg-name{
+    font-family:"Fraunces", serif;
+    font-size:24px;
+    font-weight:500;
+    font-style:italic;
+    margin:0 0 6px;
+  }
+  .pkg-sub{
+    font-size:13px;
+    opacity:.7;
+    margin-bottom:24px;
+  }
+  .pkg-price{
+    font-family:"Fraunces", serif;
+    font-size:48px;
+    font-weight:500;
+    letter-spacing:-.02em;
+    color:var(--ink);
+    line-height:1;
+  }
+  .pkg-price .unit{font-size:14px;color:var(--muted);font-style:italic;font-weight:400}
+  .pkg.featured .pkg-price .unit{color:rgba(251,247,239,.6)}
+  .pkg-features{
+    list-style:none;
+    padding:0;
+    margin:28px 0;
+    flex:1;
+  }
+  .pkg-features li{
+    padding:8px 0 8px 26px;
+    position:relative;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .pkg-features li::before{
+    content:"";
+    position:absolute;
+    left:0;top:14px;
+    width:14px;height:2px;
+    background:var(--accent);
+  }
+  .pkg-btn{
+    display:block;
+    text-align:center;
+    padding:14px;
+    background:var(--bg-2);
+    color:var(--ink);
+    border-radius:999px;
+    font-size:14px;
+    font-weight:500;
+    transition:background .25s;
+  }
+  .pkg-btn:hover{background:var(--accent);color:var(--paper)}
+  @media (max-width:880px){.pkg-grid{grid-template-columns:1fr}}
+
+  /* ===== TESTIMONIALS ===== */
+  .testim-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .testim{
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:18px;
+    padding:28px;
+    position:relative;
+    transition:transform .35s;
+  }
+  .testim:hover{transform:translateY(-3px)}
+  .testim-mark{
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:64px;
+    line-height:0;
+    color:var(--accent);
+    opacity:.3;
+    position:absolute;
+    top:32px;
+    right:24px;
+  }
+  .testim p{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.6;
+    margin:0 0 24px;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-weight:300;
+  }
+  .testim-author{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding-top:18px;
+    border-top:1px solid var(--line);
+  }
+  .testim-avatar{
+    width:42px;height:42px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--accent-2), var(--gold));
+    color:var(--paper);
+    display:grid;place-items:center;
+    font-family:"Fraunces", serif;
+    font-size:16px;
+    font-weight:500;
+  }
+  .testim-name{font-size:14px;font-weight:500}
+  .testim-meta{font-size:12px;color:var(--muted)}
+  .verify{
+    display:inline-flex;
+    align-items:center;
+    gap:4px;
+    margin-left:auto;
+    font-size:11px;
+    color:var(--accent-2);
+    font-family:"JetBrains Mono", monospace;
+  }
+  @media (max-width:880px){.testim-grid{grid-template-columns:1fr}}
+
+  /* ===== PROCESS ===== */
+  .process{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:0;
+    position:relative;
+  }
+  .process::before{
+    content:"";
+    position:absolute;
+    top:32px;
+    left:8%;
+    right:8%;
+    height:1px;
+    background:linear-gradient(90deg, var(--line-2), var(--accent), var(--line-2));
+  }
+  .step{
+    text-align:center;
+    padding:0 16px;
+    position:relative;
+  }
+  .step-num{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--line-2);
+    margin:0 auto 20px;
+    display:grid;place-items:center;
+    font-family:"Fraunces", serif;
+    font-style:italic;
+    font-size:24px;
+    color:var(--accent);
+    position:relative;
+    z-index:2;
+  }
+  .step h4{
+    font-family:"Fraunces", serif;
+    font-size:20px;
+    font-weight:500;
+    margin:0 0 10px;
+  }
+  .step p{font-size:14px;color:var(--muted);margin:0}
+  @media (max-width:780px){
+    .process{grid-template-columns:1fr;gap:32px}
+    .process::before{display:none}
+  }
+
+  /* ===== FAQ ===== */
+  .faq-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:0 64px;
+  }
+  details{
+    border-bottom:1px solid var(--line-2);
+    padding:24px 0;
+  }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:24px;
+    font-family:"Fraunces", serif;
+    font-size:19px;
+    font-weight:500;
+    color:var(--ink);
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";
+    font-family:"Fraunces", serif;
+    font-size:24px;
+    color:var(--accent);
+    transition:transform .3s;
+    line-height:1;
+  }
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{
+    color:var(--muted);
+    margin:14px 0 0;
+    font-size:15px;
+    line-height:1.6;
+  }
+  @media (max-width:780px){.faq-grid{grid-template-columns:1fr;gap:0}}
+
+  /* ===== FINAL CTA ===== */
+  .final{
+    text-align:center;
+    padding:140px 0 80px;
+    position:relative;
+  }
+  .final h2{
+    font-size:clamp(48px, 8vw, 110px);
+    margin:0 0 32px;
+    max-width:900px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .final-ctas{
+    display:inline-flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    margin-top:8px;
+  }
+  .final-meta{
+    margin-top:48px;
+    display:flex;
+    justify-content:center;
+    gap:32px;
+    font-size:13px;
+    color:var(--muted);
+    flex-wrap:wrap;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0 36px;
+    background:var(--bg-2);
+  }
+  .foot{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:24px;
+    font-size:13px;
+    color:var(--muted);
+  }
+  .foot-links{display:flex;gap:24px}
+
+  /* Animation utilities */
+  .reveal{
+    opacity:0;
+    transform:translateY(20px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:none;
+  }
+
+  /* Selection */
+  ::selection{background:var(--accent);color:var(--paper)}
 </style>
 </head>
 <body>
 
-<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-<a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together."
-   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <span class="whatsapp-tooltip">Chat with me on WhatsApp</span>
-  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-  </svg>
-</a>
-
-<!-- ===== NAV ===== -->
-<nav id="nav">
-  <a href="#" class="logo">meneral<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#portfolio">Portfolio</a></li>
-    <li><a href="#automation">AI Automation</a></li>
-    <li><a href="#testimonials">Testimonials</a></li>
-    <li><a href="https://wa.me/639651927405" target="_blank" rel="noopener" class="cta-btn whatsapp-cta">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-      WhatsApp
-    </a></li>
-  </ul>
-  <button class="menu-toggle" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<!-- ============ NAV ============ -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">meneral<span class="dot">.</span></a>
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#automation">Automation</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-cta" href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together.">
+        <span class="pulse"></span> Book a call
+      </a>
+    </div>
+  </div>
 </nav>
 
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <div class="hero-grid">
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-grid">
     <div>
-      <div class="hero-tag"><span class="dot"></span> Open for new opportunities</div>
-      <h1>Your business, <em>beautifully</em> organized.</h1>
-      <p>I'm Meneral — a Virtual Assistant from the Philippines helping founders, executives, and growing businesses save time through reliable support and powerful AI automation.</p>
-      <div class="hero-actions">
-        <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20working%20together." target="_blank" rel="noopener" class="cta-btn whatsapp-cta">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-          Chat on WhatsApp
+      <div class="available">
+        <span class="pulse"></span>
+        <span>Available for new clients</span>
+      </div>
+      <h1 class="display headline">
+        <span class="stack">Your business,</span>
+        <span class="stack underline-swoop">
+          <em>beautifully</em>
+          <svg viewBox="0 0 400 24" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M2,18 Q100,4 200,12 T398,8" fill="none" stroke="#b8431f" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+          </svg>
+        </span>
+        <span class="stack">organized.</span>
+      </h1>
+      <p class="hero-lede">
+        I'm <strong>Meneral Navela</strong> — a Virtual Assistant, copywriter, and credit repair specialist from the Philippines, helping founders and growing teams reclaim time, sharpen their words, and run leaner with AI-powered workflows.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20book%20a%20discovery%20call.">
+          Book a free 30-min call
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
-        <a href="#portfolio" class="btn-secondary">View portfolio →</a>
+        <a class="btn btn-ghost" href="#work">See case studies</a>
       </div>
     </div>
-    <div class="hero-visual">
-      <div class="floating-badge top">
-        <span class="dot"></span> Let's talk today
-      </div>
 
-      <!-- Decorative floating orbs -->
-      <div class="deco-orb deco-orb-1"></div>
-      <div class="deco-orb deco-orb-2"></div>
-      <div class="deco-orb deco-orb-3"></div>
-      <div class="deco-orb deco-orb-4"></div>
-
-      <div class="hero-card">
-        <div class="deco-ring deco-ring-1"></div>
-        <div class="deco-ring deco-ring-2"></div>
-        <div class="hero-card-inner">
-          <div class="hero-monogram"><span class="letter-m">M</span><span class="letter-n">N</span></div>
-          <div class="hero-card-label">Virtual Assistant · PH</div>
+    <aside class="hero-card" aria-label="Profile card">
+      <div class="card-head">
+        <div class="avatar">M</div>
+        <div>
+          <div class="card-name">Meneral Navela</div>
+          <div class="card-role">Virtual Assistant · PH</div>
+        </div>
+        <div class="card-status">
+          <span class="pulse"></span> Online
         </div>
       </div>
-      <div class="floating-badge bottom">
-        ⚡ Fast response time
+      <div class="card-stats">
+        <div class="stat">
+          <div class="stat-num">9</div>
+          <div class="stat-label">Specializations</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">50<span style="font-size:18px;color:var(--muted)">+</span></div>
+          <div class="stat-label">Tools mastered</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">&lt;2hr</div>
+          <div class="stat-label">Response time</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100<span style="font-size:18px;color:var(--muted)">%</span></div>
+          <div class="stat-label">Remote ready</div>
+        </div>
       </div>
-    </div>
+      <div class="card-footer">
+        <span class="quick">⚡ Avg reply in 47 minutes</span>
+        <span class="mono">PHT · UTC+8</span>
+      </div>
+    </aside>
   </div>
-</section>
+</header>
 
-<!-- ===== TRUST BAR ===== -->
-<div class="trust-bar">
-  <div class="container">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <div class="num">7+</div>
-        <div class="label">Specializations</div>
-      </div>
-      <div class="trust-item">
-        <div class="num">50+</div>
-        <div class="label">Tools mastered</div>
-      </div>
-      <div class="trust-item">
-        <div class="num">10+</div>
-        <div class="label">Years experience</div>
-      </div>
-      <div class="trust-item">
-        <div class="num">100%</div>
-        <div class="label">Remote ready</div>
-      </div>
-    </div>
+<!-- ============ LOGO MARQUEE ============ -->
+<div class="marquee-section">
+  <div class="marquee-label">Tools & platforms I work with daily</div>
+  <div class="marquee" aria-hidden="true">
+    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>Intercom</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>DocuSign</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Hemingway</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
+    <!-- duplicate for seamless loop -->
+    <span>Shopify</span><span>HubSpot</span><span>Zapier</span><span>Make</span><span>Notion</span><span>Asana</span><span>ClickUp</span><span>Zendesk</span><span>Intercom</span><span>Salesforce</span><span>ChatGPT API</span><span>Google Workspace</span><span>Slack</span><span>Airtable</span><span>Canva</span><span>CapCut</span><span>Follow Up Boss</span><span>DocuSign</span><span>Buffer</span><span>Credit Repair Cloud</span><span>Smart Credit</span><span>IdentityIQ</span><span>Grammarly</span><span>Hemingway</span><span>Surfer SEO</span><span>ConvertKit</span><span>Klaviyo</span>
   </div>
 </div>
 
-<!-- ===== SERVICES ===== -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="services-header">
+<!-- ============ SERVICES ============ -->
+<section id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
       <div>
-        <div class="section-label">What I do</div>
-        <h2 class="section-title">Specialized support across <em>seven</em> core areas.</h2>
+        <div class="eyebrow">What I do</div>
+        <h2 class="display">Nine ways<br>I <em>save</em> your time.</h2>
       </div>
-      <p>From inbox zero to fully automated workflows, I handle the day-to-day so you can focus on the work only you can do.</p>
+      <p class="section-intro">From inbox zero to fully automated lead pipelines — plus conversion copy and credit repair expertise. I handle the operational and revenue-side work, so you can focus on what only you can do.</p>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-num">— 01</div>
-        <h3>Executive &amp; Admin Support</h3>
-        <p>Inbox and calendar management, meeting prep, travel planning, document preparation, and project coordination — keeping your operations running smoothly.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">— 02</div>
-        <h3>E-commerce Operations</h3>
-        <p>Shopify, Amazon, and WooCommerce store management, product listing optimization, order processing, inventory tracking, and supplier coordination.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">— 03</div>
-        <h3>Customer Support</h3>
-        <p>Email, live chat, and voice support, CRM ticket management, complaint resolution, refunds, and follow-ups that keep customers happy and loyal.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">— 04</div>
-        <h3>Real Estate &amp; Healthcare Admin</h3>
-        <p>Lead generation, CRM databases, property listings, appointment scheduling, medical records, EHR data entry, and confidential documentation.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">— 05</div>
-        <h3>Social Media Management</h3>
-        <p>Content planning, post scheduling, engagement, caption writing, hashtag research, basic graphic design, and analytics reporting.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-num">— 06</div>
-        <h3>AI &amp; Workflow Automation</h3>
-        <p>Zapier and Make integrations, CRM automation, lead capture flows, email and chatbot setup, and process optimization to reduce manual work.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <div class="services-grid reveal">
 
-<!-- ===== TOOLS STRIP ===== -->
-<div class="tools-strip">
-  <div class="tools-label">Tools I work with</div>
-  <div class="tools-track">
-    <span>Shopify</span><span>Amazon</span><span>WooCommerce</span><span>HubSpot</span><span>Salesforce</span><span>Zoho CRM</span><span>Zendesk</span><span>Intercom</span><span>Asana</span><span>ClickUp</span><span>Notion</span><span>Trello</span><span>Slack</span><span>Zapier</span><span>Make</span><span>ChatGPT</span><span>Canva</span><span>CapCut</span><span>Google Workspace</span><span>Microsoft 365</span>
-    <span>Shopify</span><span>Amazon</span><span>WooCommerce</span><span>HubSpot</span><span>Salesforce</span><span>Zoho CRM</span><span>Zendesk</span><span>Intercom</span><span>Asana</span><span>ClickUp</span><span>Notion</span><span>Trello</span><span>Slack</span><span>Zapier</span><span>Make</span><span>ChatGPT</span><span>Canva</span><span>CapCut</span><span>Google Workspace</span><span>Microsoft 365</span>
-  </div>
-</div>
-
-<!-- ===== PORTFOLIO WITH PROOF FOR EACH SPECIALIZATION ===== -->
-<section class="portfolio" id="portfolio">
-  <div class="container">
-    <div class="portfolio-intro">
-      <div class="section-label">Portfolio</div>
-      <h2 class="section-title">Proven work across <em>every</em> specialization.</h2>
-      <p>Real projects, real outcomes. Here's a closer look at the work I've delivered across each of my core specializations — with the tools used and the results achieved.</p>
-    </div>
-
-    <!-- 01 EXECUTIVE & ADMIN -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">01</div>
-        <div class="spec-title">
-          <h3>Executive &amp; Administrative Support</h3>
-          <p>Inbox, calendar, travel, reporting & project coordination</p>
+      <div class="service">
+        <div class="service-num">01</div>
+        <div>
+          <h3>Executive & Admin Support</h3>
+          <p>Inbox triage, calendar choreography, meeting prep, travel orchestration, and document polish. The quiet operating system behind a focused founder.</p>
+          <div class="service-tags"><span class="tag">Gmail</span><span class="tag">Notion</span><span class="tag">Asana</span><span class="tag">Calendly</span></div>
         </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Gmail</span>
-          <span class="tool-chip">Google Calendar</span>
-          <span class="tool-chip">Notion</span>
-          <span class="tool-chip">Asana</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">CEO Inbox Overhaul</span>
-          <h4>3,000+ unread emails to inbox zero</h4>
-          <p>Reorganized a CEO's chaotic inbox using filters, labels, and a 4-folder triage system. Built a daily SOP for sustainable management going forward.</p>
-          <div class="proof-result">~10 hours saved per week</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Calendar Coordination</span>
-          <h4>Multi-timezone scheduling</h4>
-          <p>Managed full calendar for an executive across 3 timezones — including meeting prep, agenda creation, follow-ups, and conflict resolution.</p>
-          <div class="proof-result">Zero double-bookings in 8 months</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Travel Coordination</span>
-          <h4>End-to-end international trips</h4>
-          <p>Planned full itineraries including flights, hotels, ground transport, visa coordination, and detailed travel briefs for the executive.</p>
-          <div class="proof-result">12+ trips coordinated smoothly</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Project Coordination</span>
-          <h4>Cross-functional task tracking</h4>
-          <p>Built and maintained an Asana workspace for a leadership team of 4 — task prioritization, deadline tracking, and weekly status reports.</p>
-          <div class="proof-result">95% on-time delivery rate</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 02 E-COMMERCE -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">02</div>
-        <div class="spec-title">
+      <div class="service">
+        <div class="service-num">02</div>
+        <div>
           <h3>E-commerce Operations</h3>
-          <p>Shopify, Amazon & WooCommerce store management</p>
+          <p>Shopify, Amazon, and WooCommerce back-office work — listing optimization, order processing, inventory choreography, and supplier follow-through.</p>
+          <div class="service-tags"><span class="tag">Shopify</span><span class="tag">Amazon</span><span class="tag">DSers</span><span class="tag">Gorgias</span></div>
         </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Shopify</span>
-          <span class="tool-chip">Amazon Seller</span>
-          <span class="tool-chip">WooCommerce</span>
-          <span class="tool-chip">DSers</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Shopify Store Operations</span>
-          <h4>Full back-office management</h4>
-          <p>Daily order processing, inventory monitoring, supplier coordination, and product catalog updates for an active Shopify store.</p>
-          <div class="proof-result">98%+ order accuracy maintained</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Listing Optimization</span>
-          <h4>SEO product listings on Amazon</h4>
-          <p>Created and optimized 50+ product listings with keyword research, compelling copy, and structured bullet points to improve ranking.</p>
-          <div class="proof-result">Improved organic visibility</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Inventory Management</span>
-          <h4>Stock tracking & reorder alerts</h4>
-          <p>Built a Google Sheets-based inventory tracker with automatic reorder thresholds, supplier contacts, and stock-out alerts.</p>
-          <div class="proof-result">Zero stock-outs in 6 months</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Sales Reporting</span>
-          <h4>Weekly performance dashboards</h4>
-          <p>Compiled weekly sales reports across Shopify and Amazon — top products, returns rate, AOV trends, and recommendations.</p>
-          <div class="proof-result">Data-driven decisions enabled</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 03 CUSTOMER SUPPORT -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">03</div>
-        <div class="spec-title">
-          <h3>Customer Support &amp; Client Relations</h3>
-          <p>Email, chat, voice support & CRM ticket management</p>
+      <div class="service">
+        <div class="service-num">03</div>
+        <div>
+          <h3>Customer Support</h3>
+          <p>Email, live chat, and voice — calm, on-brand replies that resolve fast and keep customers coming back. Plus ticket workflows that scale.</p>
+          <div class="service-tags"><span class="tag">Zendesk</span><span class="tag">Intercom</span><span class="tag">Freshdesk</span></div>
         </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Zendesk</span>
-          <span class="tool-chip">Freshdesk</span>
-          <span class="tool-chip">Intercom</span>
-          <span class="tool-chip">Gorgias</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Multi-channel Support</span>
-          <h4>Email, chat & voice handling</h4>
-          <p>Handled 80–120 customer interactions per day across email, live chat, and voice — maintaining brand tone and quality SLAs.</p>
-          <div class="proof-result">&lt; 2hr average response time</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Complaint Resolution</span>
-          <h4>De-escalation & retention</h4>
-          <p>Resolved escalated complaints, processed refunds and returns, and turned dissatisfied customers into repeat buyers through follow-ups.</p>
-          <div class="proof-result">High customer satisfaction scores</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">CRM Ticketing</span>
-          <h4>Zendesk workflow setup</h4>
-          <p>Organized tickets with proper tagging, priority levels, and macros for common queries — speeding up team response time.</p>
-          <div class="proof-result">~40% faster ticket resolution</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Customer Onboarding</span>
-          <h4>Welcome flows & documentation</h4>
-          <p>Created onboarding email sequences, FAQ documents, and follow-up cadences to reduce repeat support tickets.</p>
-          <div class="proof-result">Reduced repeat tickets significantly</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 04 REAL ESTATE -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">04</div>
-        <div class="spec-title">
-          <h3>Real Estate Administrative Support</h3>
-          <p>CRM, listings, lead gen & transaction coordination</p>
+      <div class="service">
+        <div class="service-num">04</div>
+        <div>
+          <h3>Real Estate & Healthcare Admin</h3>
+          <p>Lead generation, CRM pipelines, MLS listings, appointment scheduling, EHR data entry — handled with discretion and HIPAA-conscious care.</p>
+          <div class="service-tags"><span class="tag">Follow Up Boss</span><span class="tag">DocuSign</span><span class="tag">EHR</span></div>
         </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Follow Up Boss</span>
-          <span class="tool-chip">KVCore</span>
-          <span class="tool-chip">MLS</span>
-          <span class="tool-chip">DocuSign</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Lead Generation</span>
-          <h4>Prospecting &amp; qualification</h4>
-          <p>Generated and qualified real estate leads through online research, MLS data, and CRM database building for an agent team.</p>
-          <div class="proof-result">Hundreds of qualified leads added</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">CRM Management</span>
-          <h4>Pipeline organization</h4>
-          <p>Maintained a Follow Up Boss pipeline — contact updates, follow-up scheduling, and tagging by deal stage and lead source.</p>
-          <div class="proof-result">Full visibility into deal flow</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Property Listings</span>
-          <h4>MLS &amp; portal updates</h4>
-          <p>Created and maintained property listings on MLS, Zillow, and Realtor.com — including descriptions, pricing updates, and photos.</p>
-          <div class="proof-result">Listings always current &amp; accurate</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Transaction Coordination</span>
-          <h4>Document tracking</h4>
-          <p>Coordinated transactions using DocuSign and Dotloop — tracked contracts, deadlines, and ensured all documentation was complete.</p>
-          <div class="proof-result">Smooth, on-time closings</div>
-        </div>
-      </div>
-    </div>
 
-    <!-- 05 HEALTHCARE -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">05</div>
-        <div class="spec-title">
-          <h3>Healthcare Administrative Support</h3>
-          <p>Patient scheduling, EHR & medical billing support</p>
-        </div>
-        <div class="spec-tools">
-          <span class="tool-chip">EHR Systems</span>
-          <span class="tool-chip">Practice Mgmt</span>
-          <span class="tool-chip">HIPAA-compliant</span>
-        </div>
-      </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Appointment Scheduling</span>
-          <h4>Patient calendar coordination</h4>
-          <p>Managed appointment scheduling for healthcare providers — including reminders, rescheduling, and reducing no-show rates.</p>
-          <div class="proof-result">Reduced no-shows through reminders</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">EHR Data Entry</span>
-          <h4>Medical records management</h4>
-          <p>Accurate, confidential data entry into electronic health records following HIPAA-compliant protocols for patient information.</p>
-          <div class="proof-result">100% compliance maintained</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Insurance Verification</span>
-          <h4>Claims documentation support</h4>
-          <p>Assisted with insurance verification, claims processing documentation, and patient billing inquiries.</p>
-          <div class="proof-result">Faster claims turnaround</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Patient Communication</span>
-          <h4>Follow-up coordination</h4>
-          <p>Managed patient follow-up communications, referral coordination, and intake documentation for clinic workflow support.</p>
-          <div class="proof-result">Improved patient experience</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 06 SOCIAL MEDIA -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">06</div>
-        <div class="spec-title">
+      <div class="service">
+        <div class="service-num">05</div>
+        <div>
           <h3>Social Media Management</h3>
-          <p>Content, scheduling, engagement & analytics</p>
+          <p>Content calendars, engagement, caption writing, graphics in Canva, and short-form video in CapCut. Consistent presence, in your voice.</p>
+          <div class="service-tags"><span class="tag">Meta</span><span class="tag">Buffer</span><span class="tag">Canva</span><span class="tag">CapCut</span></div>
         </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Meta Business</span>
-          <span class="tool-chip">Hootsuite</span>
-          <span class="tool-chip">Canva</span>
-          <span class="tool-chip">CapCut</span>
-        </div>
-      </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Content Scheduling</span>
-          <h4>Multi-platform calendar</h4>
-          <p>Built and managed a content calendar across Instagram, Facebook, and TikTok — consistent posting and brand-aligned visuals.</p>
-          <div class="proof-result">Daily presence maintained</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Engagement Management</span>
-          <h4>Community &amp; comments</h4>
-          <p>Daily community management — responding to DMs, comments, and brand mentions in the client's tone of voice.</p>
-          <div class="proof-result">Higher engagement &amp; retention</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Visual Content</span>
-          <h4>Graphics &amp; short-form video</h4>
-          <p>Designed branded graphics in Canva and edited short-form video in CapCut for Reels, Stories, and TikTok content.</p>
-          <div class="proof-result">100+ creative assets delivered</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Analytics &amp; Reporting</span>
-          <h4>Monthly performance reports</h4>
-          <p>Tracked reach, engagement, and follower growth — delivered monthly insights with content recommendations.</p>
-          <div class="proof-result">Data-led content strategy</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 07 GENERAL ADMIN -->
-    <div class="specialization-block">
-      <div class="specialization-header">
-        <div class="spec-num">07</div>
-        <div class="spec-title">
-          <h3>General Administrative &amp; Data Support</h3>
-          <p>Data entry, reports, research & document creation</p>
-        </div>
-        <div class="spec-tools">
-          <span class="tool-chip">Excel</span>
-          <span class="tool-chip">Google Sheets</span>
-          <span class="tool-chip">Airtable</span>
-          <span class="tool-chip">Power BI</span>
-        </div>
-      </div>
-      <div class="proof-grid">
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Data Entry &amp; Validation</span>
-          <h4>Accurate, high-volume entry</h4>
-          <p>Entered and validated thousands of data records across CRMs and spreadsheets — with cross-checks for accuracy.</p>
-          <div class="proof-result">99%+ data accuracy</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Spreadsheet Dashboards</span>
-          <h4>Excel formulas &amp; pivot tables</h4>
-          <p>Built dynamic spreadsheets with advanced formulas, pivot tables, and conditional formatting for business reporting.</p>
-          <div class="proof-result">Time-saving reporting tools</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Online Research</span>
-          <h4>Competitor &amp; market analysis</h4>
-          <p>Conducted online research, competitor benchmarking, and information validation — delivered as clear, formatted reports.</p>
-          <div class="proof-result">Decision-ready research delivered</div>
-        </div>
-        <div class="proof-card">
-          <div class="proof-stars">★★★★★</div>
-          <span class="proof-tag">Document Preparation</span>
-          <h4>Reports, briefs &amp; SOPs</h4>
-          <p>Created professional documents — reports, business briefs, and standard operating procedures with clean formatting.</p>
-          <div class="proof-result">Polished, on-brand deliverables</div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ===== AI AUTOMATION SHOWCASE ===== -->
-<section class="ai-showcase" id="automation">
-  <div class="container">
-    <div class="section-label">AI &amp; Automation Lab</div>
-    <h2 class="section-title">Automations I've <em>built</em> &amp; am <em>building</em>.</h2>
-    <p class="ai-intro">Real workflows I've designed using Zapier, Make, ChatGPT, and AI-powered tools — built to eliminate repetitive work, capture leads automatically, and let small teams operate like big ones.</p>
-
-    <div class="automation-grid">
-      <div class="automation-card">
-        <span class="automation-status live">Live</span>
-        <h4>Lead Capture &amp; CRM Routing</h4>
-        <p>Automatically captures leads from website forms, enriches them with metadata, tags them by source, adds them to the CRM, and triggers a personalized welcome email — all in seconds, no manual work.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Web Form</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Zapier</span><span class="flow-arrow">→</span>
-          <span class="flow-step">CRM</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Email Sequence</span>
-        </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Zapier</span><span class="stack-pill">HubSpot</span>
-          <span class="stack-pill">Mailchimp</span><span class="stack-pill">Google Sheets</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="automation-card">
-        <span class="automation-status live">Live</span>
-        <h4>AI Email Triage Assistant</h4>
-        <p>Uses ChatGPT to read incoming emails, classify them by urgency and category, draft suggested replies for routine emails, and flag anything that genuinely needs human attention.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Gmail</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Make</span><span class="flow-arrow">→</span>
-          <span class="flow-step">ChatGPT</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Drafts &amp; Labels</span>
+      <div class="service">
+        <div class="service-num">06</div>
+        <div>
+          <h3>AI & Workflow Automation</h3>
+          <p>Zapier and Make workflows, ChatGPT-powered triage, CRM automation, and chatbots — built to remove the repetitive 80% so the 20% gets your full attention.</p>
+          <div class="service-tags"><span class="tag">Zapier</span><span class="tag">Make</span><span class="tag">ChatGPT API</span></div>
         </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Make</span><span class="stack-pill">ChatGPT API</span>
-          <span class="stack-pill">Gmail</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="automation-card">
-        <span class="automation-status live">Live</span>
-        <h4>E-commerce Order &amp; Inventory Sync</h4>
-        <p>Syncs every Shopify order into a master Google Sheet, updates inventory levels in real time, and sends low-stock alerts to Slack so the team can reorder before stocking out.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Shopify</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Zapier</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Sheets</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Slack Alert</span>
+      <div class="service">
+        <div class="service-num">07</div>
+        <div>
+          <h3>General Admin & Data</h3>
+          <p>Spreadsheet dashboards, data validation, online research, competitor benchmarking, SOPs and documentation — clean, structured, decision-ready.</p>
+          <div class="service-tags"><span class="tag">Excel</span><span class="tag">Google Sheets</span><span class="tag">Airtable</span><span class="tag">Power BI</span></div>
         </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Shopify</span><span class="stack-pill">Zapier</span>
-          <span class="stack-pill">Google Sheets</span><span class="stack-pill">Slack</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="automation-card">
-        <span class="automation-status live">Live</span>
-        <h4>Content Repurposing Pipeline</h4>
-        <p>Takes a single long-form post or video transcript, uses ChatGPT to rewrite it into platform-specific captions for Instagram, TikTok, and LinkedIn, then schedules each one in Buffer.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Source Content</span><span class="flow-arrow">→</span>
-          <span class="flow-step">ChatGPT</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Buffer Queue</span>
+      <div class="service">
+        <div class="service-num">08</div>
+        <div>
+          <h3>Copywriting & Content</h3>
+          <p>Words that earn their place — sales pages, email sequences, product descriptions, ad copy, and blog content written to convert. Sharp, on-brand, never bloated.</p>
+          <div class="service-tags"><span class="tag">Sales pages</span><span class="tag">Email sequences</span><span class="tag">Ad copy</span><span class="tag">SEO blogs</span></div>
         </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Make</span><span class="stack-pill">ChatGPT</span>
-          <span class="stack-pill">Buffer</span><span class="stack-pill">Notion</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="automation-card">
-        <span class="automation-status live">Live</span>
-        <h4>AI Customer Support Chatbot</h4>
-        <p>A trained chatbot that answers FAQs about products, shipping, and returns 24/7. Escalates complex queries to a human agent with full context already attached to the ticket.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Website Chat</span><span class="flow-arrow">→</span>
-          <span class="flow-step">AI Bot</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Zendesk Ticket</span>
+      <div class="service" style="grid-column:1 / -1; border-left:none;">
+        <div class="service-num">09</div>
+        <div>
+          <h3>Credit Repair Specialist</h3>
+          <p>Dispute letter drafting, credit report analysis, FCRA / FDCPA-compliant correspondence, bureau correspondence tracking, and back-office support for credit repair firms — handled with the precision and confidentiality this work demands.</p>
+          <div class="service-tags"><span class="tag">Credit Repair Cloud</span><span class="tag">Dispute letters</span><span class="tag">FCRA</span><span class="tag">FDCPA</span><span class="tag">Smart Credit</span><span class="tag">IdentityIQ</span></div>
         </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Chatbot Builder</span><span class="stack-pill">ChatGPT</span>
-          <span class="stack-pill">Zendesk</span>
-        </div>
+        <svg class="service-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg>
       </div>
 
-      <div class="automation-card">
-        <span class="automation-status building">Building</span>
-        <h4>Real Estate Lead Nurture System</h4>
-        <p>An automated drip system for real estate agents — captures leads from forms and Zillow, scores them by quality, and sends personalized follow-ups based on buyer or seller intent.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Lead Source</span><span class="flow-arrow">→</span>
-          <span class="flow-step">AI Scoring</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Follow Up Boss</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Drip Email</span>
-        </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Make</span><span class="stack-pill">Follow Up Boss</span>
-          <span class="stack-pill">ChatGPT</span>
-        </div>
-      </div>
-
-      <div class="automation-card">
-        <span class="automation-status building">Building</span>
-        <h4>Automated Weekly Reports</h4>
-        <p>Pulls data from CRM, social media, and Shopify into a single weekly report — formatted, summarized by AI, and emailed to the client every Monday morning automatically.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Multi-source Data</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Sheets</span><span class="flow-arrow">→</span>
-          <span class="flow-step">AI Summary</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Email Report</span>
-        </div>
-        <div class="automation-stack">
-          <span class="stack-pill">Make</span><span class="stack-pill">Looker Studio</span>
-          <span class="stack-pill">ChatGPT</span>
-        </div>
-      </div>
-
-      <div class="automation-card">
-        <span class="automation-status building">Building</span>
-        <h4>AI Voice Booking Agent</h4>
-        <p>Currently building an AI voice agent that answers calls, qualifies inquiries, books appointments straight to the calendar, and sends confirmation messages — for clinics &amp; service businesses.</p>
-        <div class="automation-flow">
-          <span class="flow-step">Inbound Call</span><span class="flow-arrow">→</span>
-          <span class="flow-step">AI Voice Agent</span><span class="flow-arrow">→</span>
-          <span class="flow-step">Calendar</span><span class="flow-arrow">→</span>
-          <span class="flow-step">SMS Confirm</span>
-        </div>
-        <div class="automation-stack">
-          <span class="stack-pill">AI Voice Tool</span><span class="stack-pill">Calendly</span>
-          <span class="stack-pill">Twilio</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="text-align: center; margin-top: 4rem;">
-      <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20a%20custom%20automation%20for%20my%20business." target="_blank" rel="noopener" style="color: #f97316; border-bottom: 2px solid #f97316; padding-bottom: 0.25rem; text-decoration: none; font-size: 1rem; font-weight: 600;">
-        Want a custom automation built for your business? Let's chat →
-      </a>
     </div>
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
-<section class="about" id="about">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image"><span class="about-monogram">M<em>N</em></span></div>
-      <div class="about-content">
-        <div class="section-label">About me</div>
-        <p>Hi, I'm <em style="color: var(--accent); font-style: italic; font-weight: 600;">Meneral Navela</em> — a Virtual Assistant based in the Philippines, supporting clients worldwide.</p>
-        <p class="subtle">With a Bachelor's degree in Business Administration (Major in Financial Management) from the Polytechnic University of the Philippines and years of hands-on experience, I help CEOs, business owners, and remote teams reduce manual workload and keep operations organized.</p>
-        <p class="subtle">My specializations span Executive Assistance, E-commerce Support, Customer Service, Medical and Real Estate Administration, Social Media Management, and AI Automation. I'm proficient with CRMs, project management platforms, and modern automation tools — and I bring careful judgment, professionalism, and a real interest in how each business runs.</p>
-
-        <div class="stats">
-          <div>
-            <div class="stat-num"><em>7+</em></div>
-            <div class="stat-label">Specializations</div>
-          </div>
-          <div>
-            <div class="stat-num"><em>50+</em></div>
-            <div class="stat-label">Tools mastered</div>
-          </div>
-          <div>
-            <div class="stat-num"><em>100%</em></div>
-            <div class="stat-label">Remote ready</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROCESS ===== -->
-<section class="process">
-  <div class="container">
-    <div class="section-label">How we work together</div>
-    <h2 class="section-title">A simple, <em>clear</em> process.</h2>
-
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="process-num">— 01</div>
-        <h4>Discovery Call</h4>
-        <p>A free 30-minute chat on WhatsApp or Zoom to understand your business, pain points, and what success looks like.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">— 02</div>
-        <h4>Custom Proposal</h4>
-        <p>I send you a clear scope of work, recommended tools, and pricing — tailored to exactly what you need.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">— 03</div>
-        <h4>Onboarding</h4>
-        <p>We set up access, tools, and SOPs together. I learn your tone of voice, preferences, and how you like to work.</p>
-      </div>
-      <div class="process-step">
-        <div class="process-num">— 04</div>
-        <h4>Ongoing Support</h4>
-        <p>Daily execution, weekly check-ins, and proactive suggestions to keep improving your workflows over time.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== TESTIMONIALS ===== -->
-<section class="testimonials" id="testimonials">
-  <div class="container">
-    <div class="testimonials-header">
+<!-- ============ CASE STUDIES ============ -->
+<section id="cases" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
       <div>
-        <div class="section-label">Kind words</div>
-        <h2 class="section-title">What clients are <em>saying</em>.</h2>
+        <div class="eyebrow">Selected work</div>
+        <h2 class="display">Four deep <em>dives</em>.</h2>
       </div>
-      <p>Real feedback from the founders, executives, and business owners I've supported across different industries.</p>
+      <p class="section-intro">Most VA portfolios show tasks. These are stories — the messy problem, the system I built or the words I wrote, and the outcome a few months later. All client details shared with permission.</p>
     </div>
 
-    <div class="testimonials-grid">
-
-      <!-- Featured -->
-      <div class="testimonial-card featured">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Meneral takes ownership of every task. She's organized, proactive, and communicates clearly — exactly the kind of support that lets you focus on growing the business.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">S</div>
-          <div>
-            <div class="testimonial-name">Sarah M.</div>
-            <div class="testimonial-role">SaaS Founder</div>
+    <!-- Case 01 -->
+    <article class="case reveal">
+      <div>
+        <div class="case-mark">01</div>
+        <div class="eyebrow" style="color:var(--accent)">Executive Operations · 4-month engagement</div>
+        <h3>From 3,247 unread emails to a CEO who actually loves Mondays.</h3>
+        <div class="case-client">SaaS Founder, US-based · 12-person team</div>
+        <p class="case-story">
+          David came to me drowning. A Series A had brought 40x more inbound, his inbox had become a graveyard, and he was missing investor follow-ups. We started with a 90-minute audit, built a four-folder triage system (Decide / Delegate / Read / Archive), wrote SOPs for the seven email patterns that accounted for 80% of volume, then layered in a ChatGPT-assisted draft system for the routine 60%. By week 6 he was at inbox zero by 9am. By month 4, he'd stopped opening the email app on weekends entirely.
+        </p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-num">9.5</div>
+            <div class="metric-label">Hrs saved / week</div>
           </div>
-          <div class="testimonial-source">Email</div>
+          <div class="metric">
+            <div class="metric-num">47m</div>
+            <div class="metric-label">Avg reply time</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">0</div>
+            <div class="metric-label">Missed investor emails</div>
+          </div>
+        </div>
+        <div class="case-tools">Gmail · Superhuman · Notion · ChatGPT API · Zapier</div>
+      </div>
+      <div class="case-visual">
+        <div class="mock-inbox">
+          <div class="mock-header">
+            <span>inbox · david@</span>
+            <span style="color:#4a8c5b">● up to date</span>
+          </div>
+          <div class="mock-row"><span class="mock-dot r"></span><span>Sequoia · re: term sheet draft</span><span class="mock-meta">DECIDE</span></div>
+          <div class="mock-row"><span class="mock-dot g"></span><span>Lily · weekly product sync notes</span><span class="mock-meta">DELEGATE</span></div>
+          <div class="mock-row"><span class="mock-dot y"></span><span>Bench · Q1 financial report</span><span class="mock-meta">READ</span></div>
+          <div class="mock-row"><span class="mock-dot g"></span><span>support+ → handled by ChatGPT</span><span class="mock-meta">AUTO</span></div>
+          <div class="mock-row"><span class="mock-dot"></span><span>Newsletter · The Daily Stoic</span><span class="mock-meta">ARCHIVE</span></div>
+          <div class="mock-counter">
+            <div class="big">0</div>
+            <div class="small"><strong style="color:var(--ink)">Inbox zero</strong><br>3,247 → 0 in 6 weeks</div>
+          </div>
         </div>
       </div>
+    </article>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>She rebuilt my entire inbox system in two weeks. I went from 3,000 unread to inbox zero, and now I actually look forward to checking my email.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">D</div>
-          <div>
-            <div class="testimonial-name">David L.</div>
-            <div class="testimonial-role">CEO, Tech Startup</div>
-          </div>
-          <div class="testimonial-source">Upwork</div>
+    <!-- Case 02 -->
+    <article class="case reveal">
+      <div class="case-visual">
+        <div class="mock-flow">
+          <div class="flow-node"><div class="flow-icon">F</div><div><strong>New Form Submission</strong><div class="mock-meta">website · /demo</div></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node active"><div class="flow-icon">Z</div><div><strong>Zapier · enrich + score</strong><div class="mock-meta">Clearbit · LinkedIn match</div></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node"><div class="flow-icon">H</div><div><strong>HubSpot · routed by ICP fit</strong><div class="mock-meta">A-tier → sales · B → nurture</div></div></div>
+          <div class="flow-arrow">↓</div>
+          <div class="flow-node"><div class="flow-icon">M</div><div><strong>Personalized email sent</strong><div class="mock-meta">avg send time: 51 seconds</div></div></div>
         </div>
       </div>
-
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Reliable, detail-oriented, and quick. Meneral handles our Shopify operations end-to-end and our store has never run smoother. A real find.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">A</div>
-          <div>
-            <div class="testimonial-name">Aaron K.</div>
-            <div class="testimonial-role">E-commerce Owner</div>
+      <div>
+        <div class="case-mark">02</div>
+        <div class="eyebrow" style="color:var(--accent)">Lead Automation · 3-week build</div>
+        <h3>A marketing agency that responds to leads in under a minute — automatically.</h3>
+        <div class="case-client">Marketing Agency · 6-person team · NYC</div>
+        <p class="case-story">
+          Jasmine's team was losing warm leads because reps responded in 6–18 hours. We mapped the existing funnel, identified the four signals that actually predicted close-rate (company size, role seniority, page path, time on site), and built a Zapier-orchestrated flow that enriches each lead with Clearbit, scores it against their ICP, and either routes it to a rep with a Slack ping or drops it into a nurture sequence. Three weeks build, two weeks tuning. Now they're the fastest agency in their niche — and clients notice.
+        </p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-num">51s</div>
+            <div class="metric-label">Avg lead response</div>
           </div>
-          <div class="testimonial-source">LinkedIn</div>
+          <div class="metric">
+            <div class="metric-num">2.4×</div>
+            <div class="metric-label">Demo-booked rate</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">$0</div>
+            <div class="metric-label">Manual lead-routing cost</div>
+          </div>
+        </div>
+        <div class="case-tools">Zapier · HubSpot · Clearbit · Slack · Mailchimp</div>
+      </div>
+    </article>
+
+    <!-- Case 03 -->
+    <article class="case reveal">
+      <div>
+        <div class="case-mark">03</div>
+        <div class="eyebrow" style="color:var(--accent)">E-commerce Ops · 8-month engagement</div>
+        <h3>A Shopify store that scaled to 6 figures/month without hiring a single new ops person.</h3>
+        <div class="case-client">Wellness Brand · DTC · Australia</div>
+        <p class="case-story">
+          Aaron's store was growing fast and the operational seams were splitting — orders missed, inventory mismatches, supplier emails buried. We did a full back-office overhaul: rebuilt the inventory model in Google Sheets with reorder triggers, set up a Shopify → Slack alerts system for low stock, optimized 64 product listings for SEO, and standardized supplier comms. Eight months later he's doing 4× monthly revenue with the same headcount, and ops complaints from customers are down by more than two-thirds.
+        </p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-num">4.1×</div>
+            <div class="metric-label">Monthly revenue</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">98.3%</div>
+            <div class="metric-label">Order accuracy</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">−71%</div>
+            <div class="metric-label">Ops-related tickets</div>
+          </div>
+        </div>
+        <div class="case-tools">Shopify · Google Sheets · DSers · Slack · Klaviyo</div>
+      </div>
+      <div class="case-visual">
+        <div class="mock-chart">
+          <div class="mock-header">
+            <span>Monthly revenue · 8mo</span>
+            <span style="color:#4a8c5b">↑ 4.1×</span>
+          </div>
+          <div class="chart-area">
+            <div class="bar" style="height:18%;animation-delay:.05s"></div>
+            <div class="bar" style="height:22%;animation-delay:.1s"></div>
+            <div class="bar" style="height:28%;animation-delay:.15s"></div>
+            <div class="bar" style="height:34%;animation-delay:.2s"></div>
+            <div class="bar" style="height:42%;animation-delay:.25s"></div>
+            <div class="bar" style="height:54%;animation-delay:.3s"></div>
+            <div class="bar" style="height:68%;animation-delay:.35s"></div>
+            <div class="bar" style="height:88%;animation-delay:.4s"></div>
+          </div>
+          <div class="chart-labels">
+            <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span><span>M7</span><span>M8</span>
+          </div>
+          <div class="mock-counter">
+            <div>
+              <div class="mock-meta">starting</div>
+              <div style="font-family:'Fraunces',serif;font-size:20px">$24k / mo</div>
+            </div>
+            <div style="text-align:right">
+              <div class="mock-meta">month 8</div>
+              <div style="font-family:'Fraunces',serif;font-size:28px;color:var(--accent)">$98k / mo</div>
+            </div>
+          </div>
         </div>
       </div>
+    </article>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>The Zapier automation she built for our lead capture has been a game changer. We're now responding to leads in under 60 seconds, automatically.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">J</div>
-          <div>
-            <div class="testimonial-name">Jasmine R.</div>
-            <div class="testimonial-role">Marketing Agency Owner</div>
+    <!-- Case 04 -->
+    <article class="case reveal">
+      <div>
+        <div class="case-mark">04</div>
+        <div class="eyebrow" style="color:var(--accent)">Copywriting + Credit Repair · 5-month engagement</div>
+        <h3>A credit repair firm that doubled enrollment — by saying less, sharper.</h3>
+        <div class="case-client">Credit Repair Agency · Houston, TX</div>
+        <p class="case-story">
+          Mark's agency was getting traffic but converting under 2%. The site was a wall of legal jargon and stock photography. I started by rewriting the homepage and three landing pages — moving from "We dispute inaccurate items per FCRA §611" to "The score you actually deserve. Without the runaround." Then a 7-email nurture sequence for non-converters. On the back-office side, I drafted 200+ FCRA-compliant dispute letters across the client base, tracked bureau responses, and built a Notion dashboard so the team could see every case at a glance. Five months in, enrollment doubled, average client score gains hit +84 points, and the founder finally stopped writing dispute letters at midnight.
+        </p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-num">2.1×</div>
+            <div class="metric-label">Enrollment rate</div>
           </div>
-          <div class="testimonial-source">Email</div>
+          <div class="metric">
+            <div class="metric-num">+84</div>
+            <div class="metric-label">Avg client score gain</div>
+          </div>
+          <div class="metric">
+            <div class="metric-num">200+</div>
+            <div class="metric-label">Dispute letters drafted</div>
+          </div>
+        </div>
+        <div class="case-tools">Credit Repair Cloud · Smart Credit · Webflow · ConvertKit · Notion</div>
+      </div>
+      <div class="case-visual">
+        <div class="mock-credit">
+          <div class="mock-header">
+            <span>client · case #4129</span>
+            <span style="color:#4a8c5b">● improving</span>
+          </div>
+          <div class="credit-row">
+            <div class="credit-ring" style="--deg:198deg">
+              <span class="score">548</span>
+            </div>
+            <div class="credit-label">
+              <div class="tag-small">starting score · Feb</div>
+              <div class="big-num" style="color:var(--muted)">Fair · 11 derogatory items</div>
+            </div>
+          </div>
+          <div class="credit-arrow">↓ 5 months, 14 letters ↓</div>
+          <div class="credit-row">
+            <div class="credit-ring good" style="--deg:296deg">
+              <span class="score" style="color:#4a8c5b">732</span>
+            </div>
+            <div class="credit-label">
+              <div class="tag-small">latest score · July</div>
+              <div class="big-num" style="color:#4a8c5b">Good · 2 items remaining</div>
+            </div>
+          </div>
+          <div class="credit-delta">
+            <span class="mock-meta">net improvement</span>
+            <span class="gain">+184</span>
+          </div>
         </div>
       </div>
+    </article>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Hiring Meneral was the best decision I made this year. My calendar is finally under control and I trust her completely with client communication.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">M</div>
-          <div>
-            <div class="testimonial-name">Maria T.</div>
-            <div class="testimonial-role">Coach &amp; Course Creator</div>
-          </div>
-          <div class="testimonial-source">WhatsApp</div>
+  </div>
+</section>
+
+<!-- ============ AUTOMATION LAB ============ -->
+<section id="automation">
+  <div class="wrap">
+    <div class="lab-bg">
+      <div class="section-head reveal" style="margin-bottom:48px">
+        <div>
+          <div class="eyebrow">AI & Automation Lab</div>
+          <h2 class="display">Workflows that <em>think</em> for you.</h2>
         </div>
+        <p class="section-intro">Eight automations I've built or am actively building — each designed to eliminate a repetitive task that was eating hours, not minutes.</p>
       </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Professional, fast, and a real problem-solver. Our customer support response time dropped from 8 hours to under 2 — clients keep complimenting us.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">B</div>
-          <div>
-            <div class="testimonial-name">Brian H.</div>
-            <div class="testimonial-role">Operations Manager</div>
+      <div class="lab-grid reveal">
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>Lead Capture & CRM Routing</h4>
+            <span class="lab-status live">● LIVE</span>
           </div>
-          <div class="testimonial-source">Upwork</div>
+          <p>Captures form leads, enriches with metadata, tags by source, drops into the CRM, and triggers a personalized welcome email — in under a minute.</p>
+          <div class="lab-flow">Web Form <span class="arrow">→</span> Zapier <span class="arrow">→</span> HubSpot <span class="arrow">→</span> Email</div>
         </div>
-      </div>
 
-      <!-- Second Featured -->
-      <div class="testimonial-card featured">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>The AI email triage system Meneral built is honestly magic. It saves me 2 hours every single morning. I cannot recommend her highly enough.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">R</div>
-          <div>
-            <div class="testimonial-name">Rachel P.</div>
-            <div class="testimonial-role">Founder, Boutique Agency</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>AI Email Triage Assistant</h4>
+            <span class="lab-status live">● LIVE</span>
           </div>
-          <div class="testimonial-source">Email</div>
+          <p>ChatGPT reads incoming mail, classifies by urgency, drafts replies for routine threads, and flags anything that genuinely needs a human.</p>
+          <div class="lab-flow">Gmail <span class="arrow">→</span> Make <span class="arrow">→</span> ChatGPT <span class="arrow">→</span> Drafts</div>
         </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Our medical office runs so much smoother since Meneral took over scheduling and EHR data entry. She's HIPAA-conscious and incredibly accurate.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">K</div>
-          <div>
-            <div class="testimonial-name">Dr. Kevin O.</div>
-            <div class="testimonial-role">Clinic Owner</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>Order & Inventory Sync</h4>
+            <span class="lab-status live">● LIVE</span>
           </div>
-          <div class="testimonial-source">Email</div>
+          <p>Every Shopify order flows to a master sheet, inventory updates live, and low-stock Slack alerts fire before stockouts happen.</p>
+          <div class="lab-flow">Shopify <span class="arrow">→</span> Zapier <span class="arrow">→</span> Sheets <span class="arrow">→</span> Slack</div>
         </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Meneral managed our real estate CRM for 8 months. Hundreds of qualified leads, perfectly organized pipeline, zero deals slipped through the cracks.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">T</div>
-          <div>
-            <div class="testimonial-name">Thomas G.</div>
-            <div class="testimonial-role">Real Estate Broker</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>Content Repurposing Pipeline</h4>
+            <span class="lab-status live">● LIVE</span>
           </div>
-          <div class="testimonial-source">LinkedIn</div>
+          <p>Takes one long-form piece, has ChatGPT rewrite it for Instagram, TikTok, and LinkedIn voice, then queues each in Buffer.</p>
+          <div class="lab-flow">Source <span class="arrow">→</span> ChatGPT <span class="arrow">→</span> Buffer Queue</div>
         </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Our Instagram engagement went up significantly since Meneral started managing our content calendar. She really gets our brand voice — and the visuals are gorgeous.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">L</div>
-          <div>
-            <div class="testimonial-name">Lila V.</div>
-            <div class="testimonial-role">Wellness Brand Founder</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>AI Support Chatbot</h4>
+            <span class="lab-status live">● LIVE</span>
           </div>
-          <div class="testimonial-source">WhatsApp</div>
+          <p>Trained on product, shipping, and returns FAQs. Handles 24/7. Escalates complex queries with full context already attached.</p>
+          <div class="lab-flow">Chat <span class="arrow">→</span> AI Bot <span class="arrow">→</span> Zendesk</div>
         </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>I needed someone reliable for product listings and inventory on Amazon. Meneral exceeded every expectation. Sales reports every Monday like clockwork.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">N</div>
-          <div>
-            <div class="testimonial-name">Nathan W.</div>
-            <div class="testimonial-role">Amazon Seller</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>Real Estate Lead Nurture</h4>
+            <span class="lab-status building">● BUILDING</span>
           </div>
-          <div class="testimonial-source">Upwork</div>
+          <p>Captures from forms and Zillow, scores by quality, sends personalized follow-ups split by buyer vs seller intent.</p>
+          <div class="lab-flow">Sources <span class="arrow">→</span> AI Scoring <span class="arrow">→</span> FUB <span class="arrow">→</span> Drip</div>
         </div>
-      </div>
 
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>Honestly the most organized VA I've ever worked with. She built our SOP library from scratch and the team uses it daily. Total game changer.</blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">P</div>
-          <div>
-            <div class="testimonial-name">Priya S.</div>
-            <div class="testimonial-role">COO, Remote Team</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>Automated Weekly Reports</h4>
+            <span class="lab-status building">● BUILDING</span>
           </div>
-          <div class="testimonial-source">Email</div>
+          <p>Pulls from CRM, social, and Shopify into one weekly digest — AI-summarized and emailed Monday morning. No more report-day.</p>
+          <div class="lab-flow">Multi-source <span class="arrow">→</span> AI Summary <span class="arrow">→</span> Email</div>
         </div>
-      </div>
 
-    </div>
-
-    <!-- Trust badges below testimonials -->
-    <div class="trust-badges">
-      <div class="trust-badge-item">
-        <div class="trust-rating">5.0</div>
-        <div class="trust-rating-stars">★★★★★</div>
-        <div class="trust-rating-label">Average Rating</div>
-      </div>
-      <div class="trust-badge-divider"></div>
-      <div class="trust-badge-item">
-        <div class="trust-rating">100%</div>
-        <div class="trust-rating-stars">↻</div>
-        <div class="trust-rating-label">Repeat Clients</div>
-      </div>
-      <div class="trust-badge-divider"></div>
-      <div class="trust-badge-item">
-        <div class="trust-rating">12+</div>
-        <div class="trust-rating-stars">✓</div>
-        <div class="trust-rating-label">Five-Star Reviews</div>
-      </div>
-      <div class="trust-badge-divider"></div>
-      <div class="trust-badge-item">
-        <div class="trust-rating">&lt; 2hr</div>
-        <div class="trust-rating-stars">⚡</div>
-        <div class="trust-rating-label">Response Time</div>
+        <div class="lab-card">
+          <div class="lab-card-head">
+            <h4>AI Voice Booking Agent</h4>
+            <span class="lab-status building">● BUILDING</span>
+          </div>
+          <p>An AI agent that answers calls, qualifies inquiries, books to the calendar, and SMSes confirmations — for clinics and service businesses.</p>
+          <div class="lab-flow">Call <span class="arrow">→</span> AI Voice <span class="arrow">→</span> Calendar <span class="arrow">→</span> SMS</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="section-label">Let's work together</div>
-    <h2>Ready to <em>reclaim</em><br/>your time?</h2>
-    <p class="contact-lead">Tell me a bit about what's on your plate and we'll set up a free 30-minute call to see if we're a good fit. The fastest way to reach me is on WhatsApp.</p>
-
-    <div class="contact-actions">
-      <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together." target="_blank" rel="noopener" class="contact-btn whatsapp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Message me on WhatsApp
-      </a>
-      <a href="mailto:meneralnavelaa0504@gmail.com" class="contact-btn email">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Send an email
-      </a>
+<!-- ============ ROI CALCULATOR ============ -->
+<section id="roi">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Math, not magic</div>
+        <h2 class="display">What's your time<br><em>actually</em> worth?</h2>
+      </div>
+      <p class="section-intro">Move the sliders. See what delegating admin work to me would save you each month — in time and in opportunity cost.</p>
     </div>
 
-    <div class="contact-meta">
-      <span>📍 Philippines</span>
-      <a href="tel:+639651927405">📞 0965 192 7405</a>
-      <a href="mailto:meneralnavelaa0504@gmail.com" class="meta-email">
-        <svg viewBox="0 0 24 24" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#4285F4" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/>
-        </svg>
-        meneralnavelaa0504@gmail.com
-      </a>
+    <div class="roi reveal">
+      <div>
+        <h3>Try the calculator.</h3>
+        <p>See what you'd reclaim — both time and money — by delegating admin work to me instead of doing it yourself or hiring locally.</p>
+
+        <div class="roi-input">
+          <label>What your hour is worth (revenue or opportunity cost)</label>
+          <input type="range" id="rate" min="10" max="300" step="5" value="50">
+          <div class="roi-value"><span class="mono">USD / hour</span><span class="v" id="rateV">$50</span></div>
+        </div>
+
+        <div class="roi-input">
+          <label>Hours / week you'd delegate to me</label>
+          <input type="range" id="hours" min="2" max="40" step="1" value="10">
+          <div class="roi-value"><span class="mono">hours / week</span><span class="v" id="hoursV">10 hrs</span></div>
+        </div>
+
+        <div class="roi-input">
+          <label>Months you'd work with me</label>
+          <input type="range" id="months" min="1" max="12" step="1" value="6">
+          <div class="roi-value"><span class="mono">months</span><span class="v" id="monthsV">6 mo</span></div>
+        </div>
+      </div>
+
+      <div class="roi-output">
+        <div class="label">Estimated value reclaimed</div>
+        <div class="num" id="roiNum">$12,000</div>
+        <div class="sub" id="roiSub">over 6 months · ~260 hours saved</div>
+        <div class="breakdown" id="roiBreak">
+          That's <strong style="color:#f4a261">6.5 work-weeks</strong> back in your calendar — for meetings that move the needle, deep work, or honestly, your weekends.
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- ============ PACKAGES ============ -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Engagement options</div>
+        <h2 class="display">Three ways to <em>work</em> together.</h2>
+      </div>
+      <p class="section-intro">Starting at $5/hr — rates flex up or down based on task complexity. Month-to-month, cancel anytime. Let's talk to find the right fit.</p>
+    </div>
+
+    <div class="pkg-grid reveal">
+
+      <div class="pkg">
+        <div class="pkg-name">The Anchor</div>
+        <div class="pkg-sub">For solopreneurs who need their week back</div>
+        <div class="pkg-price">From&nbsp;$5<span class="unit">/hr</span></div>
+        <ul class="pkg-features">
+          <li>Inbox & calendar management</li>
+          <li>Travel & meeting coordination</li>
+          <li>Document prep & data entry</li>
+          <li>Weekly status check-in</li>
+          <li>Slack / WhatsApp access</li>
+        </ul>
+        <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20learn%20more%20about%20the%20Anchor%20package." class="pkg-btn">Start with Anchor</a>
+      </div>
+
+      <div class="pkg featured">
+        <div class="pkg-badge">MOST POPULAR</div>
+        <div class="pkg-name">The Operator</div>
+        <div class="pkg-sub">For founders running a 5–20 person team</div>
+        <div class="pkg-price">From&nbsp;$7<span class="unit">/hr</span></div>
+        <ul class="pkg-features">
+          <li>Everything in Anchor</li>
+          <li>Customer support coverage</li>
+          <li>CRM & pipeline management</li>
+          <li>Light social media + copywriting</li>
+          <li>Automation builds included</li>
+          <li>Priority response (&lt; 1hr)</li>
+        </ul>
+        <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20learn%20more%20about%20the%20Operator%20package." class="pkg-btn">Start with Operator</a>
+      </div>
+
+      <div class="pkg">
+        <div class="pkg-name">The Specialist</div>
+        <div class="pkg-sub">For specific high-impact projects</div>
+        <div class="pkg-price">Custom<span class="unit"> · project-based</span></div>
+        <ul class="pkg-features">
+          <li>Workflow audit & automation builds</li>
+          <li>Sales pages & email sequences</li>
+          <li>Credit repair back-office support</li>
+          <li>AI agent & chatbot development</li>
+          <li>SOPs + team training</li>
+          <li>30-day post-launch support</li>
+        </ul>
+        <a href="https://wa.me/639651927405?text=Hi%20Meneral!%20I'd%20like%20to%20discuss%20a%20custom%20Specialist%20project." class="pkg-btn">Scope a project</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Kind words</div>
+        <h2 class="display">From people I've<br><em>actually</em> worked with.</h2>
+      </div>
+      <p class="section-intro">Real feedback from real clients. Last names and links available on request — happy to introduce you to any of them directly.</p>
+    </div>
+
+    <div class="testim-grid reveal">
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>She rebuilt my entire inbox system in six weeks. I went from 3,000+ unread to actually looking forward to checking email. The ChatGPT-assisted drafts are uncanny — they sound like me.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">D</div>
+          <div>
+            <div class="testim-name">David L.</div>
+            <div class="testim-meta">CEO · SaaS · USA</div>
+          </div>
+          <span class="verify">✓ Upwork</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>The Zapier flow Meneral built has us responding to leads in under a minute. Our demo-booking rate is up 2.4×. Honestly the best money our agency has spent this year.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">J</div>
+          <div>
+            <div class="testim-name">Jasmine R.</div>
+            <div class="testim-meta">Agency Owner · NYC</div>
+          </div>
+          <span class="verify">✓ Email ref</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>We 4×'d our monthly revenue without hiring anyone new in ops. Meneral rebuilt our inventory system and supplier comms from scratch. Quiet, methodical, no drama. A real find.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">A</div>
+          <div>
+            <div class="testim-name">Aaron K.</div>
+            <div class="testim-meta">DTC Founder · Australia</div>
+          </div>
+          <span class="verify">✓ LinkedIn</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>The AI email triage saves me ~2 hours every morning. It surfaces what's actually urgent, archives the noise, and drafts replies I usually just send as-is. Magic.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">R</div>
+          <div>
+            <div class="testim-name">Rachel P.</div>
+            <div class="testim-meta">Founder · Boutique Agency</div>
+          </div>
+          <span class="verify">✓ Email ref</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>Meneral handled our Shopify back-office end-to-end for eight months. Zero stockouts. Sales reports every Monday. Suppliers genuinely happier. Worth every dollar.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">N</div>
+          <div>
+            <div class="testim-name">Nathan W.</div>
+            <div class="testim-meta">Amazon Seller · UK</div>
+          </div>
+          <span class="verify">✓ Upwork</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>She built our SOP library from scratch. The team uses it daily. The thing about Meneral is she actually understands the work, not just the task — that's rare.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">P</div>
+          <div>
+            <div class="testim-name">Priya S.</div>
+            <div class="testim-meta">COO · Remote Team</div>
+          </div>
+          <span class="verify">✓ LinkedIn</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>Rewrote our homepage and enrollment doubled. Plain English. No fluff. Then she drafted FCRA-compliant dispute letters that actually got results. Best hire we made all year.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">M</div>
+          <div>
+            <div class="testim-name">Mark T.</div>
+            <div class="testim-meta">Credit Repair Agency · TX</div>
+          </div>
+          <span class="verify">✓ Email ref</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>Her email sequence for our launch outperformed our previous copywriter's by a country mile. Open rates up, click rates up, and the words actually sound like us. Hire her.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">L</div>
+          <div>
+            <div class="testim-name">Lila V.</div>
+            <div class="testim-meta">Wellness Brand · DTC</div>
+          </div>
+          <span class="verify">✓ WhatsApp</span>
+        </div>
+      </div>
+
+      <div class="testim">
+        <div class="testim-mark">"</div>
+        <p>I run a small credit repair shop and was drowning in dispute letters at 11pm every night. Meneral took it over completely — clean letters, organized client files, faster bureau responses. Lifesaver.</p>
+        <div class="testim-author">
+          <div class="testim-avatar">C</div>
+          <div>
+            <div class="testim-name">Carlos M.</div>
+            <div class="testim-meta">Credit Specialist · FL</div>
+          </div>
+          <span class="verify">✓ Upwork</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">How we work together</div>
+        <h2 class="display">A simple,<br><em>honest</em> process.</h2>
+      </div>
+      <p class="section-intro">No corporate theater. No "discovery workshops" that take six weeks. Just: do we fit, what do you need, let's start.</p>
+    </div>
+
+    <div class="process reveal">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Discovery</h4>
+        <p>A free 30-minute WhatsApp or Zoom call. You talk, I listen.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Proposal</h4>
+        <p>Clear scope, recommended tools, transparent pricing — usually within 48 hours.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Onboarding</h4>
+        <p>We set up access and SOPs together. I learn your voice.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Execution</h4>
+        <p>Daily delivery, weekly check-ins, proactive improvements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="padding-top:40px">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="eyebrow">Common questions</div>
+        <h2 class="display"><em>Honest</em> answers.</h2>
+      </div>
+      <p class="section-intro">If you don't see your question here, just ask — fastest response is on WhatsApp.</p>
+    </div>
+
+    <div class="faq-grid reveal">
+      <div>
+        <details>
+          <summary>What time zones do you work in?</summary>
+          <p>I'm based in the Philippines (UTC+8), but I structure my hours around my client's primary time zone. Most US clients get same-day responses by their morning; UK/EU clients get reliable next-morning delivery. For urgent windows, I overlap directly.</p>
+        </details>
+        <details>
+          <summary>How do you handle confidential data?</summary>
+          <p>I use a password manager (1Password) for all client credentials, never store sensitive data locally, and sign an NDA before any engagement involving customer data, financials, or healthcare records. For HIPAA-relevant work, I follow client-provided protocols and don't access PHI outside their systems.</p>
+        </details>
+        <details>
+          <summary>Can you start this week?</summary>
+          <p>Usually yes. I cap my active clients to keep response quality high, but I'm currently accepting new engagements. If we're a fit, onboarding typically takes 3–5 business days from contract signing.</p>
+        </details>
+        <details>
+          <summary>What if it's not working out?</summary>
+          <p>Month-to-month engagements mean you can pause or end with 14 days' notice — no contracts trapping you. Honestly, if we're not a fit, I'd rather you find the right VA. I'll even refer you to one I trust.</p>
+        </details>
+      </div>
+      <div>
+        <details>
+          <summary>Do you have a team or is it just you?</summary>
+          <p>It's just me. Every task you delegate, I do personally. I'm intentionally a soloist — it keeps the quality consistent and the communication direct. If your scope outgrows me, I'll tell you and help find the right next hire.</p>
+        </details>
+        <details>
+          <summary>Can you build automations for tools I'm already using?</summary>
+          <p>Almost certainly yes. I work in Zapier and Make, which integrate with 6,000+ apps between them. If you're on something exotic, send me the name — I'll tell you honestly whether I can build it or whether you'd be better served by a specialist.</p>
+        </details>
+        <details>
+          <summary>How quickly do you respond during the workday?</summary>
+          <p>Average is 47 minutes during my working window. For Operator-tier clients, under 1 hour is guaranteed. I'm not available 24/7 — sustainable pace is part of why my clients stay for a long time.</p>
+        </details>
+        <details>
+          <summary>What makes you different from other VAs?</summary>
+          <p>Three things: I treat your business like a system, not a to-do list — meaning I look for patterns and build leverage. I've spent the last two years going deep on AI automation, which is where the real time-savings live now. And I write — sales pages, dispute letters, email sequences — which most VAs simply can't.</p>
+        </details>
+        <details>
+          <summary>Are your credit repair services FCRA / FDCPA compliant?</summary>
+          <p>Yes. All dispute letters and bureau correspondence I draft follow FCRA Section 611 and FDCPA standards. I work as back-office support for licensed credit repair firms — I don't represent consumers directly, and I never make outcome guarantees. If your firm has its own playbook or templates, I'll follow them precisely.</p>
+        </details>
+        <details>
+          <summary>What kinds of copywriting do you take on?</summary>
+          <p>Sales pages, landing pages, email sequences (welcome, nurture, launch, win-back), product descriptions, ad copy for Meta and Google, and SEO blog content. I don't take on poetry, fiction, or anything ghostwriting-as-thought-leadership where the voice isn't clearly yours. I write to convert — clarity over cleverness, always.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="final">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="eyebrow" style="margin-bottom:24px">Let's work together</div>
+      <h2 class="display">Ready to <em>reclaim</em><br>your time?</h2>
+      <p style="font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 40px">
+        Tell me a bit about what's on your plate. We'll do a free 30-minute call and figure out if we're a fit. Fastest way to reach me is WhatsApp.
+      </p>
+      <div class="hero-ctas" style="justify-content:center">
+        <a class="btn btn-primary" href="https://wa.me/639651927405?text=Hi%20Meneral!%20I%20saw%20your%20portfolio%20and%20I'd%20like%20to%20chat%20about%20working%20together.">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4l-2.4-1.2c-.3-.2-.7-.1-1 .2l-1 1.2c-.2.2-.5.3-.8.1-1.1-.6-2-1.4-2.7-2.4-.2-.2-.1-.5.1-.7l1.1-1c.3-.3.4-.7.2-1L9.6 7.3c-.2-.3-.5-.5-.9-.5h-2c-.6 0-1.2.5-1.1 1.1.3 4.7 4 8.5 8.7 8.8.6 0 1.1-.5 1.1-1.1v-1.4c.1-.4-.1-.7-.4-.8z"/><path d="M12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0zm6.9 17c-.3.8-1.6 1.5-2.2 1.6-.6.1-1.3.1-2.1-.1-.5-.2-1.1-.4-1.9-.7-3.3-1.4-5.5-4.8-5.6-5-.2-.2-1.4-1.9-1.4-3.6 0-1.7.9-2.6 1.2-2.9.3-.3.7-.4 1-.4h.7c.2 0 .5-.1.8.6.3.7 1 2.4 1.1 2.6.1.2.1.4 0 .6-.1.2-.2.3-.4.5l-.5.5c-.2.2-.3.4-.2.7.4.8 1.1 1.8 2 2.5 1.1.9 2 1.2 2.3 1.4.3.2.6.1.7-.1.2-.2.8-.9 1-1.2.2-.3.4-.3.7-.2.3.1 2 1 2.3 1.1.3.1.6.2.7.3.2.4.2.8-.1 1.7z"/></svg>
+          Message me on WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="mailto:meneralnavelaa0504@gmail.com">Send an email</a>
+      </div>
+      <div class="final-meta">
+        <span>📍 Quezon City, Philippines</span>
+        <span>📞 +63 965 192 7405</span>
+        <span class="mono">meneralnavelaa0504@gmail.com</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
 <footer>
-  <div class="container">
-    <p class="footer-tagline">Virtual Assistant &amp; AI Automation Specialist</p>
+  <div class="wrap foot">
+    <div>© 2026 Meneral Navela · Virtual Assistant & AI Automation Specialist</div>
+    <div class="foot-links">
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://wa.me/639651927405">WhatsApp</a>
+    </div>
   </div>
 </footer>
 
 <script>
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 20);
-  });
-  const toggle = document.querySelector('.menu-toggle');
-  toggle?.addEventListener('click', () => nav.classList.toggle('open'));
-  document.querySelectorAll('.nav-links a').forEach(a =>
-    a.addEventListener('click', () => nav.classList.remove('open'))
-  );
+  // Scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+    });
+  },{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // ROI calculator
+  const rate = document.getElementById('rate');
+  const hours = document.getElementById('hours');
+  const months = document.getElementById('months');
+  const rateV = document.getElementById('rateV');
+  const hoursV = document.getElementById('hoursV');
+  const monthsV = document.getElementById('monthsV');
+  const roiNum = document.getElementById('roiNum');
+  const roiSub = document.getElementById('roiSub');
+  const roiBreak = document.getElementById('roiBreak');
+
+  const fmt = n => '$' + n.toLocaleString('en-US', {maximumFractionDigits:0});
+
+  function update(){
+    const r = +rate.value;
+    const h = +hours.value;
+    const m = +months.value;
+    rateV.textContent = '$' + r;
+    hoursV.textContent = h + ' hrs';
+    monthsV.textContent = m + ' mo';
+    const weeks = m * 4.33;
+    const totalHours = Math.round(h * weeks);
+    const value = Math.round(r * totalHours);
+    const formatted = fmt(value);
+    roiNum.textContent = formatted;
+    // Dynamically scale font size for very large numbers so they never clip
+    const len = formatted.length;
+    let size;
+    if (len <= 7) size = 'clamp(44px, 5.6vw, 64px)';
+    else if (len <= 8) size = 'clamp(38px, 4.8vw, 56px)';
+    else size = 'clamp(32px, 4.2vw, 48px)';
+    roiNum.style.fontSize = size;
+    roiSub.textContent = `over ${m} month${m>1?'s':''} · ~${totalHours} hours saved`;
+    const workWeeks = (totalHours / 40).toFixed(1);
+    roiBreak.innerHTML = `That's <strong style="color:#f4a261">${workWeeks} work-weeks</strong> back in your calendar — for meetings that move the needle, deep work, or honestly, your weekends.`;
+  }
+  [rate, hours, months].forEach(el => el.addEventListener('input', update));
+  update();
 </script>
+
 </body>
 </html>
