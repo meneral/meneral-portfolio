@@ -3070,10 +3070,10 @@
         <div class="eyebrow">Work samples</div>
         <h2 class="display">The actual<br><em>deliverables</em>.</h2>
       </div>
-      <p class="section-intro">Case studies tell stories. These are the artifacts — twenty-four real work samples across every specialization. Filter by category to see exactly what I produce, day to day.</p>
+      <p class="section-intro">Case studies tell stories. These are the artifacts — thirty real work samples across every specialization. Filter by category to see exactly what I produce, day to day.</p>
     </div>
 
-    <div class="samples-filter reveal" id="filterBar">
+    <div class="samples-filter" id="filterBar">
       <button class="filter-btn active" data-filter="all">All <span class="count">30</span></button>
       <button class="filter-btn" data-filter="admin">Admin <span class="count">4</span></button>
       <button class="filter-btn" data-filter="finance">Finance <span class="count">3</span></button>
@@ -3087,7 +3087,7 @@
       <button class="filter-btn" data-filter="leadgen">Lead Gen <span class="count">2</span></button>
     </div>
 
-    <div class="samples-grid reveal" id="samplesGrid">
+    <div class="samples-grid" id="samplesGrid">
 
       <!-- ADMIN 1 -->
       <div class="sample" data-cat="admin">
@@ -4169,13 +4169,28 @@
 </footer>
 
 <script>
-  // Scroll reveal
+  // Scroll reveal — with rootMargin so elements reveal before fully entering viewport
+  // and a safety fallback so nothing stays invisible on slow mobile devices
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
     });
-  },{threshold:.08});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  },{threshold:.04, rootMargin:'0px 0px -40px 0px'});
+  const revealEls = document.querySelectorAll('.reveal');
+  revealEls.forEach(el=>io.observe(el));
+  // Safety net: after 1.5s, force-reveal anything still hidden (covers edge cases
+  // on slow mobile, anchor jumps past the threshold, or reduced-motion browsers)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.reveal:not(.in)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // If element is in or above viewport, reveal it
+        if (rect.top < window.innerHeight) {
+          el.classList.add('in');
+        }
+      });
+    }, 1500);
+  });
 
   // ROI calculator
   const rate = document.getElementById('rate');
@@ -4216,7 +4231,7 @@
   [rate, hours, months].forEach(el => el.addEventListener('input', update));
   update();
 
-  // Work samples filter
+  // Work samples filter — hardened for mobile reliability
   const filterBar = document.getElementById('filterBar');
   const samplesGrid = document.getElementById('samplesGrid');
   if (filterBar && samplesGrid) {
@@ -4226,6 +4241,11 @@
       const filter = btn.dataset.filter;
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      // Safety: ensure the grid container is visible (in case any reveal state lingered)
+      samplesGrid.classList.add('in');
+      samplesGrid.style.opacity = '1';
+      samplesGrid.style.transform = 'none';
+      // Filter sample visibility
       samplesGrid.querySelectorAll('.sample').forEach(sample => {
         if (filter === 'all' || sample.dataset.cat === filter) {
           sample.classList.remove('hidden');
